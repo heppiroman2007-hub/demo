@@ -218,7 +218,11 @@ em{font-style:italic;color:var(--accent)}
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .hero{padding-top:104px}
+  .hero{padding-top:92px}
+  .hero__art{order:-1;width:min(250px,68vw);margin:0 auto 6px}  /* торт — на первом экране телефона */
+  .hero__small{width:32%;left:-22px;bottom:18px;border-width:5px}
+  .seal{width:92px;height:92px;right:-26px;top:10px}
+  .hero h1{margin:14px 0 16px}
   .hero__prices li{padding-right:8px}
   .hero__prices li+li{padding-left:10px}
   .hero__prices b{font-size:19px}

@@ -189,7 +189,9 @@ svg{width:1em;height:1em;flex:none}
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .hero{padding:118px 0 70px}
+  .hero{padding:100px 0 60px}
+  .hero__art{order:-1;width:min(240px,64vw);margin:0 auto 10px}  /* торт — на первом экране телефона */
+  .hero h1{margin:16px 0 18px}
   .hero h1{text-shadow:3px 3px 0 var(--choco)}
   .sticker{width:100px;height:100px;font-size:10px}
   .sticker b{font-size:14px}
