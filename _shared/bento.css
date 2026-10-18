@@ -1,0 +1,18 @@
+/* Торт в коробке для конструктора бенто — общий для всех стилей. Цвета панели задаёт сам стиль. */
+.box{position:relative;width:min(440px,84vw);aspect-ratio:1;border-radius:34px;background:linear-gradient(145deg,#e8d2b5,#d4b48d);box-shadow:inset 0 0 0 10px #c9a77c,inset 0 0 0 12px rgba(0,0,0,.08),0 40px 70px -30px rgba(40,20,10,.55);display:grid;place-items:center;transform:rotate(-4deg)}
+.box__lid{position:absolute;top:-28px;right:-40px;width:60%;aspect-ratio:1;border-radius:30px;background:linear-gradient(145deg,#f0dcc0,#dcbf98);box-shadow:0 30px 40px -20px rgba(40,20,10,.45);transform:rotate(18deg);z-index:-1}
+.cake{--cream:#fbf6ee;--size:.62;position:relative;width:calc(100% * var(--size));aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 32%,color-mix(in srgb,var(--cream) 70%,#fff),var(--cream) 55%,color-mix(in srgb,var(--cream) 82%,#000));box-shadow:0 18px 30px -12px rgba(60,20,0,.55),inset 0 -8px 18px rgba(0,0,0,.08);transition:width .5s cubic-bezier(.3,1.4,.5,1),background .4s;display:grid;place-items:center}
+.cake__rim,.cake__deco{position:absolute;inset:0;pointer-events:none}
+.cake__rim i{position:absolute;width:11%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--cream) 50%,#fff),var(--cream) 60%,color-mix(in srgb,var(--cream) 80%,#000));box-shadow:0 2px 3px rgba(0,0,0,.15);transform:translate(-50%,-50%);transition:background .4s}
+.cake__deco i{position:absolute;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 3px 4px rgba(60,10,20,.35);animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:translate(-50%,-50%) scale(0)}}
+.cake__text{position:relative;font-family:"Caveat",cursive;font-weight:700;line-height:1;text-align:center;max-width:62%;color:var(--cake-ink,#7a2338);text-shadow:0 1px 0 rgba(255,255,255,.6);word-break:break-word;transition:font-size .3s}
+.cake.dark .cake__text{color:#fff3df;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.seg button small{display:block;font-size:11.5px;font-weight:500;opacity:.75;margin-top:3px}
+.seg button:disabled{opacity:.35;cursor:not-allowed}
+.fills,.colors{display:flex;flex-wrap:wrap;gap:8px}
+.colors{gap:12px}
+.colors button{width:40px;height:40px;border-radius:50%;background:var(--c);box-shadow:inset 0 -4px 8px rgba(0,0,0,.15),0 0 0 2px rgba(0,0,0,.12);transition:.25s}
+.colors button.is-on{transform:scale(1.1);box-shadow:inset 0 -4px 8px rgba(0,0,0,.15),0 0 0 3px #fff,0 0 0 5px var(--accent)}
+@media (prefers-reduced-motion:reduce){.cake,.cake__deco i{transition:none;animation:none}}
