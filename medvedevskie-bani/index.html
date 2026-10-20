@@ -67,7 +67,9 @@ button,select{font:inherit;color:inherit;background:none;border:0;cursor:pointer
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
 .stove-card{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:28px;padding:18px 18px 16px;box-shadow:8px 8px 0 var(--ink)}
 .stove-card svg{width:100%;height:auto;display:block}
-.hero-ph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:2px solid var(--ink);display:block;cursor:pointer}
+.ph-wrap{position:relative;border-radius:16px;border:2px solid var(--ink);overflow:hidden;background:#1c120c}
+.hero-ph{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;cursor:pointer;transform:scale(1.03)}
+#steamCv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ph-cap{font-family:var(--serif);font-style:italic;color:var(--ink2);margin-top:8px;font-size:15px}
 .stove-card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
 .stove-card .t{font:900 44px Onest;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
@@ -75,7 +77,6 @@ button,select{font:inherit;color:inherit;background:none;border:0;cursor:pointer
 .puff-btn{min-height:52px}
 .hiss{position:absolute;left:50%;top:30%;font:900 34px Onest;color:var(--red);pointer-events:none;opacity:0;transform:translate(-50%,0) rotate(-8deg)}
 .steam-layer{position:absolute;inset:0;pointer-events:none;z-index:5;overflow:hidden}
-.puff{position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 70%);filter:blur(6px)}
 @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stove-card{max-width:440px}}
 
 /* бегущая строка */
@@ -117,6 +118,9 @@ section{padding:clamp(64px,10vw,120px) 0}
 .stage{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:8px 8px 0 var(--ink);perspective:1800px;background:#1c120c}
 .view{position:absolute;inset:0}
 .view svg,.view img{width:100%;height:100%;display:block;object-fit:cover}
+.view .phx{position:absolute;inset:0;overflow:hidden}
+.view .phx .bg{position:absolute;inset:0;filter:blur(26px) brightness(.55) saturate(1.2);transform:scale(1.2)}
+.view .phx .fg{position:relative;object-fit:contain}
 .doors{position:absolute;inset:0;display:flex;pointer-events:none}
 .door{flex:1;position:relative;background:repeating-linear-gradient(90deg,rgba(90,55,20,0) 0 22px,rgba(90,55,20,.14) 23px 24px),linear-gradient(180deg,#d9b277,#c4955a);border:3px solid var(--ink);transition:transform 1s cubic-bezier(.65,.05,.3,1);backface-visibility:hidden}
 .door::before{content:"";position:absolute;inset:7% 12%;border:3px solid rgba(43,26,18,.4);border-radius:10px;box-shadow:inset 0 0 0 10px rgba(255,240,210,.18)}
@@ -274,8 +278,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
     <div class="stove-card">
       <div class="hiss" id="hiss">Шшшш!</div>
-      <img class="hero-ph" id="stones" src="img/11.jpg" alt="Бассейн под навесом в Медведевских банях">
-      <div class="ph-cap">Бассейн под навесом · Медведевка, 1а</div>
+      <div class="ph-wrap"><img class="hero-ph" id="stones" src="img/13.jpg" alt="Парная в Медведевских банях: веники в тазу"><canvas id="steamCv" aria-hidden="true"></canvas></div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="heat" x="0" y="0" width="100%" height="100%"><feTurbulence id="heatT" type="fractalNoise" baseFrequency="0.011 0.035" numOctaves="2" seed="7"/><feDisplacementMap id="heatD" in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+      <div class="ph-cap">Парная на дровах · Медведевка, 1а</div>
       <div class="row">
         <div class="t"><span id="temp">72</span>°<small id="tempNote">в парной сейчас</small></div>
         <button class="btn btn-red puff-btn" id="puff">Поддать пару</button>
@@ -510,73 +515,94 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   new IntersectionObserver(e => { ticketVisible = e[0].isIntersecting;
     if (ticketVisible && !ticketSeen) { ticketSeen = true; restamp(); } render(false); }, {threshold: .35}).observe($(".ticket"));
 
-  // «поддать пару»: ковш плещет, камни шипят, пар заволакивает экран, градусник растёт
+  // «поддать пару»: над фото парной поднимаются клубы пара (canvas), картинка дрожит от жара, градусник растёт
   let temp = 72, cool = 0, audio = null;
-  const merc = $("#merc");
-  const setTemp = t => { temp = t; $("#temp").textContent = Math.round(t);
-    if (!merc) return;
-    const k = Math.max(0, Math.min(1, (t - 20) / 90)); const hgt = 10 + k * 210;
-    merc.setAttribute("y", 230 - hgt); merc.setAttribute("height", hgt); };
+  const setTemp = t => { temp = t; $("#temp").textContent = Math.round(t); };
   setTemp(72);
   function hiss() {
     try {
       audio = audio || new (window.AudioContext || window.webkitAudioContext)();
-      const len = audio.sampleRate * 1.3, buf = audio.createBuffer(1, len, audio.sampleRate), d = buf.getChannelData(0);
-      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+      const len = audio.sampleRate * 1.6, buf = audio.createBuffer(1, len, audio.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) { const k = i / len; d[i] = (Math.random() * 2 - 1) * Math.min(1, k * 25) * Math.pow(1 - k, 2.2); }
       const src = audio.createBufferSource(), f = audio.createBiquadFilter(), g = audio.createGain();
-      f.type = "highpass"; f.frequency.value = 2500; g.gain.value = .12;
+      f.type = "bandpass"; f.frequency.value = 5200; f.Q.value = .6; g.gain.value = .22;
       src.buffer = buf; src.connect(f).connect(g).connect(audio.destination); src.start();
     } catch (e) {}
   }
-  function puff() {
-    const layer = $("#steamLayer"), stones = $("#stones").getBoundingClientRect(), hero = layer.getBoundingClientRect();
-    const ox = stones.left + stones.width / 2 - hero.left, oy = stones.top + stones.height * .45 - hero.top;
-    if (!reduced && !$("#ladle")) {  // фото вместо рисунка печи: только пар и «Шшшш!»
-      $("#hiss").animate([{opacity: 0, transform: "translate(-50%,10px) rotate(-8deg) scale(.7)"}, {opacity: 1, transform: "translate(-50%,-30px) rotate(-8deg) scale(1)"}, {opacity: 0, transform: "translate(-50%,-70px) rotate(-8deg) scale(1.1)"}],
-        {duration: 1300, delay: 150, easing: "ease-out"});
-      for (let i = 0; i < 16; i++) {
-        const p = document.createElement("div"); p.className = "puff"; layer.appendChild(p);
-        const dx = (Math.random() - .5) * hero.width * .9 - hero.width * .15, dy = -(200 + Math.random() * hero.height * .7), s = 1.4 + Math.random() * 2.4;
-        p.style.left = ox - 80 + "px"; p.style.top = oy - 80 + "px";
-        p.animate([{transform: "translate(0,0) scale(.3)", opacity: 0}, {opacity: .95, offset: .25}, {transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 0}],
-          {duration: 2600 + Math.random() * 1800, delay: 150 + i * 45, easing: "cubic-bezier(.2,.7,.3,1)", fill: "forwards"}).onfinish = () => p.remove();
-      }
-      setTimeout(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 900); }, 400);
-    } else if (!reduced) {
-      $("#ladle").animate([{transform: "translate(250px,40px) rotate(0)"}, {transform: "translate(230px,44px) rotate(-38deg)"}, {transform: "translate(250px,40px) rotate(0)"}],
-        {duration: 900, easing: "ease-in-out"});
-      const drops = $("#drops"); drops.innerHTML = "";
-      for (let i = 0; i < 5; i++) {
-        const c = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
-        c.setAttribute("cx", 196 + i * 9); c.setAttribute("cy", 96); c.setAttribute("rx", 3.5); c.setAttribute("ry", 5); drops.appendChild(c);
-        c.animate([{transform: "translate(0,0)", opacity: 1}, {transform: `translate(${-30 - i * 6}px,${40 + i * 4}px)`, opacity: 0}],
-          {duration: 520, delay: 280 + i * 30, easing: "ease-in", fill: "forwards"});
-      }
-      $("#glowStones").animate([{opacity: 0}, {opacity: .55}, {opacity: 0}], {duration: 1100, delay: 650});
-      $("#hiss").animate([{opacity: 0, transform: "translate(-50%,10px) rotate(-8deg) scale(.7)"}, {opacity: 1, transform: "translate(-50%,-30px) rotate(-8deg) scale(1)"}, {opacity: 0, transform: "translate(-50%,-70px) rotate(-8deg) scale(1.1)"}],
-        {duration: 1300, delay: 650, easing: "ease-out"});
-      for (let i = 0; i < 16; i++) {
-        const p = document.createElement("div"); p.className = "puff"; layer.appendChild(p);
-        const dx = (Math.random() - .5) * hero.width * .9 - hero.width * .15, dy = -(200 + Math.random() * hero.height * .7), s = 1.4 + Math.random() * 2.4;
-        p.style.left = ox - 80 + "px"; p.style.top = oy - 80 + "px";
-        p.animate([{transform: "translate(0,0) scale(.3)", opacity: 0}, {opacity: .95, offset: .25}, {transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 0}],
-          {duration: 2600 + Math.random() * 1800, delay: 650 + i * 45, easing: "cubic-bezier(.2,.7,.3,1)", fill: "forwards"}).onfinish = () => p.remove();
-      }
-      setTimeout(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 900); }, 900);
+  const cv = $("#steamCv"), ctx = cv.getContext("2d"), img = $("#stones");
+  const heatT = $("#heatT"), heatD = $("#heatD");
+  let W = 0, H = 0, dpr = 1, parts = [], raf = 0, heat = 0, idle = false, last = 0, idleAcc = 0;
+  const fit = () => { const r = cv.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1);
+    W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  addEventListener("resize", fit); fit();
+  // спрайты пара: несколько мягких пятен внахлёст — клуб с «рваным» краем, а не ровный шар
+  const sprites = [0, 1, 2, 3].map(() => {
+    const c = document.createElement("canvas"), S = 256; c.width = c.height = S; const g = c.getContext("2d");
+    for (let i = 0; i < 9; i++) {
+      const x = S / 2 + (Math.random() - .5) * S * .38, y = S / 2 + (Math.random() - .5) * S * .3, r = S * (.16 + Math.random() * .2);
+      const gr = g.createRadialGradient(x, y, 0, x, y, r);
+      gr.addColorStop(0, "rgba(255,255,255,.55)"); gr.addColorStop(.5, "rgba(255,255,255,.22)"); gr.addColorStop(1, "rgba(255,255,255,0)");
+      g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
     }
-    setTimeout(() => { hiss(); }, 650);
+    return c;
+  });
+  function spawn(strong) {
+    const k = H / 420;
+    parts.push({
+      x: W * (.12 + Math.random() * .76), y: H * (strong ? .86 + Math.random() * .1 : .95),
+      vx: (Math.random() - .5) * 14 * k, vy: -(strong ? 55 + Math.random() * 70 : 18 + Math.random() * 14) * k,
+      s0: (strong ? 40 + Math.random() * 50 : 30 + Math.random() * 30) * k, s1: (strong ? 230 + Math.random() * 200 : 120 + Math.random() * 80) * k,
+      a: strong ? .1 + Math.random() * .12 : .06 + Math.random() * .05, life: strong ? 2.6 + Math.random() * 2.2 : 4 + Math.random() * 2,
+      age: 0, rot: Math.random() * 6.28, vr: (Math.random() - .5) * .5, ph: Math.random() * 6.28, sp: sprites[Math.random() * 4 | 0]
+    });
+  }
+  function frame(t) {
+    const dt = Math.min(.05, (t - (last || t)) / 1000); last = t;
+    if (idle && !reduced) { idleAcc += dt; while (idleAcc > .32) { idleAcc -= .32; spawn(false); } }
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.age += dt; const k = p.age / p.life;
+      p.vx += Math.sin(p.age * 1.7 + p.ph) * 9 * dt * (H / 420);       // клуб закручивается и уходит вбок
+      p.vy *= 1 - .35 * dt;                                             // и тормозит, поднимаясь
+      p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt;
+      const s = p.s0 + (p.s1 - p.s0) * (1 - Math.pow(1 - Math.min(1, k), 2));
+      const env = k < .18 ? k / .18 : Math.pow(1 - (k - .18) / .82, 1.6);
+      ctx.save(); ctx.globalAlpha = Math.max(0, p.a * env); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.drawImage(p.sp, -s / 2, -s / 2, s, s); ctx.restore();
+    }
+    parts = parts.filter(p => p.age < p.life);
+    // жар: картинка дрожит, пока пар густой
+    heat = Math.max(0, heat - dt * .45);
+    if (heat > .01) {
+      img.style.filter = `url(#heat) brightness(${1 + heat * .08}) saturate(${1 - heat * .15})`;
+      heatD.setAttribute("scale", (heat * 9).toFixed(2));
+      heatT.setAttribute("baseFrequency", `0.011 ${(0.035 + Math.sin(t / 260) * .006).toFixed(4)}`);
+    } else if (img.style.filter) img.style.filter = "";
+    raf = parts.length || idle || heat > .01 ? requestAnimationFrame(frame) : 0;
+  }
+  const kick = () => { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } };
+  // лёгкий пар в покое — фото «живое», пока карточка на экране
+  new IntersectionObserver(e => { idle = e[0].isIntersecting && !reduced; if (idle) kick(); }).observe(cv);
+  function puff() {
+    hiss();
+    if (!reduced) {
+      for (let i = 0; i < 70; i++) setTimeout(() => spawn(true), i * 16 + Math.random() * 60);
+      heat = 1; kick();
+      $("#hiss").animate([{opacity: 0, transform: "translate(-50%,10px) rotate(-8deg) scale(.7)"}, {opacity: 1, transform: "translate(-50%,-30px) rotate(-8deg) scale(1)"}, {opacity: 0, transform: "translate(-50%,-70px) rotate(-8deg) scale(1.1)"}],
+        {duration: 1300, delay: 80, easing: "ease-out"});
+      setTimeout(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 1100); }, 350);
+    }
     setTimeout(() => {
       const target = Math.min(100, temp + 7), t0 = performance.now(), from = temp;
       const rise = t => { const k = Math.min(1, (t - t0) / 900); setTemp(from + (target - from) * k); if (k < 1) requestAnimationFrame(rise); };
       requestAnimationFrame(rise);
       $("#tempNote").textContent = target >= 100 ? "хорош, уже жарко!" : target >= 90 ? "вот это пар" : "поддайте ещё";
-    }, 700);
+    }, 300);
     clearInterval(cool);
     cool = setInterval(() => { if (temp > 72) { setTemp(temp - .5); if (temp <= 90) $("#tempNote").textContent = "в парной сейчас"; } else clearInterval(cool); }, 600);
   }
   $("#puff").onclick = puff;
-  $("#stones").style.cursor = "pointer"; $("#stones").addEventListener("click", puff);
-
+  img.style.cursor = "pointer"; img.addEventListener("click", puff);
   // ── загляните внутрь: рисунки зон (на сайте клиента — его фото: строки-ссылки вместо ключей рисунков)
   const INK = "#2b1a12";
   const planks = (fill, line, step = 48) => `<rect width="800" height="500" fill="${fill}"/>` +
@@ -653,7 +679,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       </g>`
   };
   const draw = k => k === "finka" ? SCENES.parnaya(true) : k === "karaoke" ? SCENES.rest(true) : SCENES[k]();
-  const shot = s => /^(https?:|\.|\/)|\.(jpe?g|png|webp)$/i.test(s) ? `<img src="${s}" alt="" loading="lazy">`
+  const shot = s => /^(https?:|\.|\/)|\.(jpe?g|png|webp)$/i.test(s)  // фото целиком (contain), края — размытая копия, ничего не обрезается
+                    ? `<div class="phx"><img class="bg" src="${s}" alt=""><img class="fg" src="${s}" alt="" loading="lazy"></div>`
                     : `<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">${draw(s)}</svg>`;
   const vin = {hall: "russ", zone: 0, ph: 0};
   let doorT = 0;
