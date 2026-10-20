@@ -541,10 +541,16 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   // спрайты пара: несколько мягких пятен внахлёст — клуб с «рваным» краем, а не ровный шар
   const sprites = [0, 1, 2, 3].map(() => {
     const c = document.createElement("canvas"), S = 256; c.width = c.height = S; const g = c.getContext("2d");
+    for (let i = 0; i < 6; i++) {  // тёплая тень по краю — у клуба есть форма даже на светлом фото
+      const x = S / 2 + (Math.random() - .5) * S * .4, y = S / 2 + (Math.random() - .5) * S * .3 + S * .05, r = S * (.2 + Math.random() * .2);
+      const gr = g.createRadialGradient(x, y, r * .5, x, y, r);
+      gr.addColorStop(0, "rgba(110,90,75,0)"); gr.addColorStop(.7, "rgba(110,90,75,.10)"); gr.addColorStop(1, "rgba(110,90,75,0)");
+      g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
     for (let i = 0; i < 9; i++) {
       const x = S / 2 + (Math.random() - .5) * S * .38, y = S / 2 + (Math.random() - .5) * S * .3, r = S * (.16 + Math.random() * .2);
       const gr = g.createRadialGradient(x, y, 0, x, y, r);
-      gr.addColorStop(0, "rgba(255,255,255,.55)"); gr.addColorStop(.5, "rgba(255,255,255,.22)"); gr.addColorStop(1, "rgba(255,255,255,0)");
+      gr.addColorStop(0, "rgba(255,255,255,.8)"); gr.addColorStop(.5, "rgba(255,255,255,.35)"); gr.addColorStop(1, "rgba(255,255,255,0)");
       g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
     }
     return c;
@@ -555,7 +561,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       x: W * (.12 + Math.random() * .76), y: H * (strong ? .86 + Math.random() * .1 : .95),
       vx: (Math.random() - .5) * 14 * k, vy: -(strong ? 55 + Math.random() * 70 : 18 + Math.random() * 14) * k,
       s0: (strong ? 40 + Math.random() * 50 : 30 + Math.random() * 30) * k, s1: (strong ? 230 + Math.random() * 200 : 120 + Math.random() * 80) * k,
-      a: strong ? .1 + Math.random() * .12 : .09 + Math.random() * .06, life: strong ? 2.6 + Math.random() * 2.2 : 4 + Math.random() * 2,
+      a: strong ? .2 + Math.random() * .16 : .1 + Math.random() * .06, life: strong ? 2.6 + Math.random() * 2.2 : 4 + Math.random() * 2,
       age: 0, rot: Math.random() * 6.28, vr: (Math.random() - .5) * .5, ph: Math.random() * 6.28, sp: sprites[Math.random() * 4 | 0]
     });
   }
@@ -576,8 +582,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     parts = parts.filter(p => p.age < p.life);
     // жар: картинка дрожит, пока пар густой
     heat = Math.max(0, heat - dt * .45);
-    if (heat > .01 && !IOS) {
-      img.style.filter = `url(#heat) brightness(${1 + heat * .08}) saturate(${1 - heat * .15})`;
+    if (heat > .01) {  // фото чуть темнеет — пар на нём виден; дрожь (SVG-фильтр) — не на iPhone
+      img.style.filter = (IOS ? "" : "url(#heat) ") + `brightness(${1 - heat * .22}) saturate(${1 - heat * .2})`;
       heatD.setAttribute("scale", (heat * 9).toFixed(2));
       heatT.setAttribute("baseFrequency", `0.011 ${(0.035 + Math.sin(t / 260) * .006).toFixed(4)}`);
     } else if (img.style.filter) img.style.filter = "";
