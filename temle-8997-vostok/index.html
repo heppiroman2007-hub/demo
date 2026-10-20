@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тэмле — турецкие сладости и халяль-продукты в Казани</title>
+<meta name="description" content="Тэмле: халяль-пахлава, турецкий лукум, пишмание, профитроли и турецкий чай. Магазины в Казани, доставка, заказ в WhatsApp.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:"Playfair";src:url(../_fonts/playfair.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Golos";src:url(../_fonts/golos-cyrillic.woff2) format("woff2");unicode-range:U+0400-04FF;font-display:swap}
+@font-face{font-family:"Golos";src:url(../_fonts/golos-latin.woff2) format("woff2");unicode-range:U+0000-00FF;font-display:swap}
+:root{--bg:#f7f0e4;--paper:#fffaf2;--ink:#2a1a14;--muted:#7a6457;--pom:#8a1f2e;--pom2:#a8323f;--tur:#1c7c83;--gold:#c9a14a;--line:rgba(42,26,20,.12);--r:24px;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 "Golos",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:"Playfair",Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(32px,6vw,54px)}
+.kicker{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--tur);font-weight:600}
+/* изразцовый орнамент */
+.tile{background-color:var(--pom);background-image:
+ radial-gradient(circle at 50% 50%,transparent 9px,var(--gold) 9.5px,var(--gold) 11px,transparent 11.5px),
+ radial-gradient(circle at 0 0,var(--tur) 13px,transparent 13.5px),radial-gradient(circle at 100% 0,var(--tur) 13px,transparent 13.5px),
+ radial-gradient(circle at 0 100%,var(--tur) 13px,transparent 13.5px),radial-gradient(circle at 100% 100%,var(--tur) 13px,transparent 13.5px);
+ background-size:44px 44px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:16px;transition:transform .2s,box-shadow .2s}
+.btn:active{transform:scale(.97)}
+.btn--pom{background:var(--pom);color:#fff;box-shadow:0 10px 30px -10px rgba(138,31,46,.7)}
+.btn--line{border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+.btn--wa{background:var(--wa);color:#fff}
+.btn svg{width:20px;height:20px}
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgba(247,240,228,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{width:34px;height:34px;border-radius:10px;display:block}
+.logo b{font-family:"Playfair",serif;font-size:24px}
+.logo small{display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-top:-2px}
+header .btn{padding:10px 16px;font-size:14px;white-space:nowrap}
+/* первый экран */
+.hero{padding:34px 0 46px;position:relative}
+.hero .wrap{display:grid;gap:30px}
+.hero h1{font-size:clamp(40px,8.4vw,84px)}
+.hero h1 em{font-style:italic;color:var(--pom)}
+.hero p.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:34ch;margin:16px 0 24px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.facts span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13px}
+.facts b{color:var(--pom)}
+.collage{position:relative;height:420px}
+.collage img{position:absolute;object-fit:cover;border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(42,26,20,.55)}
+.collage .c1{width:66%;height:78%;left:0;top:0;border-radius:200px 200px var(--r) var(--r)}
+.collage .c2{width:46%;height:46%;right:0;top:10%;transform:rotate(4deg)}
+.collage .c3{width:42%;height:40%;right:6%;bottom:0;transform:rotate(-3deg)}
+.collage .seal{position:absolute;left:52%;bottom:6%;width:104px;height:104px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;text-align:center;font:700 13px/1.15 "Golos";transform:rotate(-10deg);box-shadow:0 12px 30px -12px rgba(0,0,0,.5)}
+.collage .seal b{display:block;font:700 26px/1 "Playfair",serif}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center}.collage{height:540px}}
+/* бегущая строка */
+.ticker{overflow:hidden;color:#fff;border-block:4px solid var(--gold)}
+.ticker div{display:flex;gap:40px;white-space:nowrap;padding:14px 0;animation:run 26s linear infinite;font:600 18px "Playfair",serif;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.ticker span{background:rgba(42,26,20,.55);padding:4px 14px;border-radius:999px}
+@keyframes run{to{transform:translateX(-50%)}}
+section{padding:70px 0}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:14px;margin-bottom:30px}
+.head p{color:var(--muted);max-width:42ch}
+/* галерея подарков */
+.gal{columns:2 150px;column-gap:12px}
+@media(min-width:800px){.gal{columns:4 200px;column-gap:16px}}
+.gal img{width:100%;border-radius:18px;margin-bottom:12px;break-inside:avoid;box-shadow:0 18px 40px -26px rgba(42,26,20,.6)}
+.card .ask{font-size:13px;font-weight:600;color:var(--tur);text-decoration:none}
+/* хиты */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.card img{aspect-ratio:1;object-fit:cover;width:100%}
+.card div{padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:19px}
+.card small{color:var(--muted);font-size:13px;flex:1}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.card .price{font-weight:700;font-size:18px;color:var(--pom)}
+.card button{border:0;background:var(--ink);color:#fff;border-radius:999px;width:36px;height:36px;font-size:20px;cursor:pointer}
+/* конструктор набора */
+.builder{background:var(--ink);color:#f7f0e4;border-radius:32px;padding:clamp(22px,4vw,44px);position:relative;overflow:hidden}
+.builder:before{content:"";position:absolute;inset:0;opacity:.08}
+.builder .kicker{color:var(--gold)}
+.builder h2{color:#fff}
+.builder p{color:#cdbfb2}
+.bgrid{display:grid;gap:26px;margin-top:26px;position:relative}
+@media(min-width:900px){.bgrid{grid-template-columns:1.2fr 1fr}}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.opts{grid-template-columns:repeat(3,1fr)}}
+.opt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:12px;color:inherit;text-align:left;cursor:pointer;font:inherit;transition:.2s}
+.opt:hover{border-color:var(--gold)}
+.opt b{display:block;font-size:15px}
+.opt small{color:#bda; font-size:12px;color:#c9b8a8}
+.opt .q{float:right;background:var(--gold);color:var(--ink);border-radius:999px;font-weight:700;font-size:12px;padding:1px 8px;display:none}
+.opt.on{border-color:var(--gold);background:rgba(201,161,74,.16)}
+.opt.on .q{display:inline-block}
+.box{background:var(--paper);color:var(--ink);border-radius:26px;padding:20px}
+.box h3{font-size:24px;margin-bottom:6px}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.slots i{aspect-ratio:1;border-radius:14px;border:2px dashed var(--line);display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:600;text-align:center;line-height:1.1;padding:4px;color:var(--muted);overflow:hidden}
+.slots i.f{border:0;color:#fff;background:var(--tur)}
+.slots i.f:nth-child(3n+2){background:var(--pom)}
+.slots i.f:nth-child(3n){background:var(--gold);color:var(--ink)}
+.box label{display:flex;gap:10px;align-items:center;font-size:14px;margin:6px 0}
+.box input{accent-color:var(--pom);width:18px;height:18px}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:12px;margin-top:10px}
+.total b{font:700 30px "Playfair",serif;color:var(--pom)}
+.box .btn{width:100%;justify-content:center;margin-top:14px}
+.box .note{font-size:12px;color:var(--muted);margin-top:8px}
+/* не только сладости */
+.more{display:grid;gap:14px}
+@media(min-width:800px){.more{grid-template-columns:1fr 1fr}}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.panel h3{font-size:26px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px;background:#fff}
+.chips span b{color:var(--pom)}
+/* почему */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:800px){.why{grid-template-columns:repeat(4,1fr)}}
+.why div{background:var(--paper);border-radius:var(--r);padding:20px;border:1px solid var(--line)}
+.why svg{width:30px;height:30px;color:var(--tur);margin-bottom:10px}
+.why b{display:block;font-size:17px;margin-bottom:4px}
+.why small{color:var(--muted)}
+/* отзывы */
+.reviews{display:grid;gap:14px}
+@media(min-width:800px){.reviews{grid-template-columns:.8fr 1fr 1fr}}
+.score{background:var(--pom);color:#fff;border-radius:var(--r);padding:26px}
+.score b{font:700 72px/1 "Playfair",serif}
+.score .stars{color:var(--gold);font-size:22px;letter-spacing:3px;margin:6px 0}
+.score a{display:inline-block;margin-top:12px;color:#fff}
+blockquote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;font:italic 20px/1.4 "Playfair",serif}
+blockquote cite{display:block;margin-top:14px;font:600 13px "Golos";font-style:normal;color:var(--muted)}
+/* магазины */
+.shops{display:grid;gap:14px}
+@media(min-width:800px){.shops{grid-template-columns:repeat(3,1fr)}}
+.shop{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:6px}
+.shop b{font-size:19px}
+.shop small{color:var(--muted)}
+.shop a{margin-top:8px;font-weight:600;color:var(--tur)}
+.contact{background:var(--ink);color:#f7f0e4;border-radius:32px;padding:clamp(24px,5vw,56px);display:grid;gap:20px}
+.contact h2{color:#fff}
+.contact p{color:#cdbfb2}
+.contact .cta{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:30px 0 100px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+.demo{background:#fff3d6;border:1px dashed var(--gold);border-radius:12px;padding:8px 12px;color:var(--ink)}
+/* плавающая кнопка */
+.float{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 14px 40px -12px rgba(0,0,0,.6);white-space:nowrap}
+.float span{font-size:14px}
+.float a{padding:10px 18px;font-size:14px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+</defs></svg>
+
+<header><div class="wrap">
+  <a class="logo" href="#"><i class="tile"></i><span><b>Тэмле</b><small>турецкие сладости</small></span></a>
+  <a class="btn btn--pom" href="#box">Собрать набор</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">Казань · магазины и доставка</div>
+    <h1>Подарки со вкусом <em>Востока</em></h1>
+    <p class="lead">Корзины и наборы с пахлавой, лукумом, орехами и чаем — соберём под ваш повод и бюджет. Или соберите набор сами прямо на сайте: заказ сразу уйдёт нам в WhatsApp.</p>
+    <div class="cta">
+      <a class="btn btn--pom" href="#box">Собрать подарочный набор <svg><use href="#arrow"/></svg></a>
+      <a class="btn btn--line" href="#hits">Смотреть витрину</a>
+    </div>
+    <div class="facts"><span><b>4,9 ★</b> 299 оценок в 2ГИС</span><span>Халяль</span><span>Ежедневно 9:00–21:00</span><span>Доставка по Казани</span></div>
+  </div>
+  <div class="collage">
+    <img class="c1" src="../_img/temle-8997/hero.jpg" alt="Пахлава в магазине Тэмле">
+    <img class="c2" src="../_img/temle-8997/c2.jpg" alt="Турецкие сладости">
+    <img class="c3" src="../_img/temle-8997/c3.jpg" alt="Витрина Тэмле">
+    <div class="seal"><span><b>700 ₽</b>пахлава</span></div>
+  </div>
+</div></section>
+
+<div class="ticker tile"><div>
+  <span>Пахлава</span><span>Турецкий лукум</span><span>Пишмание</span><span>Профитроли</span><span>Талкыш калэвэ</span><span>Турецкий чай</span><span>Халяль</span><span>Дубайский шоколад</span>
+  <span>Пахлава</span><span>Турецкий лукум</span><span>Пишмание</span><span>Профитроли</span><span>Талкыш калэвэ</span><span>Турецкий чай</span><span>Халяль</span><span>Дубайский шоколад</span>
+</div></div>
+
+<section id="gifts"><div class="wrap">
+  <div class="head reveal"><div><div class="kicker">Наши подарки</div><h2>Корзины и наборы, которые мы собирали</h2></div><p>На день рождения, Новый год, 8 Марта, для коллег и партнёров. Напишите повод и бюджет — предложим варианты.</p></div>
+  <div class="gal" id="gal"></div>
+  <div style="margin-top:22px"><a class="btn btn--wa js-wa" href="#"><svg><use href="#wa"/></svg> Хочу такой подарок</a></div>
+</div></section>
+
+<section id="hits"><div class="wrap">
+  <div class="head reveal"><div><div class="kicker">Витрина</div><h2>Сладости к столу и в подарок</h2></div><p>Цены — из нашего прайса. Нажмите «+», чтобы положить в набор.</p></div>
+  <div class="grid" id="cards"></div>
+</div></section>
+
+<section id="box"><div class="wrap">
+  <div class="builder reveal"><div class="tile" style="position:absolute;inset:0;opacity:.07"></div>
+    <div class="kicker">Конструктор</div>
+    <h2>Соберите подарочный набор</h2>
+    <p>Выберите сладости — коробка наполнится, а сумма посчитается сразу. Готовый заказ отправится нам в WhatsApp.</p>
+    <div class="bgrid">
+      <div class="opts" id="opts"></div>
+      <div class="box">
+        <h3>Ваш набор</h3>
+        <small style="color:var(--muted)">Нажимайте на сладости — каждое нажатие +1</small>
+        <div class="slots" id="slots"></div>
+        <label><input type="checkbox" id="tea"> Добавить зимний чай (+250 ₽)</label>
+        <label><input type="checkbox" id="gift"> Упаковать как подарок</label>
+        <div class="total"><span>Итого</span><b id="sum">0 ₽</b></div>
+        <a class="btn btn--wa" id="send" href="#"><svg><use href="#wa"/></svg> Отправить набор в WhatsApp</a>
+        <p class="note">Сумма — по ценам прайса. Точную стоимость и наличие подтвердит продавец.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head reveal"><div><div class="kicker">Не только сладости</div><h2>Всё турецкое и халяль — в одном месте</h2></div></div>
+  <div class="more">
+    <div class="panel reveal"><h3>К чаю и в подарок</h3><div class="chips">
+      <span>Пахлава <b>700 ₽</b></span><span>Лукум <b>1 450 ₽/кг</b></span><span>Пишмание <b>280 ₽</b></span><span>Профитроли мини <b>750 ₽</b></span><span>Мармелад халяль <b>1 000 ₽/кг</b></span><span>Дубайский шоколад</span><span>Клубника в шоколаде</span><span>Моти</span><span>Меренговые рулеты</span><span>Конфеты ручной работы</span>
+    </div></div>
+    <div class="panel reveal"><h3>Домой, к столу</h3><div class="chips">
+      <span>Сыры <b>от 250 ₽</b></span><span>Орехи <b>550 ₽</b></span><span>Паста <b>580 ₽</b></span><span>Вяленые томаты <b>250 ₽</b></span><span>Наггетсы халяль <b>350 ₽</b></span><span>Пельмени, манты, сырники</span><span>Роти-лепёшки</span><span>Колбасы и мясо</span><span>Зимний чай <b>250 ₽</b></span><span>Турецкий чай</span>
+    </div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="why">
+  <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><b>Халяль</b><small>Халяль-пахлава, мармелад и наггетсы</small></div>
+  <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><b>Доставка</b><small>Привезём по Казани</small></div>
+  <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>9:00–21:00</b><small>Каждый день, без выходных</small></div>
+  <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><b>Плати частями</b><small>Карта, наличные, QR-код</small></div>
+</div></div></section>
+
+<section><div class="wrap">
+  <div class="head reveal"><div><div class="kicker">Отзывы</div><h2>Нам доверяют</h2></div></div>
+  <div class="reviews">
+    <div class="score reveal"><b>4,9</b><div class="stars">★★★★★</div>299 оценок и 218 отзывов в 2ГИС<br><a href="https://2gis.ru/kazan/firm/70000001060738997/tab/reviews" target="_blank" rel="noopener">Читать все отзывы →</a></div>
+    <blockquote class="reveal">«Просто рай — есть всё для любого случая»<cite>Лилия, отзыв на zoon.ru</cite></blockquote>
+    <blockquote class="reveal">«Шикарный ассортимент, есть всё»<cite>Покупатель, отзыв в 2ГИС</cite></blockquote>
+  </div>
+</div></section>
+
+<section id="shops"><div class="wrap">
+  <div class="head reveal"><div><div class="kicker">Магазины</div><h2>Приходите за сладким</h2></div><p>Ежедневно 9:00–21:00. Можно заказать доставку.</p></div>
+  <div class="shops" id="shopList"></div>
+</div></section>
+
+<section><div class="wrap"><div class="contact reveal">
+  <div><div class="kicker" style="color:var(--gold)">Заказ</div><h2>Напишите — соберём к вашему празднику</h2></div>
+  <p>Подарочные наборы, сладости к столу, предзаказ, если нужной позиции нет на витрине.</p>
+  <div class="cta"><a class="btn btn--wa js-wa" href="#"><svg><use href="#wa"/></svg> Написать в WhatsApp</a><a class="btn btn--line" style="border-color:#f7f0e4;color:#f7f0e4" href="tel:+79179314722">+7 917 931-47-22</a></div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <span>© Тэмле, Казань. Турецкие сладости и халяль-продукты.</span>
+  <span class="demo">Демонстрационный сайт: фото и цены взяты из открытых источников (2ГИС, прайс), их легко поменять.</span>
+</div></footer>
+
+<div class="float"><span id="fl">Набор пуст</span><a class="btn btn--pom" href="#box">Собрать</a></div>
+
+<script>
+const WA = "79179314722";
+const P = [ // реальные позиции и цены из прайса «Тэмле»
+  {id:"pahlava",n:"Пахлава",d:"Халяль, с орехами",p:700,img:"p1.jpg"},
+  {id:"lukum",n:"Турецкий лукум",d:"1 кг, разные вкусы",p:1450,img:"p2.jpg"},
+  {id:"pishmanie",n:"Пишмание",d:"Воздушная турецкая сладость",p:280,img:"p3.jpg"},
+  {id:"profit",n:"Профитроли мини",d:"Набор профитролей",p:750,img:"p4.jpg"},
+  {id:"talkysh",n:"Талкыш калэвэ",d:"Классика, с орехом или фисташкой",p:260,img:"p5.jpg"},
+  {id:"cheese",n:"Чизкейк ассорти",d:"Набор чизкейков",p:850,img:"p6.jpg"},
+  {id:"tiramisu",n:"Тирамису",d:"Порционный десерт",p:175,img:"p7.jpg"},
+  {id:"mango",n:"Пирожное манго-маракуйя",d:"Порционное пирожное",p:180,img:"p8.jpg"},
+  {id:"icefruit",n:"Мороженое во фруктах",d:"В натуральной кожуре фрукта",p:260,img:"p9.jpg"},
+];
+const rub = n => n.toLocaleString("ru-RU") + " ₽";
+const cart = {};
+const CARDS = [ // фото — из карточки «Тэмле» в 2ГИС
+  {id:"pahlava",n:"Пахлава",d:"Халяль, с орехами",img:"p1.jpg"},
+  {id:"lukum",n:"Турецкий лукум",d:"Ассорти, цена за 1 кг",img:"p2.jpg"},
+  {id:"cheese",n:"Чизкейк ассорти",d:"Набор из разных вкусов",img:"p3.jpg"},
+  {n:"Клубника в шоколаде",d:"В подарочной коробке",img:"p4.jpg"},
+  {n:"Букеты из зефира",d:"Тюльпаны и розы — съедобные",img:"p5.jpg"},
+  {n:"Торты",d:"На праздник и к чаю",img:"p6.jpg"},
+];
+document.getElementById("cards").innerHTML = CARDS.map(c => { const x = P.find(p => p.id === c.id); return `
+  <article class="card reveal"><img src="../_img/temle-8997/${c.img}" alt="${c.n}" loading="lazy">
+  <div><h3>${c.n}</h3><small>${c.d}</small><div class="row">${x ? `<span class="price">${rub(x.p)}</span><button data-add="${x.id}" aria-label="В набор">+</button>` : `<a class="ask js-wa" href="#">Узнать цену →</a>`}</div></div></article>`; }).join("");
+document.getElementById("gal").innerHTML = Array.from({length:12}, (_, i) => `<img class="reveal" src="../_img/temle-8997/g${i + 1}.jpg" alt="Подарочный набор Тэмле" loading="lazy">`).join("");
+document.getElementById("opts").innerHTML = P.map(x => `<button class="opt" data-add="${x.id}"><span class="q" id="q-${x.id}"></span><b>${x.n}</b><small>${rub(x.p)}</small></button>`).join("");
+function render(){
+  const items = P.filter(x => cart[x.id]);
+  const slots = []; items.forEach(x => { for (let i = 0; i < cart[x.id]; i++) slots.push(x.n.split(" ")[0]); });
+  let html = ""; for (let i = 0; i < Math.max(8, slots.length); i++) html += `<i class="${slots[i] ? "f" : ""}">${slots[i] || ""}</i>`;
+  document.getElementById("slots").innerHTML = html;
+  P.forEach(x => { const q = document.getElementById("q-" + x.id); q.textContent = cart[x.id] ? "×" + cart[x.id] : ""; q.parentElement.classList.toggle("on", !!cart[x.id]); });
+  let sum = items.reduce((s, x) => s + x.p * cart[x.id], 0) + (tea.checked ? 250 : 0);
+  document.getElementById("sum").textContent = rub(sum);
+  const n = slots.length;
+  document.getElementById("fl").textContent = n ? `В наборе ${n} поз. · ${rub(sum)}` : "Набор пуст";
+  const lines = items.map(x => `• ${x.n} × ${cart[x.id]} — ${rub(x.p * cart[x.id])}`);
+  if (tea.checked) lines.push("• Зимний чай — 250 ₽");
+  if (gift.checked) lines.push("• Упаковать как подарок");
+  const msg = n ? `Здравствуйте! Хочу заказать набор на сайте:\n${lines.join("\n")}\nИтого по прайсу: ${rub(sum)}` : "Здравствуйте! Хочу заказать сладости.";
+  document.getElementById("send").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-add]"); if (!b) return; cart[b.dataset.add] = (cart[b.dataset.add] || 0) + 1; render(); if (b.closest(".card")) b.textContent = "✓", setTimeout(() => b.textContent = "+", 900); });
+tea.onchange = gift.onchange = render; render();
+document.querySelectorAll(".js-wa").forEach(a => a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Здравствуйте! Хочу сделать заказ."));
+const SHOPS = [
+  {a:"ул. Декабристов, 187/42", s:"1 этаж · рядом м. Яшьлек", q:"70000001060738997"},
+  {a:"ул. Рауиса Гареева, 109", s:"1 этаж", q:"70000001067093088"},
+  {a:"ул. Сабит, 2а", s:"Магазин турецкой продукции", q:"70000001066971407"},
+];
+document.getElementById("shopList").innerHTML = SHOPS.map(x => `<div class="shop reveal"><b>${x.a}</b><small>${x.s}</small><small>Ежедневно 9:00–21:00</small>${x.q ? `<a href="https://2gis.ru/kazan/firm/${x.q}" target="_blank" rel="noopener">Маршрут в 2ГИС →</a>` : `<a class="js-wa" href="#">Заказать доставку →</a>`}</div>`).join("");
+document.querySelectorAll(".js-wa").forEach(a => a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Здравствуйте! Хочу сделать заказ."));
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
