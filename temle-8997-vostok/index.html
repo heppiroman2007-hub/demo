@@ -40,10 +40,11 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .logo b{font-family:"Playfair",serif;font-size:24px}
 .logo small{display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-top:-2px}
 header .btn{padding:10px 16px;font-size:14px;white-space:nowrap}
+.hc{display:flex;align-items:center;gap:14px}.tel{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600}.tel svg{width:20px;height:20px;color:var(--pom)}@media(max-width:700px){.tel span{display:none}.tel{width:42px;height:42px;justify-content:center;border:1.5px solid var(--line);border-radius:50%}}
 /* первый экран */
 .hero{padding:clamp(28px,5vw,64px) 0 clamp(36px,5vw,56px)}
 .hero .wrap{display:grid;gap:34px;align-items:center}
-.hero h1{font-size:clamp(42px,4.7vw,68px);line-height:1.02}
+.hero h1{font-size:clamp(40px,4.3vw,62px);line-height:1.04}
 .hero h1 em{font-style:italic;color:var(--pom);display:block}
 .hero p.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:30ch;margin:20px 0 28px}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -51,17 +52,16 @@ header .btn{padding:10px 16px;font-size:14px;white-space:nowrap}
 .proof b{font:700 30px/1 "Playfair",serif;color:var(--ink)}
 .proof .st{color:var(--gold);letter-spacing:2px}
 .proof i{width:1px;height:34px;background:var(--line)}
-.arch{position:relative;justify-self:center;width:min(100%,400px)}
-.arch:before{content:"";position:absolute;inset:-12px -12px 12px 12px;border:1.5px solid var(--gold);border-radius:999px 999px 30px 30px}
-.arch img{position:relative;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 30px 30px;box-shadow:0 40px 80px -40px rgba(42,26,20,.7)}
-.arch .note{position:absolute;left:-18px;bottom:28px;display:flex;align-items:center;gap:12px;background:var(--paper);border-radius:18px;padding:12px 16px 12px 12px;box-shadow:0 18px 40px -16px rgba(42,26,20,.45);text-decoration:none;max-width:250px}
-.arch .note i{flex:none;width:42px;height:42px;border-radius:12px}
-.arch .note b{display:block;font-size:15px}
-.arch .note small{color:var(--muted);font-size:12px}
-@media(min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr}.arch .note{left:-60px}}
+.shot{position:relative}
+.shot img{width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:28px;box-shadow:0 40px 80px -40px rgba(42,26,20,.7)}
+.shot .cap{position:absolute;left:16px;bottom:16px;background:rgba(255,250,242,.94);backdrop-filter:blur(8px);border-radius:14px;padding:10px 14px;font-size:14px;line-height:1.3;box-shadow:0 10px 30px -14px rgba(0,0,0,.5)}
+.shot .cap b{display:block;font-size:15px}
+.shot .cap small{color:var(--muted)}
+.alt{display:inline-block;margin-top:16px;font-weight:600;color:var(--pom);text-decoration:none;border-bottom:1.5px solid currentColor}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr}}.hero .wrap.k{display:block}@media(max-width:899px){.shot{order:-1}.shot img{aspect-ratio:16/10}.logo small{display:none}}
 /* три направления */
 .kinds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
-.kind{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#fff;aspect-ratio:4/3}
+.kind{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#fff;aspect-ratio:4/3}@media(min-width:900px){.kinds{margin-top:30px}.kind{aspect-ratio:16/8}}
 .kind img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .kind:hover img{transform:scale(1.05)}
 .kind span{position:absolute;inset:auto 0 0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(30,15,10,.82));font:600 clamp(14px,1.6vw,19px)/1.2 "Golos"}
@@ -161,7 +161,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .demo{background:#fff3d6;border:1px dashed var(--gold);border-radius:12px;padding:8px 12px;color:var(--ink)}
 /* плавающая кнопка */
 .float{position:fixed;left:50%;bottom:16px;transform:translate(-50%,140%);transition:transform .35s;z-index:30;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 14px 40px -12px rgba(0,0,0,.6);white-space:nowrap}
-.float.show{transform:translate(-50%,0)}
+.float.show{transform:translate(-50%,0)}@media(max-width:700px){.float{transform:translate(-50%,0)}}
 .float span{font-size:14px}
 .float a{padding:10px 18px;font-size:14px}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
@@ -172,31 +172,33 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
 <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></symbol>
 <symbol id="arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
 </defs></svg>
 
 <header><div class="wrap">
   <a class="logo" href="#"><i class="tile"></i><span><b>Тэмле</b><small>турецкие сладости</small></span></a>
-  <a class="btn btn--pom" href="#box">Собрать набор</a>
+  <div class="hc"><a class="tel" href="tel:+79179314722"><svg><use href="#phone"/></svg><span>+7 917 931-47-22</span></a><a class="btn btn--wa js-wa" href="#"><svg><use href="#wa"/></svg>Написать</a></div>
 </div></header>
 
 <section class="hero"><div class="wrap">
   <div>
     <div class="kicker">Казань · 3 магазина и доставка</div>
     <h1>Подарки со вкусом <em>Востока</em></h1>
-    <p class="lead">Корзины и наборы с пахлавой, лукумом и чаем — соберём под ваш повод и бюджет.</p>
+    <p class="lead">Наборы и корзины с лукумом, пахлавой, сухофруктами и орехами — соберём под ваш повод и бюджет.</p>
     <div class="cta">
-      <a class="btn btn--pom" href="#box">Собрать набор онлайн <svg><use href="#arrow"/></svg></a>
-      <a class="btn btn--line" href="#gifts">Смотреть подарки</a>
+      <a class="btn btn--wa js-wa" href="#"><svg><use href="#wa"/></svg> Заказать в WhatsApp</a>
+      <a class="btn btn--line" href="tel:+79179314722"><svg><use href="#phone"/></svg> Позвонить</a>
     </div>
+    <a class="alt" href="#box">или соберите набор онлайн →</a>
     <div class="proof"><b>4,9</b><span><span class="st">★★★★★</span><br>299 оценок в 2ГИС</span><i></i><span>Ежедневно<br>9:00–21:00</span></div>
   </div>
-  <div class="arch">
-    <img src="../_img/temle-8997/hero.jpg" alt="Подарочный набор Тэмле">
-    <a class="note" href="#box"><i class="tile"></i><span><b>Соберите набор сами</b><small>Сумма сразу, заказ — в WhatsApp</small></span></a>
+  <div class="shot">
+    <img src="../_img/temle-8997/hero2.jpg" alt="Подарочные наборы Тэмле: лукум, сухофрукты, орехи в коробках с лентами">
+    <div class="cap"><b>Подарочные наборы</b><small>лукум, сухофрукты, орехи, щербет</small></div>
   </div>
 </div>
-<div class="wrap"><div class="kinds">
+<div class="wrap k"><div class="kinds">
   <a class="kind" href="#gifts"><img src="../_img/temle-8997/t1.jpg" alt=""><span>Подарочные корзины<small>под повод и бюджет</small></span></a>
   <a class="kind" href="#gifts"><img src="../_img/temle-8997/t2.jpg" alt=""><span>Наборы в коробках<small>с лентой и открыткой</small></span></a>
   <a class="kind" href="#hits"><img src="../_img/temle-8997/t3.jpg" alt=""><span>Пахлава и лукум<small>на вес и в подарок</small></span></a>
@@ -283,7 +285,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   <span class="demo">Демонстрационный сайт: фото и цены взяты из открытых источников (2ГИС, прайс), их легко поменять.</span>
 </div></footer>
 
-<div class="float"><span id="fl">Набор пуст</span><a class="btn btn--pom" href="#box">Собрать</a></div>
+<div class="float"><a class="btn btn--line" style="border-color:#fff;color:#fff" href="tel:+79179314722"><svg><use href="#phone"/></svg>Позвонить</a><a class="btn btn--wa" id="flwa" href="#"><svg><use href="#wa"/></svg><span id="fl">WhatsApp</span></a></div>
 
 <script>
 const WA = "79179314722";
@@ -322,12 +324,12 @@ function render(){
   let sum = items.reduce((s, x) => s + x.p * cart[x.id], 0) + (tea.checked ? 250 : 0);
   document.getElementById("sum").textContent = rub(sum);
   const n = slots.length;
-  document.getElementById("fl").textContent = n ? `В наборе ${n} поз. · ${rub(sum)}` : "Набор пуст";
+  document.getElementById("fl").textContent = n ? `Отправить набор · ${rub(sum)}` : "WhatsApp";
   const lines = items.map(x => `• ${x.n} × ${cart[x.id]} — ${rub(x.p * cart[x.id])}`);
   if (tea.checked) lines.push("• Зимний чай — 250 ₽");
   if (gift.checked) lines.push("• Упаковать как подарок");
   const msg = n ? `Здравствуйте! Хочу заказать набор на сайте:\n${lines.join("\n")}\nИтого по прайсу: ${rub(sum)}` : "Здравствуйте! Хочу заказать сладости.";
-  document.getElementById("send").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+  document.getElementById("send").href = document.getElementById("flwa").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
 }
 document.addEventListener("click", e => { const b = e.target.closest("[data-add]"); if (!b) return; cart[b.dataset.add] = (cart[b.dataset.add] || 0) + 1; render(); if (b.closest(".card")) b.textContent = "✓", setTimeout(() => b.textContent = "+", 900); });
 tea.onchange = gift.onchange = render; render();
