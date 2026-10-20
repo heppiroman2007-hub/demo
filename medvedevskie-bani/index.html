@@ -75,7 +75,9 @@ button,select{font:inherit;color:inherit;background:none;border:0;cursor:pointer
 .stove-card .t{font:900 44px Onest;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
 .stove-card .t small{display:block;font:600 12.5px Golos;letter-spacing:0;color:var(--muted)}
 .puff-btn{min-height:52px}
-.hiss{position:absolute;left:50%;top:30%;font:900 34px Onest;color:var(--red);pointer-events:none;opacity:0;transform:translate(-50%,0) rotate(-8deg)}
+.hiss{position:absolute;left:50%;top:30%;font:900 34px Onest;color:var(--red);pointer-events:none;opacity:0;transform:translate(-50%,0) rotate(-8deg);z-index:3}
+.hiss.go{animation:hiss 1.3s ease-out .08s}
+@keyframes hiss{0%{opacity:0;transform:translate(-50%,10px) rotate(-8deg) scale(.7)}40%{opacity:1;transform:translate(-50%,-30px) rotate(-8deg) scale(1)}100%{opacity:0;transform:translate(-50%,-70px) rotate(-8deg) scale(1.1)}}
 .steam-layer{position:absolute;inset:0;pointer-events:none;z-index:5;overflow:hidden}
 @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stove-card{max-width:440px}}
 
@@ -164,8 +166,8 @@ section{padding:clamp(64px,10vw,120px) 0}
 .line-in select{padding-right:16px;background:linear-gradient(45deg,transparent 50%,var(--ink) 50%) right 4px top 55%/6px 6px no-repeat,linear-gradient(135deg,var(--ink) 50%,transparent 50%) right 0 top 55%/6px 6px no-repeat}
 .line-in input:focus,.line-in select:focus{outline:none;border-color:var(--red)}
 .cnt{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--paper)}
-.cnt button{width:40px;height:40px;font:700 20px Onest}
-.cnt button:disabled{opacity:.25}
+.cnt button{width:40px;height:40px;display:grid;place-items:center;color:var(--ink)}
+.cnt button:disabled{opacity:.3}
 .cnt output{min-width:34px;text-align:center;font:800 18px Onest}
 .tariff{margin-top:12px;font-size:14px;color:var(--ink2)}
 .tariff b{color:var(--red)}
@@ -327,11 +329,11 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         <div class="q"><b>Какой зал?</b><div class="chips" id="hallChips"></div></div>
         <div class="q"><b>Когда?</b>
           <div class="line-in"><input type="date" id="day" aria-label="День"> с <select id="start" aria-label="Время начала"></select> на
-            <span class="cnt"><button id="hM" aria-label="Меньше часов">−</button><output id="hN">3</output><button id="hP" aria-label="Больше часов">+</button></span> <span id="hW">часа</span></div>
+            <span class="cnt"><button id="hM" aria-label="Меньше часов"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button><output id="hN">3</output><button id="hP" aria-label="Больше часов"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button></span> <span id="hW">часа</span></div>
           <div class="tariff" id="tariff"></div>
         </div>
         <div class="q"><b>Сколько вас?</b>
-          <div class="line-in"><span class="cnt"><button id="gM" aria-label="Меньше гостей">−</button><output id="gN">4</output><button id="gP" aria-label="Больше гостей">+</button></span> <span id="gW">человека</span> <small style="color:var(--muted)" id="gCap"></small></div>
+          <div class="line-in"><span class="cnt"><button id="gM" aria-label="Меньше гостей"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button><output id="gN">4</output><button id="gP" aria-label="Больше гостей"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button></span> <span id="gW">человека</span> <small style="color:var(--muted)" id="gCap"></small></div>
         </div>
         <div class="q"><b>Что приготовить?</b><div class="adds" id="adds"></div><div class="tariff">Цены допов — пример, впишем ваши.</div></div>
       </div>
@@ -531,6 +533,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   }
   const cv = $("#steamCv"), ctx = cv.getContext("2d"), img = $("#stones");
   const heatT = $("#heatT"), heatD = $("#heatD");
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   let W = 0, H = 0, dpr = 1, parts = [], raf = 0, heat = 0, idle = false, last = 0, idleAcc = 0;
   const fit = () => { const r = cv.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1);
     W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
@@ -573,7 +576,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     parts = parts.filter(p => p.age < p.life);
     // жар: картинка дрожит, пока пар густой
     heat = Math.max(0, heat - dt * .45);
-    if (heat > .01) {
+    if (heat > .01 && !IOS) {
       img.style.filter = `url(#heat) brightness(${1 + heat * .08}) saturate(${1 - heat * .15})`;
       heatD.setAttribute("scale", (heat * 9).toFixed(2));
       heatT.setAttribute("baseFrequency", `0.011 ${(0.035 + Math.sin(t / 260) * .006).toFixed(4)}`);
@@ -583,26 +586,27 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   const kick = () => { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } };
   // лёгкий пар в покое — фото «живое», пока карточка на экране
   new IntersectionObserver(e => { idle = e[0].isIntersecting && !reduced; if (idle) kick(); }).observe(cv);
+  // каждый эффект — отдельно: если телефон чего-то не умеет, остальное всё равно сработает
+  const safe = (fn) => { try { fn(); } catch (e) {} };
   function puff() {
-    hiss(); fit();
-    {  // пар по нажатию — всегда, даже при «уменьшить движение»: человек сам его запустил
-      for (let i = 0; i < 70; i++) setTimeout(() => spawn(true), i * 16 + Math.random() * 60);
-      heat = 1; kick();
-      $("#hiss").animate([{opacity: 0, transform: "translate(-50%,10px) rotate(-8deg) scale(.7)"}, {opacity: 1, transform: "translate(-50%,-30px) rotate(-8deg) scale(1)"}, {opacity: 0, transform: "translate(-50%,-70px) rotate(-8deg) scale(1.1)"}],
-        {duration: 1300, delay: 80, easing: "ease-out"});
-      setTimeout(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 1100); }, 350);
-    }
-    setTimeout(() => {
-      const target = Math.min(100, temp + 7), t0 = performance.now(), from = temp;
-      const rise = t => { const k = Math.min(1, (t - t0) / 900); setTemp(from + (target - from) * k); if (k < 1) requestAnimationFrame(rise); };
-      requestAnimationFrame(rise);
+    safe(() => {  // градусник — первым делом
+      const target = Math.min(100, temp + 7), t0 = Date.now(), from = temp;
+      const rise = () => { const k = Math.min(1, (Date.now() - t0) / 900); setTemp(from + (target - from) * k); if (k < 1) setTimeout(rise, 30); };
+      setTimeout(rise, 250);
       $("#tempNote").textContent = target >= 100 ? "хорош, уже жарко!" : target >= 90 ? "вот это пар" : "поддайте ещё";
-    }, 300);
-    clearInterval(cool);
-    cool = setInterval(() => { if (temp > 72) { setTemp(temp - .5); if (temp <= 90) $("#tempNote").textContent = "в парной сейчас"; } else clearInterval(cool); }, 600);
+      clearInterval(cool);
+      cool = setInterval(() => { if (temp > 72) { setTemp(temp - .5); if (temp <= 90) $("#tempNote").textContent = "в парной сейчас"; } else clearInterval(cool); }, 600);
+    });
+    safe(hiss);
+    safe(() => {  // пар по нажатию — всегда, даже при «уменьшить движение»: человек сам его запустил
+      fit();
+      for (let i = 0; i < 70; i++) setTimeout(() => safe(() => spawn(true)), i * 16 + Math.random() * 60);
+      heat = 1; kick();
+    });
+    safe(() => { const h = $("#hiss"); h.classList.remove("go"); void h.offsetWidth; h.classList.add("go"); });
+    safe(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 1400); });
   }
-  $("#puff").onclick = puff;
-  img.style.cursor = "pointer"; img.addEventListener("click", puff);
+  $("#puff").addEventListener("click", puff);  img.style.cursor = "pointer"; img.addEventListener("click", puff);
   // ── загляните внутрь: рисунки зон (на сайте клиента — его фото: строки-ссылки вместо ключей рисунков)
   const INK = "#2b1a12";
   const planks = (fill, line, step = 48) => `<rect width="800" height="500" fill="${fill}"/>` +
