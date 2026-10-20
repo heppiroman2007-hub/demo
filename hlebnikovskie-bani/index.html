@@ -552,13 +552,13 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       x: W * (.12 + Math.random() * .76), y: H * (strong ? .86 + Math.random() * .1 : .95),
       vx: (Math.random() - .5) * 14 * k, vy: -(strong ? 55 + Math.random() * 70 : 18 + Math.random() * 14) * k,
       s0: (strong ? 40 + Math.random() * 50 : 30 + Math.random() * 30) * k, s1: (strong ? 230 + Math.random() * 200 : 120 + Math.random() * 80) * k,
-      a: strong ? .1 + Math.random() * .12 : .06 + Math.random() * .05, life: strong ? 2.6 + Math.random() * 2.2 : 4 + Math.random() * 2,
+      a: strong ? .1 + Math.random() * .12 : .09 + Math.random() * .06, life: strong ? 2.6 + Math.random() * 2.2 : 4 + Math.random() * 2,
       age: 0, rot: Math.random() * 6.28, vr: (Math.random() - .5) * .5, ph: Math.random() * 6.28, sp: sprites[Math.random() * 4 | 0]
     });
   }
   function frame(t) {
     const dt = Math.min(.05, (t - (last || t)) / 1000); last = t;
-    if (idle && !reduced) { idleAcc += dt; while (idleAcc > .32) { idleAcc -= .32; spawn(false); } }
+    if (idle && !reduced) { idleAcc += dt; while (idleAcc > .26) { idleAcc -= .26; spawn(false); } }
     ctx.clearRect(0, 0, W, H);
     for (const p of parts) {
       p.age += dt; const k = p.age / p.life;
@@ -584,8 +584,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   // лёгкий пар в покое — фото «живое», пока карточка на экране
   new IntersectionObserver(e => { idle = e[0].isIntersecting && !reduced; if (idle) kick(); }).observe(cv);
   function puff() {
-    hiss();
-    if (!reduced) {
+    hiss(); fit();
+    {  // пар по нажатию — всегда, даже при «уменьшить движение»: человек сам его запустил
       for (let i = 0; i < 70; i++) setTimeout(() => spawn(true), i * 16 + Math.random() * 60);
       heat = 1; kick();
       $("#hiss").animate([{opacity: 0, transform: "translate(-50%,10px) rotate(-8deg) scale(.7)"}, {opacity: 1, transform: "translate(-50%,-30px) rotate(-8deg) scale(1)"}, {opacity: 0, transform: "translate(-50%,-70px) rotate(-8deg) scale(1.1)"}],
