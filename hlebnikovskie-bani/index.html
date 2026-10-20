@@ -81,7 +81,8 @@ button,select{font:inherit;color:inherit;background:none;border:0;cursor:pointer
 .stove-card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
 .stove-card .t{font:900 44px Onest;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
 .stove-card .t small{display:block;font:600 12.5px Golos;letter-spacing:0;color:var(--muted)}
-.puff-btn{min-height:52px}
+.puff-btn{min-height:52px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.stove-card{touch-action:manipulation;cursor:pointer}
 .hiss{position:absolute;left:50%;top:30%;font:900 34px Onest;color:var(--red);pointer-events:none;opacity:0;transform:translate(-50%,0) rotate(-8deg);z-index:3}
 .hiss.go{animation:hiss 1.3s ease-out .08s}
 @keyframes hiss{0%{opacity:0;transform:translate(-50%,10px) rotate(-8deg) scale(.7)}40%{opacity:1;transform:translate(-50%,-30px) rotate(-8deg) scale(1)}100%{opacity:0;transform:translate(-50%,-70px) rotate(-8deg) scale(1.1)}}
@@ -620,7 +621,16 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     safe(() => { const w = $("#phWrap"); w.classList.remove("go"); void w.offsetWidth; w.classList.add("go"); });
     safe(() => { $("#big").classList.add("fog"); setTimeout(() => $("#big").classList.remove("fog"), 1400); });
   }
-  $("#puff").addEventListener("click", puff);  img.style.cursor = "pointer"; img.addEventListener("click", puff);
+  // iPhone (Safari/WhatsApp) иногда не отдаёт click кнопке — запускаем пар на касании, click/pointerup — запасные
+  let lastPuff = 0;
+  const tapPuff = () => { const now = Date.now(); if (now - lastPuff < 700) return; lastPuff = now; puff(); };
+  const card = $(".stove-card");
+  let ty = 0, tx = 0;
+  card.addEventListener("touchstart", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive: true});
+  card.addEventListener("touchend", e => { const p = e.changedTouches[0];  // нажатие, а не прокрутка
+    if (Math.abs(p.clientX - tx) < 12 && Math.abs(p.clientY - ty) < 12) tapPuff(); }, {passive: true});
+  card.addEventListener("pointerup", e => { if (e.pointerType !== "touch") tapPuff(); });
+  card.addEventListener("click", tapPuff);  img.style.cursor = "pointer";
   // ── загляните внутрь: рисунки зон (на сайте клиента — его фото: строки-ссылки вместо ключей рисунков)
   const INK = "#2b1a12";
   const planks = (fill, line, step = 48) => `<rect width="800" height="500" fill="${fill}"/>` +
