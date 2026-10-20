@@ -171,8 +171,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 
 <section id="menu" style="padding-top:20px"><div class="wrap">
   <div class="head reveal"><div><div class="kicker">Меню</div><h2>Всё меню с ценами</h2></div><p>Отмечайте блюда — соберётся заказ навынос с суммой.</p></div>
+  <p class="demo reveal" style="margin:-8px 0 18px">Цены в демо — с фото меню из 2ГИС, они могли измениться. В готовом сайте будут ваши актуальные цены.</p>
   <div class="menu" id="menuList"></div>
-  <p class="note">Цены — по меню кафе; точную стоимость и наличие подтвердим при заказе.</p>
+  <p class="note">Цены — по фото меню в 2ГИС (могли измениться); точную стоимость подтвердим при заказе.</p>
 </div></section>
 
 <section id="order"><div class="wrap"><div class="order reveal">
@@ -232,7 +233,7 @@ function render(){
   const sum = names.reduce((s, n) => s + all[n].p * cart[n], 0);
   document.getElementById("sum").textContent = rub(sum);
   document.querySelectorAll(".item").forEach(el => el.classList.toggle("on", !!cart[el.dataset.i]));
-  const msg = names.length ? `Здравствуйте! Хочу заказать навынос:\n${names.map(n => `• ${n} × ${cart[n]} — ${rub(all[n].p * cart[n])}`).join("\n")}\nИтого по меню: ${rub(sum)}\nЗаберу в: ` : "Здравствуйте! Хочу сделать заказ навынос.";
+  const msg = names.length ? `Здравствуйте! Хочу заказать навынос:\n${names.map(n => `• ${n} × ${cart[n]} — ${rub(all[n].p * cart[n])}`).join("\n")}\nИтого по меню (ориентировочно): ${rub(sum)}\nЗаберу в: ` : "Здравствуйте! Хочу сделать заказ навынос.";
   const link = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
   document.getElementById("send").href = link;
   document.getElementById("flwa").href = link;
