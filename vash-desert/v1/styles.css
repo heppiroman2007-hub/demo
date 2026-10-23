@@ -1,0 +1,27 @@
+/* Вариант 1 «Акварель»: как её логотип — белый, розовое акварельное пятно, малиновый росчерк, сиреневые подписи */
+:root{
+  --bg:#fffafb;--bg2:#fdf0f3;--card:#ffffff;--line:#f2dfe5;--line-strong:#e8c9d3;
+  --text:#3a2433;--muted:#7d6573;--accent:#d4285c;--accent-dark:#b81d4c;--accent-soft:#f3a9bf;--accent2:#7b5aa6;
+  --price-bg:#fde6ee;--price-ink:#b81d4c;--price-r:999px;
+  --head:"Onest","Segoe UI",Arial,sans-serif;--body:"Golos","Segoe UI",Arial,sans-serif;--script:"Marck","Segoe Script",cursive;
+  --h1-weight:700;--h2-weight:700;--h3-weight:600;--h-ls:-.03em;--h3-ls:-.01em;--h3-tt:none;
+  --r:24px;--btn-r:999px;--photo-r:42% 58% 46% 54% / 38% 40% 60% 62%;
+  --photo-sh:0 30px 60px -30px rgba(160,30,70,.45);--card-sh:0 18px 40px -28px rgba(160,30,70,.35);
+  --footer:#3a2433;--footer-ink:#fbe9ef;
+}
+/* акварельные пятна, как фон у логотипа */
+.hero__wash{background:
+  radial-gradient(38% 46% at 82% 34%,rgba(244,160,186,.55),transparent 70%),
+  radial-gradient(26% 30% at 66% 70%,rgba(250,196,212,.6),transparent 72%),
+  radial-gradient(30% 34% at 8% 12%,rgba(214,190,240,.35),transparent 70%),
+  radial-gradient(22% 26% at 30% 96%,rgba(248,182,202,.4),transparent 70%)}
+.hero__photo{border-radius:44% 56% 48% 52% / 40% 42% 58% 60%;animation:morph 14s ease-in-out infinite}
+@keyframes morph{50%{border-radius:56% 44% 40% 60% / 46% 56% 44% 54%}}
+.hero__small{border-radius:50%;aspect-ratio:1;width:38%}
+.contacts__pic,.calc__pic{border-radius:46% 54% 50% 50% / 42% 44% 56% 58%}
+.sec--tint{background:
+  radial-gradient(40% 50% at 100% 0%,rgba(244,170,192,.28),transparent 70%),
+  radial-gradient(36% 44% at 0% 100%,rgba(214,190,240,.22),transparent 70%),var(--bg2)}
+.hero h1 em{display:inline-block;color:var(--accent);rotate:-2deg}
+.fill{border-radius:22px}
+.score b{font-family:var(--script);font-weight:400;letter-spacing:0}

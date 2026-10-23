@@ -1,0 +1,48 @@
+/* Вариант 2 «Прайс-лист»: как её прайсы — кремовая бумага, антиква капителью, пыльно-розовые плашки цен, тонкие линии с сердечком */
+:root{
+  --bg:#f8f1ec;--bg2:#f1e6df;--card:#fffaf6;--line:#e8d9cf;--line-strong:#dcc6b8;
+  --text:#4a3a35;--muted:#86716a;--accent:#c42a5a;--accent-dark:#a91f4b;--accent-soft:#e8b1bf;--accent2:#9a6b5f;
+  --price-bg:#c98274;--price-ink:#fff;--price-r:8px;
+  --head:"Playfair",Georgia,"Times New Roman",serif;--body:"Golos","Segoe UI",Arial,sans-serif;--script:"Marck","Segoe Script",cursive;
+  --h1-weight:500;--h2-weight:500;--h3-weight:500;--h-ls:-.01em;--h3-ls:.06em;--h3-tt:uppercase;
+  --r:14px;--btn-r:10px;--photo-r:220px 220px 16px 16px;
+  --photo-sh:0 24px 50px -30px rgba(90,50,40,.45);--card-sh:0 14px 34px -26px rgba(90,50,40,.35);
+  --footer:#4a3a35;--footer-ink:#f6ebe4;
+}
+/* бумага и веточки гипсофилы точками — как на её прайсах */
+body{background-image:radial-gradient(rgba(150,110,95,.07) 1px,transparent 1.2px);background-size:18px 18px}
+.hero__wash{background:
+  radial-gradient(2.2px 2.2px at 8% 20%,#e9dccf 98%,transparent),radial-gradient(3px 3px at 12% 14%,#efe4da 98%,transparent),
+  radial-gradient(2.4px 2.4px at 15% 22%,#e6d7c9 98%,transparent),radial-gradient(3px 3px at 90% 12%,#e9dccf 98%,transparent),
+  radial-gradient(2.2px 2.2px at 94% 18%,#efe4da 98%,transparent),radial-gradient(2.6px 2.6px at 87% 22%,#e6d7c9 98%,transparent),
+  radial-gradient(34% 40% at 76% 40%,rgba(242,205,212,.45),transparent 70%)}
+.hero h1{font-style:normal}
+.hero h1 em,h2 em{color:var(--accent)}
+.kicker{display:flex;align-items:center;gap:10px}
+.kicker::after{content:"";width:46px;height:1px;background:var(--accent2);opacity:.6}
+.hero__photo{border:8px solid var(--card)}
+.hero__small{border-radius:12px}
+.hero__note{border-radius:10px}
+.sec__head{text-align:center;margin-inline:auto}
+.sec__head .kicker{justify-content:center}
+.sec__head .kicker::before{content:"";width:46px;height:1px;background:var(--accent2);opacity:.6}
+.sec__head h2::after{content:"";display:block;width:180px;height:16px;margin:14px auto 0;background:
+  linear-gradient(var(--line-strong),var(--line-strong)) left center/70px 1px no-repeat,
+  linear-gradient(var(--line-strong),var(--line-strong)) right center/70px 1px no-repeat,
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z' fill='none' stroke='%23c98274' stroke-width='1.6'/%3E%3C/svg%3E") center/16px no-repeat}
+.chips{justify-content:center}
+.chips button{border-radius:10px}
+.chips button.is-on{background:var(--price-bg);border-color:var(--price-bg);color:#fff}
+.fill h3,.sweet h3,.steps b{font-size:17px}
+.fill{border-radius:12px;padding-top:20px}
+.fill__top{flex-direction:column;align-items:flex-start;gap:10px}
+.fill__top h3::after{content:"";display:block;width:56px;height:1px;background:var(--line-strong);margin-top:10px}
+.price{font-family:var(--head);font-weight:500;font-size:17px;letter-spacing:.02em}
+.seg button,.fills button,select,input[type=text],input[type=date],.tags li{border-radius:10px}
+.seg button.is-on,.fills button.is-on{background:var(--price-bg);border-color:var(--price-bg)}
+.steps li::before{border-radius:10px;background:var(--price-bg);color:#fff;font:500 22px/1 var(--head)}
+.score b{font-weight:500}
+.contacts__pic,.calc__pic{border-radius:220px 220px 14px 14px;border:8px solid var(--card)}
+.works .work{border-radius:12px}
+.strip b{font-weight:500}
+.total b{font-weight:500}
