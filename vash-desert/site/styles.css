@@ -17,7 +17,7 @@
 /* классика: крупнее, без отрицательного трекинга — у антиквы свои пропорции */
 .hero h1{font-size:clamp(42px,6.4vw,80px);line-height:1.02}
 .sec__head h2,.calc__intro h2,.bento__panel h2,.contacts h2,.vitrina__text h2{font-size:clamp(36px,4.8vw,60px)}
-.fill h3{font-size:21px;line-height:1.15}
+.fill h3,.fill__name{font-size:21px;line-height:1.15}
 .sweet h3,.steps b{font-size:25px}
 /* у Cormorant цифры «старинные» (разной высоты), ровных в веб-версии нет — цены и рейтинг простым Golos */
 .strip b,.total b,.rating b,.score b{font-family:var(--body);font-weight:600;letter-spacing:-.02em}
@@ -27,4 +27,4 @@
 .logo__name{font-size:34px;line-height:1.05}
 .hero__note{font-size:27px}
 .steps li::before{font-size:34px}
-@media (max-width:640px){.logo__name{font-size:30px}.hero__note{font-size:22px}.fill h3{font-size:19.5px}}
+@media (max-width:640px){.logo__name{font-size:30px}.hero__note{font-size:22px}.fill h3,.fill__name{font-size:19.5px}}

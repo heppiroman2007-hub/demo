@@ -133,6 +133,26 @@ $$("[data-photo]").forEach(b => b.addEventListener("click", () => {
 }));
 
 // ---------- Калькулятор торта ----------
+// Счётчик капкейков «− 🧁 N +»: число — в data-n, при изменении — событие cupschange
+const cupsOf = kind => Number($(`[data-cups="${kind}"]`).dataset.n || 0);
+$$("[data-cups]").forEach(box => {
+  const v = box.querySelector(".stepper__v"), [minus, plus] = box.querySelectorAll("[data-step]");
+  const set = n => {
+    box.dataset.n = n;
+    v.querySelector("b").textContent = n;
+    box.classList.toggle("is-on", n > 0);
+    minus.disabled = n <= 0; plus.disabled = n >= SITE.cupsMax;
+    v.classList.remove("bump"); void v.offsetWidth; v.classList.add("bump");
+    box.dispatchEvent(new Event("cupschange"));
+  };
+  box.addEventListener("click", e => {
+    const b = e.target.closest("[data-step]");
+    if (b) set(Math.min(SITE.cupsMax, Math.max(0, cupsOf(box.dataset.cups) + Number(b.dataset.step))));
+  });
+  box.dataset.n = 0; minus.disabled = true;
+});
+const cupsLine = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? "капкейк" : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? "капкейка" : "капкейков"}`;
+
 const calc = { fill: 0, w: 2, addons: new Set() };
 const calcFill = $("#calcFill"), calcDate = $("#calcDate");
 const dateRu = v => v ? v.split("-").reverse().join(".") : "";
@@ -140,6 +160,8 @@ function renderCalc() {
   const cake = SITE.cakes[calc.fill];
   const cakeSum = cake.price * calc.w;
   const extras = [...calc.addons].map(k => SITE.addons[k]);
+  const n = cupsOf("cake");
+  if (n) extras.push({ name: cupsLine(n), price: n * SITE.cupcake });
   const total = cakeSum + extras.reduce((s, a) => s + a.price, 0);
   $("#calcTotal").textContent = fmt(total);
   $("#calcLine").textContent = `торт ${fmt(cakeSum)}` + extras.map(a => ` + ${a.name.toLowerCase()} ${fmt(a.price)}`).join("");
@@ -152,6 +174,7 @@ function renderCalc() {
   lines.push(`Сумма по сайту: ${fmt(total)}. Подтвердите, пожалуйста, дату.`);
   $("#calcSend").href = waLink(lines.join("\n"));
 }
+$('[data-cups="cake"]').addEventListener("cupschange", () => renderCalc());
 $("#calcAddons").addEventListener("change", e => {
   const k = e.target.dataset.addon;
   if (!k) return;
@@ -233,6 +256,8 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
   function render() {
     const s = B.sizes[st.size], f = B.fills[st.fill];
     const extras = [...st.addons].map(k => B.addons[k]);
+    const n = cupsOf("bento");
+    if (n) extras.push({ name: `${cupsLine(n)} в набор`, price: n * SITE.cupcake });
     const price = s.price + extras.reduce((sum, a) => sum + (a.price || 0), 0);
     cake.style.setProperty("--size", SCALE[st.size]);
     cake.style.setProperty("--cream", st.color);
@@ -261,6 +286,7 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
   choose("fills", "fill", "fill", buildDeco);
   choose("colors", "color", "color");
   input.addEventListener("input", () => { st.text = input.value.trim(); render(); });
+  $('[data-cups="bento"]').addEventListener("cupschange", render);
   $("#bentoAddons").addEventListener("change", e => {
     const k = e.target.dataset.baddon;
     if (!k) return;

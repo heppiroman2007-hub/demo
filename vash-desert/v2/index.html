@@ -14,8 +14,8 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10240514">
-<link rel="stylesheet" href="styles.css?v=10240514">
+<link rel="stylesheet" href="../shared/base.css?v=10240545">
+<link rel="stylesheet" href="styles.css?v=10240545">
 </head>
 <body>
 
@@ -71,7 +71,7 @@
     </div>
     <div class="hero__art rise" style="--d:.12s">
       <div class="hero__photo"><img src="../shared/img/26.jpg" alt="Торт с пампасной травой — работа «Ваш десерт»" fetchpriority="high"></div>
-      <div class="hero__small"><img src="../shared/img/14.jpg" alt="Розовый торт с зайкой — работа «Ваш десерт»" loading="lazy"></div>
+      <div class="hero__small"><img src="../shared/img/ig_heart.jpg" alt="Красный торт-сердце — работа «Ваш десерт»" loading="lazy"></div>
       <a class="hero__note" href="#vitrina"><span>в наличии</span>и на заказ</a>
     </div>
   </div>
@@ -236,10 +236,12 @@
         <small class="opt__hint" id="calcGuests">≈ 10–13 гостей</small></div>
       <div class="opt"><span class="opt__t">Добавить к торту</span>
         <div class="addons" id="calcAddons">
+          <div class="addon cups" data-cups="cake">
+            <span class="addon__t"><b>Капкейки к столу</b><small>270 ₽ за штуку</small></span>
+            <span class="stepper"><button type="button" data-step="-1" aria-label="Меньше капкейков">−</button><span class="stepper__v"><svg aria-hidden="true"><use href="#cupcake"/></svg><b>0</b></span><button type="button" data-step="1" aria-label="Больше капкейков">+</button></span>
+          </div>
           
           <label class="addon"><input type="checkbox" data-addon="print"><span class="addon__t"><b>Сахарная печать</b><small>фото или картинка на торте</small></span><span class="addon__p">+300 ₽</span></label>
-          
-          <label class="addon"><input type="checkbox" data-addon="cups"><span class="addon__t"><b>3 капкейка</b><small>для именинника или к чаю</small></span><span class="addon__p">+810 ₽</span></label>
           
         </div></div>
       <div class="opt"><span class="opt__t">Когда нужен торт <em>необязательно</em></span>
@@ -267,9 +269,69 @@
     </div>
     <div class="chips reveal" id="worksFilter">
       <button class="is-on" data-group="all">Все <small>23</small></button>
-      <button data-group="kids">Детские <small>6</small></button><button data-group="her">Для неё <small>6</small></button><button data-group="him">Для мужчин <small>4</small></button><button data-group="event">Юбилеи и торжества <small>7</small></button>
+      <button data-group="kids">Детские <small>6</small></button><button data-group="her">Для неё <small>6</small></button><button data-group="him">Для мужчин <small>5</small></button><button data-group="event">Юбилеи и торжества <small>6</small></button>
     </div>
     <div class="works" id="worksList">
+      
+      <figure class="work reveal" data-group="her" style="--d:0.0s">
+        <div class="work__pic"><img src="../shared/img/ig_lavender.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_lavender.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="kids" style="--d:0.06s">
+        <div class="work__pic"><img src="../shared/img/ig_dino.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_dino.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="him" style="--d:0.12s">
+        <div class="work__pic"><img src="../shared/img/ig_chess.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_chess.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="event" style="--d:0.18s">
+        <div class="work__pic"><img src="../shared/img/01.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/01.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="her" style="--d:0.0s">
+        <div class="work__pic"><img src="../shared/img/ig_bows.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_bows.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="kids" style="--d:0.06s">
+        <div class="work__pic"><img src="../shared/img/ig_bear.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_bear.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="him" style="--d:0.12s">
+        <div class="work__pic"><img src="../shared/img/ig_football.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_football.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="event" style="--d:0.18s">
+        <div class="work__pic"><img src="../shared/img/18.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/18.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="her" style="--d:0.0s">
+        <div class="work__pic"><img src="../shared/img/ig_hb.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_hb.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="kids" style="--d:0.06s">
+        <div class="work__pic"><img src="../shared/img/ig_princess.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/ig_princess.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="him" style="--d:0.12s">
+        <div class="work__pic"><img src="../shared/img/02.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/02.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
+      
+      <figure class="work reveal" data-group="event" style="--d:0.18s">
+        <div class="work__pic"><img src="../shared/img/24.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/24.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+      </figure>
       
       <figure class="work reveal" data-group="her" style="--d:0.0s">
         <div class="work__pic"><img src="../shared/img/26.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
@@ -282,13 +344,13 @@
       </figure>
       
       <figure class="work reveal" data-group="him" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/02.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/02.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+        <div class="work__pic"><img src="../shared/img/16.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/16.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
       <figure class="work reveal" data-group="event" style="--d:0.18s">
-        <div class="work__pic"><img src="../shared/img/01.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/01.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+        <div class="work__pic"><img src="../shared/img/09.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/09.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
       <figure class="work reveal" data-group="her" style="--d:0.0s">
@@ -302,13 +364,13 @@
       </figure>
       
       <figure class="work reveal" data-group="him" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/16.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/16.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+        <div class="work__pic"><img src="../shared/img/21.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/21.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
       <figure class="work reveal" data-group="event" style="--d:0.18s">
-        <div class="work__pic"><img src="../shared/img/18.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/18.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
+        <div class="work__pic"><img src="../shared/img/13.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
+        <button class="work__btn" data-photo="../shared/img/13.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
       <figure class="work reveal" data-group="her" style="--d:0.0s">
@@ -321,69 +383,9 @@
         <button class="work__btn" data-photo="../shared/img/15.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
-      <figure class="work reveal" data-group="him" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/21.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/21.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="event" style="--d:0.18s">
-        <div class="work__pic"><img src="../shared/img/24.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/24.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="her" style="--d:0.0s">
-        <div class="work__pic"><img src="../shared/img/27.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/27.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="kids" style="--d:0.06s">
-        <div class="work__pic"><img src="../shared/img/28.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/28.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="him" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/05.jpg" alt="Для мужчин: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/05.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="event" style="--d:0.18s">
-        <div class="work__pic"><img src="../shared/img/23.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/23.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="her" style="--d:0.0s">
-        <div class="work__pic"><img src="../shared/img/31.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/31.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="kids" style="--d:0.06s">
-        <div class="work__pic"><img src="../shared/img/14.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/14.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="kids" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/10.jpg" alt="Детские: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/10.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="her" style="--d:0.18s">
-        <div class="work__pic"><img src="../shared/img/03.jpg" alt="Для неё: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/03.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="event" style="--d:0.0s">
-        <div class="work__pic"><img src="../shared/img/09.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/09.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="event" style="--d:0.06s">
+      <figure class="work reveal" data-group="event" style="--d:0.12s">
         <div class="work__pic"><img src="../shared/img/12.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
         <button class="work__btn" data-photo="../shared/img/12.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
-      </figure>
-      
-      <figure class="work reveal" data-group="event" style="--d:0.12s">
-        <div class="work__pic"><img src="../shared/img/13.jpg" alt="Юбилеи и торжества: торт «Ваш десерт»" loading="lazy"></div>
-        <button class="work__btn" data-photo="../shared/img/13.jpg">Хочу такой <svg><use href="#arrow"/></svg></button>
       </figure>
       
     </div>
@@ -425,10 +427,12 @@
         <input id="inscription" type="text" maxlength="28" value="С днём рождения!" autocomplete="off"></label>
       <div class="opt"><span class="opt__t">Добавить к бенто</span>
         <div class="addons" id="bentoAddons">
+          <div class="addon cups" data-cups="bento">
+            <span class="addon__t"><b>Капкейки в набор</b><small>270 ₽ за штуку · одной коробкой с бенто</small></span>
+            <span class="stepper"><button type="button" data-step="-1" aria-label="Меньше капкейков">−</button><span class="stepper__v"><svg aria-hidden="true"><use href="#cupcake"/></svg><b>0</b></span><button type="button" data-step="1" aria-label="Больше капкейков">+</button></span>
+          </div>
           
           <label class="addon"><input type="checkbox" data-baddon="print"><span class="addon__t"><b>Сахарная печать</b><small>фото или картинка на торте</small></span><span class="addon__p">+300 ₽</span></label>
-          
-          <label class="addon"><input type="checkbox" data-baddon="cups"><span class="addon__t"><b>2 капкейка в набор</b><small>бенто и капкейки одной коробкой — готовый подарок</small></span><span class="addon__p">+540 ₽</span></label>
           
           <label class="addon"><input type="checkbox" data-baddon="candle"><span class="addon__t"><b>Свеча и открытка</b><small>цену подскажет кондитер</small></span><span class="addon__p">по запросу</span></label>
           
@@ -457,10 +461,13 @@
       </div>
     </div>
     <div class="vitrina__pics reveal" style="--d:.1s">
-      <figure><img src="../shared/img/19.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/22.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/cupcakes.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/07.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure>
+      <figure><img src="../shared/img/ig_berries.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/22.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/cupcakes.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/07.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure>
     </div>
   </div>
     <div class="menu tea reveal">
+      <button type="button" class="fill fill--ask" data-ask="Здравствуйте! Сколько стоят пирожные и пончики и что сегодня есть в наличии?">
+        <span class="fill__row"><span class="fill__name">Пирожные и пончики</span><i aria-hidden="true"></i><b class="price">узнать цену</b></span>
+      </button>
       <details class="fill">
         <summary><h3>Капкейки</h3><i aria-hidden="true"></i><b class="price">от 270 ₽<small>/шт</small></b></summary>
         <div class="fill__body"><p>Порционные кексы с кремовой шапкой. Бисквит: ванильные, кокосовые, апельсиновые, лимонные, морковные, шоколадные, красный бархат, сникерс. Начинка: конфитюр или конфи из ягод: малина, клубника, вишня, смородина, черника, микс; ганаш на белом, молочном или тёмном шоколаде; цитрусовый курд; сливочная карамель.</p>
@@ -596,7 +603,7 @@
   <div><button class="btn btn--accent btn--sm" data-cookie="all">Принять все</button><button class="btn btn--line btn--sm" data-cookie="need">Только необходимые</button></div>
 </div>
 
-<script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "cups": {"name": "3 капкейка", "price": 810}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "cups": {"name": "2 капкейка в набор", "price": 540}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10240514"></script>
+<script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
+<script src="../shared/app.js?v=10240545"></script>
 </body>
 </html>
