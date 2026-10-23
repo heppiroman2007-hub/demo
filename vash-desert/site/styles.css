@@ -1,0 +1,30 @@
+/* Итоговый стиль «Ваш десерт»: «Розовая пудра» (её вариант 1) + шрифт 2 — классика как в прайсе и изящный почерк как в логотипе.
+   Почерк — только в 2–3 выделенных словах и в логотипе; цены, кнопки и описания — простой Golos, чтобы читалось с телефона. */
+:root{
+  --bg:#fbeef0;--bg2:#f6e1e5;--card:#fffafb;--line:#f0d6dc;--line-strong:#e6c0c9;
+  --text:#3a2433;--muted:#7d6573;--accent:#d14b74;--accent-dark:#b83a61;--accent-soft:#f3a9bf;--accent2:#7b5aa6;
+  --price-bg:#f8dbe3;--price-ink:#b83a61;--price-r:999px;
+  --head:"Cormorant",Georgia,"Times New Roman",serif;--body:"Golos","Segoe UI",Arial,sans-serif;--script:"Vibes","Segoe Script",cursive;
+  --h1-weight:600;--h2-weight:600;--h3-weight:600;--h-ls:0;--h3-ls:0;--h3-tt:none;
+  --r:30px;--btn-r:999px;--photo-r:999px 999px 30px 30px;
+  --photo-sh:0 30px 60px -30px rgba(120,30,60,.45);--card-sh:0 18px 40px -28px rgba(120,30,60,.3);
+  --footer:#3a2433;--footer-ink:#fbe9ef;
+}
+.hero__wash{background:radial-gradient(50% 60% at 80% 30%,#f7cdd8,transparent 70%)}
+.hero__small{border-radius:50%;aspect-ratio:1}
+.fill,.card,.work{border:0}
+
+/* классика: крупнее, без отрицательного трекинга — у антиквы свои пропорции */
+.hero h1{font-size:clamp(42px,6.4vw,80px);line-height:1.02}
+.sec__head h2,.calc__intro h2,.bento__panel h2,.contacts h2,.vitrina__text h2{font-size:clamp(36px,4.8vw,60px)}
+.fill h3{font-size:21px;line-height:1.15}
+.sweet h3,.steps b{font-size:25px}
+/* у Cormorant цифры «старинные» (разной высоты), ровных в веб-версии нет — цены и рейтинг простым Golos */
+.strip b,.total b,.rating b,.score b{font-family:var(--body);font-weight:600;letter-spacing:-.02em}
+
+/* почерк как в логотипе: только выделенные слова */
+.hero h1 em,h2 em{font-family:var(--script);font-weight:400;font-size:1.25em;line-height:.9;letter-spacing:0}
+.logo__name{font-size:34px;line-height:1.05}
+.hero__note{font-size:27px}
+.steps li::before{font-size:34px}
+@media (max-width:640px){.logo__name{font-size:30px}.hero__note{font-size:22px}.fill h3{font-size:19.5px}}
