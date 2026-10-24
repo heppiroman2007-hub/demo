@@ -43,6 +43,12 @@ em{font-style:normal}
 .logo{display:flex;flex-direction:column;line-height:1}
 .logo__kind{font:600 10.5px var(--body);letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:2px}
 .logo__name{font:400 30px/1 var(--script);color:var(--accent)}
+/* её логотип (акварель, без телефона внизу): над первым экраном крупно, при прокрутке ужимается в шапку */
+.logo--img{height:50px;position:relative}
+.logo--img img{height:86px;width:auto;margin-top:-4px;transform-origin:0 0;filter:drop-shadow(0 6px 14px rgba(209,75,116,.18));transition:height .35s,margin .35s}
+.header.solid .logo--img img{height:54px;margin-top:-2px}
+.footer__logo{display:block;width:150px;height:auto;margin-bottom:12px;padding:8px 10px;border-radius:18px;background:#fff6f8}
+@media (max-width:640px){.logo--img{height:44px}.logo--img img{height:70px}.header.solid .logo--img img{height:48px}}
 .nav{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:15.5px}
 .nav a{transition:color .2s}
 .nav a:hover{color:var(--accent)}
