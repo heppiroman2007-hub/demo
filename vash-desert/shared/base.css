@@ -123,6 +123,47 @@ em{font-style:normal}
 .fill__btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;font-weight:600;font-size:15px;color:var(--accent)}
 .fill__btn svg{transition:translate .2s}
 .fill__btn:hover svg{translate:4px 0}
+/* торты: кусочек-иконка по группе, «N слоёв · смотреть в разрезе», круглый «+» → «×»; внутри — торт в разрезе */
+.menu--cakes{--berry:#e2547a;--choco:#7a4a32;--classic:#e2a94e}
+.menu__tip{display:flex;align-items:flex-end;gap:6px;margin:-12px 0 12px 6px;font:400 25px/1 var(--script);color:var(--accent)}
+.menu__tip svg{width:38px;height:28px;flex:none;color:var(--accent-soft);translate:0 8px}
+@media (max-width:640px){.menu__tip{font-size:19.5px;margin-left:2px}.menu__tip svg{width:30px;height:22px}}
+.menu--cakes .fill summary{align-items:center;gap:12px;padding:12px 12px 12px 14px}
+.menu--cakes .fill summary>i{display:none}
+.slice{flex:none;width:38px;height:32px;border-radius:3px 3px 6px 6px;clip-path:polygon(0 34%,100% 0,100% 100%,0 100%);
+  background:linear-gradient(#fff 0 30%,var(--c-sponge) 30% 48%,var(--c-fill) 48% 60%,var(--c-sponge) 60% 78%,#fff 78% 84%,var(--c-sponge) 84%);
+  filter:drop-shadow(0 3px 4px rgba(120,30,60,.18));transition:rotate .3s,scale .3s}
+.slice--berry{--c-sponge:#f2d49c;--c-fill:var(--berry)}
+.slice--choco{--c-sponge:#6b4430;--c-fill:#c98b5a}
+.slice--classic{--c-sponge:#ecc27a;--c-fill:#fff1d6}
+.fill__head{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fill__head small{font-size:12.5px;color:var(--muted);line-height:1.2}
+.fill__head u{text-decoration:none;color:var(--accent);font-weight:600}
+.fill__plus{position:relative;flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent-soft);color:var(--accent);transition:transform .3s,background .2s,color .2s}
+.fill__plus::before,.fill__plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:2px;background:currentColor}
+.fill__plus::after{rotate:90deg}
+.menu--cakes .fill:hover .slice{rotate:-6deg;scale:1.06}
+.menu--cakes .fill:hover .fill__plus{background:var(--price-bg)}
+.menu--cakes .fill[open] .fill__plus{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:#fff}
+.menu--cakes .fill[open] .fill__head u{display:none}
+.menu--cakes .fill[open] .slice{rotate:-10deg;scale:1.1}
+/* пока ни одну не открыли — «+» первой строки мягко зовёт нажать */
+.menu--cakes.is-hinting .fill:first-child .fill__plus{animation:nudge 2.4s ease-in-out infinite}
+@keyframes nudge{0%,60%,100%{box-shadow:0 0 0 0 var(--accent-soft);scale:1}75%{box-shadow:0 0 0 7px transparent;scale:1.12}}
+.cut__t{margin:2px 0 8px;font:600 11px var(--body);letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}
+.cut{list-style:none;display:flex;flex-direction:column-reverse;margin-bottom:10px;border-radius:10px 10px 14px 14px;overflow:hidden;box-shadow:0 10px 22px -16px rgba(80,20,40,.6)}
+.cut__l{padding:8px 12px;font-size:13.5px;line-height:1.3;box-shadow:inset 0 1px 0 rgba(90,30,50,.1);animation:layer .4s calc(var(--i) * 60ms) both}
+.cut__l--sponge{background:#f2d49c;color:#5a3a1c}
+.cut__l--sponge-choco{background:#6b4430;color:#fbeee3}
+.cut__l--sponge-red{background:#a8243c;color:#fff}
+.cut__l--cream{background:#fff8f0;color:var(--text)}
+.cut__l--filling{background:var(--berry);color:#fff}
+.cut--choco .cut__l--filling{background:#b9764a}
+.cut--classic .cut__l--filling{background:var(--classic);color:#4a2c10}
+.cut__l:last-child{border-radius:10px 10px 0 0}
+@keyframes layer{from{opacity:0;translate:0 -8px}}
+.cut__note{font-size:13.5px;color:var(--muted);margin:-2px 0 6px}
+@media (prefers-reduced-motion:reduce){.menu--cakes.is-hinting .fill:first-child .fill__plus,.cut__l{animation:none}}
 .menu__more{display:flex;justify-content:center;margin-top:26px}
 .menu__note{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;color:var(--muted);font-size:14.5px;text-align:center}
 .menu__note svg{color:var(--accent);width:18px;height:18px}

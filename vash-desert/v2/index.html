@@ -14,8 +14,8 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10241239">
-<link rel="stylesheet" href="styles.css?v=10241239">
+<link rel="stylesheet" href="../shared/base.css?v=10241245">
+<link rel="stylesheet" href="styles.css?v=10241245">
 </head>
 <body>
 
@@ -83,7 +83,7 @@
     <div class="sec__head reveal">
       <p class="kicker">Торты на заказ</p>
       <h2>21 начинка — <em>выбирайте</em></h2>
-      <p>Цена за 1 кг. Выберите начинку и вес — сумма посчитается сразу, а заказ уйдёт кондитеру в WhatsApp.</p>
+      <p>Цена за 1 кг. Выберите начинку и вес — сумма посчитается сразу, а заказ уйдёт кондитеру в WhatsApp или MAX.</p>
     </div>
     <div class="order" id="calc">
       <div class="order__list">
@@ -93,131 +93,321 @@
       <button data-group="choco">Шоколадные <small>7</small></button>
       <button data-group="classic">Классика <small>7</small></button>
     </div>
-    <div class="menu" id="menuList">
+    <p class="menu__tip reveal" id="menuTip"><span>Нажмите на начинку — покажем торт в разрезе</span><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M4 4c10 2 22 6 26 20m0 0-6-4m6 4 3-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+    <div class="menu menu--cakes is-hinting" id="menuList">
+      
       
       <details class="fill" data-group="berry">
-        <summary><h3>Клубника-маракуйя</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный бисквит, мусс из маракуйи, клубничное конфи, пропитка сиропом из маракуйи, крем на основе двух сыров, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Клубника-маракуйя</h3><small>6 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадный бисквит</li><li class="cut__l cut__l--filling" style="--i:1">Мусс из маракуйи</li><li class="cut__l cut__l--filling" style="--i:2">Клубничное конфи</li><li class="cut__l cut__l--cream" style="--i:3">Пропитка сиропом из маракуйи</li><li class="cut__l cut__l--cream" style="--i:4">Крем на основе двух сыров</li><li class="cut__l cut__l--cream" style="--i:5">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="0">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Киндер Кантри</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный бисквит, ганаш на молочном шоколаде, начинка «Киндер Кантри», молочная и шоколадная пропитка, ванильный крем</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Киндер Кантри</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадный бисквит</li><li class="cut__l cut__l--filling" style="--i:1">Ганаш на молочном шоколаде</li><li class="cut__l cut__l--filling" style="--i:2">Начинка «Киндер Кантри»</li><li class="cut__l cut__l--cream" style="--i:3">Молочная и шоколадная пропитка</li><li class="cut__l cut__l--cream" style="--i:4">Ванильный крем</li></ol>
+          
           <button class="fill__btn" data-pick="8">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Наполеон с заварным кремом</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Домашние слоёные коржи, крем пломбир, карамельный — нежный крем, который тает во рту</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Наполеон с заварным кремом</h3><small>3 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Домашние слоёные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Крем пломбир</li><li class="cut__l cut__l--filling" style="--i:2">Карамельный — нежный крем, который тает во рту</li></ol>
+          
           <button class="fill__btn" data-pick="16">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Манго-маракуйя</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Ванильные коржи, крем на основе двух сыров, мусс маракуйя, кули манго-маракуйя, ганаш манго-маракуйя, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Манго-маракуйя</h3><small>6 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Ванильные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Крем на основе двух сыров</li><li class="cut__l cut__l--filling" style="--i:2">Мусс маракуйя</li><li class="cut__l cut__l--filling" style="--i:3">Кули манго-маракуйя</li><li class="cut__l cut__l--filling" style="--i:4">Ганаш манго-маракуйя</li><li class="cut__l cut__l--cream" style="--i:5">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="1">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Малина-мята</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Ванильный бисквит, крем на основе двух сыров (маскарпоне, творожный), крем йогурт-мята, малиновое конфи, малиновая пропитка, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Малина-мята</h3><small>6 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Ванильный бисквит</li><li class="cut__l cut__l--cream" style="--i:1">Крем на основе двух сыров (маскарпоне, творожный)</li><li class="cut__l cut__l--cream" style="--i:2">Крем йогурт-мята</li><li class="cut__l cut__l--filling" style="--i:3">Малиновое конфи</li><li class="cut__l cut__l--cream" style="--i:4">Малиновая пропитка</li><li class="cut__l cut__l--cream" style="--i:5">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="2">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Фисташка-малина</h3><i aria-hidden="true"></i><b class="price">2 200 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Фисташковый бисквит, фисташковая пропитка, фисташковый крем-чиз, малиновое конфи</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Фисташка-малина</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 200 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Фисташковый бисквит</li><li class="cut__l cut__l--cream" style="--i:1">Фисташковая пропитка</li><li class="cut__l cut__l--cream" style="--i:2">Фисташковый крем-чиз</li><li class="cut__l cut__l--filling" style="--i:3">Малиновое конфи</li></ol>
+          
           <button class="fill__btn" data-pick="3">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Малиновый пломбир</h3><i aria-hidden="true"></i><b class="price">2 400 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Лимонный бисквит с малиной, взбитый ганаш на белом шоколаде, лимонная пропитка, малиновое конфи, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Малиновый пломбир</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 400 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Лимонный бисквит с малиной</li><li class="cut__l cut__l--filling" style="--i:1">Взбитый ганаш на белом шоколаде</li><li class="cut__l cut__l--cream" style="--i:2">Лимонная пропитка</li><li class="cut__l cut__l--filling" style="--i:3">Малиновое конфи</li><li class="cut__l cut__l--cream" style="--i:4">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="4">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Черничное наслаждение</h3><i aria-hidden="true"></i><b class="price">1 900 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Ванильные коржи, крем-чиз, крем из черники, черничный конфитюр, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Черничное наслаждение</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">1 900 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Ванильные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Крем-чиз</li><li class="cut__l cut__l--cream" style="--i:2">Крем из черники</li><li class="cut__l cut__l--filling" style="--i:3">Черничный конфитюр</li><li class="cut__l cut__l--cream" style="--i:4">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="5">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="berry">
-        <summary><h3>Клубничный лимонад</h3><i aria-hidden="true"></i><b class="price">1 900 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Лимонные коржи, лимонный крем-чиз, клубничное конфи, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--berry" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Клубничный лимонад</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">1 900 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--berry"><li class="cut__l cut__l--sponge" style="--i:0">Лимонные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Лимонный крем-чиз</li><li class="cut__l cut__l--filling" style="--i:2">Клубничное конфи</li><li class="cut__l cut__l--cream" style="--i:3">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="6">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Красный бархат «Малина в шоколаде»</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный кексовый бисквит красного цвета, малиновое конфи, мусс из молочного шоколада, крем-чиз</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Красный бархат «Малина в шоколаде»</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-red" style="--i:0">Шоколадный кексовый бисквит красного цвета</li><li class="cut__l cut__l--filling" style="--i:1">Малиновое конфи</li><li class="cut__l cut__l--filling" style="--i:2">Мусс из молочного шоколада</li><li class="cut__l cut__l--cream" style="--i:3">Крем-чиз</li></ol>
+          
           <button class="fill__btn" data-pick="7">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Сникерс</h3><i aria-hidden="true"></i><b class="price">2 400 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Влажный шоколадный бисквит, нежный крем-чиз, ганаш на молочном шоколаде, сливочная карамель с арахисом, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Сникерс</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 400 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Влажный шоколадный бисквит</li><li class="cut__l cut__l--cream" style="--i:1">Нежный крем-чиз</li><li class="cut__l cut__l--filling" style="--i:2">Ганаш на молочном шоколаде</li><li class="cut__l cut__l--filling" style="--i:3">Сливочная карамель с арахисом</li><li class="cut__l cut__l--cream" style="--i:4">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="9">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Молочный шоколад-банан</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный бисквит на молочном шоколаде, банановый крем, ганаш на молочном шоколаде, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Молочный шоколад-банан</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадный бисквит на молочном шоколаде</li><li class="cut__l cut__l--cream" style="--i:1">Банановый крем</li><li class="cut__l cut__l--filling" style="--i:2">Ганаш на молочном шоколаде</li><li class="cut__l cut__l--cream" style="--i:3">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="10">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Чёрный лес</h3><i aria-hidden="true"></i><b class="price">2 100 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадные коржи, вишнёвая пропитка, вишнёвый конфитюр, крем-чиз на сливках</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Чёрный лес</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 100 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Вишнёвая пропитка</li><li class="cut__l cut__l--filling" style="--i:2">Вишнёвый конфитюр</li><li class="cut__l cut__l--cream" style="--i:3">Крем-чиз на сливках</li></ol>
+          
           <button class="fill__btn" data-pick="11">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Красный бархат</h3><i aria-hidden="true"></i><b class="price">2 100 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный бисквит красного цвета, крем-чиз, малиновый (или клубничный) ганаш, покрытие крем на масле</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Красный бархат</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 100 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-red" style="--i:0">Шоколадный бисквит красного цвета</li><li class="cut__l cut__l--cream" style="--i:1">Крем-чиз</li><li class="cut__l cut__l--filling" style="--i:2">Малиновый (или клубничный) ганаш</li><li class="cut__l cut__l--cream" style="--i:3">Покрытие крем на масле</li></ol>
+          
           <button class="fill__btn" data-pick="12">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="choco">
-        <summary><h3>Шоколад-вишня</h3><i aria-hidden="true"></i><b class="price">1 900 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадные коржи, крем-чиз, ганаш на тёмном шоколаде, вишнёвый конфитюр, покрытие крем-чиз на масле</p>
+        <summary>
+          <span class="slice slice--choco" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Шоколад-вишня</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">1 900 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Крем-чиз</li><li class="cut__l cut__l--filling" style="--i:2">Ганаш на тёмном шоколаде</li><li class="cut__l cut__l--filling" style="--i:3">Вишнёвый конфитюр</li><li class="cut__l cut__l--cream" style="--i:4">Покрытие крем-чиз на масле</li></ol>
+          
           <button class="fill__btn" data-pick="13">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Рафаэлло</h3><i aria-hidden="true"></i><b class="price">2 400 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Миндально-кокосовый бисквит, хрустящий слой, кокосовый ганаш, кокосовая пропитка, кокосовый мусс</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Рафаэлло</h3><small>5 слоёв<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 400 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Миндально-кокосовый бисквит</li><li class="cut__l cut__l--cream" style="--i:1">Хрустящий слой</li><li class="cut__l cut__l--filling" style="--i:2">Кокосовый ганаш</li><li class="cut__l cut__l--cream" style="--i:3">Кокосовая пропитка</li><li class="cut__l cut__l--filling" style="--i:4">Кокосовый мусс</li></ol>
+          
           <button class="fill__btn" data-pick="14">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Молочная девочка</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Тонкие коржи на сгущённом молоке, молочная пропитка, ванильно-сливочный крем. Можно добавить фруктово-ягодную начинку</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Молочная девочка</h3><small>3 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Тонкие коржи на сгущённом молоке</li><li class="cut__l cut__l--cream" style="--i:1">Молочная пропитка</li><li class="cut__l cut__l--cream" style="--i:2">Ванильно-сливочный крем</li></ol>
+          <p class="cut__note">Можно добавить фруктово-ягодную начинку</p>
           <button class="fill__btn" data-pick="15">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Наполеон «Ванильная намелака»</h3><i aria-hidden="true"></i><b class="price">2 300 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Домашние хрустящие слоёные коржи, крем на основе белого шоколада</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Наполеон «Ванильная намелака»</h3><small>2 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 300 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Домашние хрустящие слоёные коржи</li><li class="cut__l cut__l--cream" style="--i:1">Крем на основе белого шоколада</li></ol>
+          
           <button class="fill__btn" data-pick="17">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Морковный</h3><i aria-hidden="true"></i><b class="price">2 200 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Морковный бисквит с грецким орехом и корицей, молочная пропитка, солёная ириска, крем-чиз</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Морковный</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 200 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Морковный бисквит с грецким орехом и корицей</li><li class="cut__l cut__l--cream" style="--i:1">Молочная пропитка</li><li class="cut__l cut__l--filling" style="--i:2">Солёная ириска</li><li class="cut__l cut__l--cream" style="--i:3">Крем-чиз</li></ol>
+          
           <button class="fill__btn" data-pick="18">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Медовик с ягодной начинкой</h3><i aria-hidden="true"></i><b class="price">2 000 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Медовые коржи (10–12 шт), крем-чиз со сметаной и ягодная начинка</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Медовик с ягодной начинкой</h3><small>2 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 000 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Медовые коржи (10–12 шт)</li><li class="cut__l cut__l--filling" style="--i:1">Крем-чиз со сметаной и ягодная начинка</li></ol>
+          
           <button class="fill__btn" data-pick="19">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
+      
       <details class="fill" data-group="classic">
-        <summary><h3>Медовик</h3><i aria-hidden="true"></i><b class="price">1 900 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Медовые коржи (10–12 шт), крем-чиз со сметаной</p>
+        <summary>
+          <span class="slice slice--classic" aria-hidden="true"></span>
+          <span class="fill__head"><h3>Медовик</h3><small>2 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">1 900 ₽<small>/кг</small></b>
+          <span class="fill__plus" aria-hidden="true"></span>
+        </summary>
+        <div class="fill__body">
+          <p class="cut__t">В разрезе</p>
+          <ol class="cut cut--classic"><li class="cut__l cut__l--sponge" style="--i:0">Медовые коржи (10–12 шт)</li><li class="cut__l cut__l--cream" style="--i:1">Крем-чиз со сметаной</li></ol>
+          
           <button class="fill__btn" data-pick="20">Посчитать торт <svg><use href="#arrow"/></svg></button></div>
       </details>
       
@@ -624,6 +814,6 @@
 </div>
 
 <script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "corpus": [{"name": "Банан", "price": 250, "pack": 1}, {"name": "Малина", "price": 350, "pack": 1}, {"name": "Донаткейк", "price": 350, "pack": 1}, {"name": "Попкорн", "price": 380, "pack": 1}, {"name": "Кофейное зерно", "price": 380, "pack": 1}, {"name": "Манго", "price": 380, "pack": 1}, {"name": "Клубничка", "price": 380, "pack": 1}, {"name": "Черничка", "price": 400, "pack": 1}, {"name": "Лимон", "price": 420, "pack": 2}, {"name": "Маракуйя", "price": 450, "pack": 1}], "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10241239"></script>
+<script src="../shared/app.js?v=10241245"></script>
 </body>
 </html>

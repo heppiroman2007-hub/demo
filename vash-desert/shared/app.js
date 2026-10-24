@@ -98,7 +98,9 @@ $("#menuFilter").addEventListener("click", e => {
 moreBtn.addEventListener("click", () => { menuOpen = true; renderMenu(); });
 // открыт только один состав — раздел не разрастается
 $$("#menuList .fill").forEach(d => d.addEventListener("toggle", () => {
-  if (d.open) $$("#menuList .fill[open]").forEach(x => { if (x !== d) x.open = false; });
+  if (!d.open) return;
+  menuList.classList.remove("is-hinting");  // понял, что строки открываются, — больше не подсказываем
+  $$("#menuList .fill[open]").forEach(x => { if (x !== d) x.open = false; });
 }));
 $$(".is-more").forEach(el => el.classList.remove("is-more"));
 renderMenu();
