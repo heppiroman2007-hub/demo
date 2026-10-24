@@ -140,10 +140,17 @@ em{font-style:normal}
 .emo{flex:none;font-size:18px;line-height:1}
 .list.list--emo li{align-items:center;gap:10px;animation:layer .35s calc(var(--i) * 40ms) both}
 .list--emo .emo{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--bg);font-size:22px}
-/* фото вместо смайлика: кружок крупнее, чтобы десерт читался */
-.emo-plate.is-photo{width:54px;height:54px;overflow:hidden;background:var(--card)}
-.list--emo .emo.is-photo{width:46px;height:46px;overflow:hidden;box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--line-strong)}
-.is-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+/* рисованные десерты: на тарелочке, покачиваются по очереди, при наведении подпрыгивают */
+.emo-plate.is-art{width:54px;height:54px}
+.list--emo .emo.is-art svg{width:40px;height:40px}
+.list--emo .emo.is-art{width:50px;height:50px;background:var(--price-bg);box-shadow:inset 0 0 0 3px var(--card),0 0 0 1.5px var(--line-strong)}
+.is-art svg{width:42px;height:42px;overflow:visible;transform-origin:50% 90%;animation:sway 3.2s ease-in-out calc(var(--i, 0) * -.35s) infinite}
+.fill[open] .list--emo .is-art svg{animation:pop .5s cubic-bezier(.3,1.6,.5,1) calc(var(--i) * 50ms) both,sway 3.2s ease-in-out calc(.6s + var(--i) * .35s) infinite}
+.list--emo li:hover .is-art svg,.menu--rich .fill:hover>summary .is-art svg{animation:hop .55s ease}
+@keyframes sway{0%,100%{rotate:-4deg}50%{rotate:4deg}}
+@keyframes pop{from{scale:.3;opacity:0}}
+@keyframes hop{30%{translate:0 -6px;scale:1.08}60%{translate:0 0;scale:.96 1.04}}
+@media (prefers-reduced-motion:reduce){.is-art svg{animation:none!important}}
 .pills{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .pills li{padding:5px 11px;border-radius:999px;background:var(--accent);color:#fff;font-size:13.5px;animation:layer .35s calc(var(--i) * 40ms) both}
 .pills--soft li{background:var(--price-bg);color:var(--price-ink)}

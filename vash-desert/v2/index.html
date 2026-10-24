@@ -14,12 +14,108 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10241256">
-<link rel="stylesheet" href="styles.css?v=10241256">
+<link rel="stylesheet" href="../shared/base.css?v=10241305">
+<link rel="stylesheet" href="styles.css?v=10241305">
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+
+  <symbol id="d-banana" viewBox="0 0 64 64"><ellipse cx="32" cy="56" rx="19" ry="3.2" fill="#3a2433" opacity=".12"/>
+    <path d="M9 32c4 16 31 22 45-3 1.5-2.6-1.6-4.6-3.4-2.4C41 41 24 42 14.5 30.5c-2-2.4-6-.8-5.5 1.5z" fill="#f7d64a" stroke="#d9a520" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M15 35c9 8 25 8 35-4" fill="none" stroke="#e5b42a" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M19 34c7 3.5 15 3.5 22-1" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
+    <circle cx="52.6" cy="27.6" r="2.1" fill="#6b4a1e"/><circle cx="10.6" cy="31.2" r="1.9" fill="#6b4a1e"/>
+    <circle cx="33" cy="42" r="1" fill="#b98a2a" opacity=".7"/><circle cx="40" cy="39.5" r=".8" fill="#b98a2a" opacity=".7"/></symbol>
+
+  <symbol id="d-raspberry" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="14" ry="3" fill="#3a2433" opacity=".12"/>
+    <g fill="#e23a6e" stroke="#b5204f" stroke-width="1.2">
+      <circle cx="28.5" cy="47" r="5.4"/><circle cx="35.5" cy="47" r="5.4"/>
+      <circle cx="25" cy="40" r="5.4"/><circle cx="32" cy="40" r="5.4"/><circle cx="39" cy="40" r="5.4"/>
+      <circle cx="21.5" cy="33" r="5.4"/><circle cx="28.5" cy="33" r="5.4"/><circle cx="35.5" cy="33" r="5.4"/><circle cx="42.5" cy="33" r="5.4"/>
+      <circle cx="21.5" cy="26" r="5.4"/><circle cx="28.5" cy="26" r="5.4"/><circle cx="35.5" cy="26" r="5.4"/><circle cx="42.5" cy="26" r="5.4"/>
+      <circle cx="25" cy="19" r="5.4"/><circle cx="32" cy="19" r="5.4"/><circle cx="39" cy="19" r="5.4"/></g>
+    <g fill="#fff" opacity=".55">
+      <circle cx="26.8" cy="45.3" r="1.3"/><circle cx="23.3" cy="38.3" r="1.3"/><circle cx="30.3" cy="38.3" r="1.3"/><circle cx="19.8" cy="31.3" r="1.3"/>
+      <circle cx="26.8" cy="31.3" r="1.3"/><circle cx="19.8" cy="24.3" r="1.3"/><circle cx="26.8" cy="24.3" r="1.3"/><circle cx="23.3" cy="17.3" r="1.3"/><circle cx="30.3" cy="17.3" r="1.3"/></g>
+    <path d="M32 15l-5-6 4 1.5L32 6l1 4.5 4-1.5z" fill="#5fa64a"/></symbol>
+
+  <symbol id="d-donut" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="20" ry="3.2" fill="#3a2433" opacity=".12"/>
+    <circle cx="32" cy="34" r="21" fill="#d49a62"/>
+    <path d="M13 31c0-11 8.5-18.5 19-18.5S51 20 51 31c0 3-2 2-3 4.5s-.5 5-3 5-3-2.5-5.5-1.5-2 4-5 4-3-3-5.5-3-3 3-5.5 2.5-2-3.5-4.5-4.5S13 36 13 31z" fill="#6e3b22"/>
+    <circle cx="32" cy="32" r="6.4" fill="#d49a62"/><circle cx="32" cy="32" r="4.4" fill="#fbe9e4"/>
+    <path d="M18 27l5-6M24 37l6-9M38 36l6-8M41 22l4-3" stroke="#a5653d" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="44.5" cy="27" r="1.9" fill="#f1d38a"/><circle cx="46.8" cy="31" r="1.9" fill="#f1d38a"/><circle cx="43" cy="30.6" r="1.6" fill="#f1d38a"/>
+    <path d="M17 29a15 15 0 0 1 9-11" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".3"/></symbol>
+
+  <symbol id="d-popcorn" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="13" ry="2.8" fill="#3a2433" opacity=".12"/>
+    <path d="M18 30h28l-4 25H22z" fill="#fff" stroke="#c23a35" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M18 30h5.6L26 55h-4zM29.2 30h5.6L34 55h-4zM40.4 30H46l-4 25h-4z" fill="#e2463f"/>
+    <g stroke="#e0b06a" stroke-width="1.1">
+      <circle cx="21" cy="26" r="5" fill="#fff3d4"/><circle cx="43" cy="26" r="5" fill="#fff3d4"/><circle cx="27.5" cy="21" r="5.4" fill="#f2c46d"/>
+      <circle cx="37" cy="20.5" r="5.4" fill="#fff3d4"/><circle cx="32" cy="26.5" r="5" fill="#fff3d4"/><circle cx="31" cy="14.5" r="4.3" fill="#fff3d4"/><circle cx="41" cy="14.8" r="3.6" fill="#f2c46d"/></g>
+    <rect x="16.5" y="28.5" width="31" height="4" rx="2" fill="#e2463f"/></symbol>
+
+  <symbol id="d-coffee" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="15" ry="3" fill="#3a2433" opacity=".12"/>
+    <g transform="rotate(-25 32 33)"><ellipse cx="32" cy="33" rx="14" ry="19.5" fill="#6b3d22" stroke="#4a2814" stroke-width="1.4"/>
+      <path d="M32 14.5c-6 8 6 13 0 19s6 12 0 18" fill="none" stroke="#3a1e0e" stroke-width="2.6" stroke-linecap="round"/>
+      <ellipse cx="25" cy="26" rx="3" ry="7.5" fill="#fff" opacity=".22"/></g></symbol>
+
+  <symbol id="d-mango" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="16" ry="3" fill="#3a2433" opacity=".12"/>
+    <path d="M21 51c-9-6-10-23-2-33 7-9 21-9 27-1 7 9 5 26-6 33-6 4-13 5-19 1z" fill="#ffb534"/>
+    <path d="M30 13c7-1 13 1 16.5 4.5 5 6 5 15 2 22-4-9-10-16-18.5-26.5z" fill="#ef5a3c" opacity=".7"/>
+    <path d="M19 47c-6-6-7-16-3-24 1 9 6 18 14 25-4 1.5-8 1-11-1z" fill="#ffdc4d" opacity=".85"/>
+    <path d="M39 15c1-3 3-5 6-6" fill="none" stroke="#6b4a1e" stroke-width="2" stroke-linecap="round"/>
+    <path d="M42 11.5c4-5 11-5 13-3-3 4-9 6-13 3z" fill="#5fae4b"/>
+    <ellipse cx="24" cy="28" rx="3.2" ry="8" fill="#fff" opacity=".35" transform="rotate(15 24 28)"/></symbol>
+
+  <symbol id="d-strawberry" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="13" ry="2.8" fill="#3a2433" opacity=".12"/>
+    <path d="M32 55c-10-6-18-15-18-25 0-7 6-11 12-10 3 .5 4.5 1.5 6 1.5s3-1 6-1.5c6-1 12 3 12 10 0 10-8 19-18 25z" fill="#e8344e" stroke="#c0213a" stroke-width="1.3"/>
+    <g fill="#ffe08a"><ellipse cx="24" cy="30" rx="1" ry="1.5"/><ellipse cx="32" cy="28.5" rx="1" ry="1.5"/><ellipse cx="40" cy="30" rx="1" ry="1.5"/>
+      <ellipse cx="20.5" cy="37.5" rx="1" ry="1.5"/><ellipse cx="28" cy="36.5" rx="1" ry="1.5"/><ellipse cx="36" cy="36.5" rx="1" ry="1.5"/><ellipse cx="43.5" cy="37.5" rx="1" ry="1.5"/>
+      <ellipse cx="25" cy="44" rx="1" ry="1.5"/><ellipse cx="32" cy="44" rx="1" ry="1.5"/><ellipse cx="39" cy="44" rx="1" ry="1.5"/><ellipse cx="32" cy="50.5" rx="1" ry="1.5"/></g>
+    <path d="M32 23l-9-4 6-.5-4-5.5 6 3 1-6 1 6 6-3-4 5.5 6 .5z" fill="#4f9e3f"/>
+    <ellipse cx="21.5" cy="31" rx="2.4" ry="5" fill="#fff" opacity=".35" transform="rotate(20 21.5 31)"/></symbol>
+
+  <symbol id="d-blueberry" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="18" ry="3" fill="#3a2433" opacity=".12"/>
+    <circle cx="46" cy="42" r="10" fill="#2f3f86"/><path d="M46 33.5l-1.6 2.6-2.8-.4 1.8 2.2-1 2.7 3.6-1.6 3.6 1.6-1-2.7 1.8-2.2-2.8.4z" fill="#1c2658"/>
+    <circle cx="30" cy="35" r="19" fill="#3c4f9e"/><circle cx="26.5" cy="31" r="14" fill="#5568b8" opacity=".45"/>
+    <path d="M30 18l-2.4 3.6-4.2-.6 2.7 3.2-1.5 4 5.4-2.4 5.4 2.4-1.5-4 2.7-3.2-4.2.6z" fill="#1f2a5c"/>
+    <ellipse cx="22" cy="31" rx="3.5" ry="6.5" fill="#fff" opacity=".28" transform="rotate(20 22 31)"/></symbol>
+
+  <symbol id="d-lemon" viewBox="0 0 64 64"><ellipse cx="32" cy="56" rx="19" ry="3" fill="#3a2433" opacity=".12"/>
+    <circle cx="10.5" cy="36" r="3" fill="#ffe23d" stroke="#e9b90c" stroke-width="1.4"/><circle cx="53.5" cy="36" r="3" fill="#ffe23d" stroke="#e9b90c" stroke-width="1.4"/>
+    <ellipse cx="32" cy="36" rx="21" ry="15.5" fill="#ffe23d" stroke="#e9b90c" stroke-width="1.5"/>
+    <path d="M44 22c3-7 10-9 14-7-2 5-8 8-14 7z" fill="#5fae4b"/>
+    <ellipse cx="24" cy="30" rx="7" ry="3.2" fill="#fff" opacity=".45" transform="rotate(-15 24 30)"/>
+    <g fill="#e9c21a" opacity=".6"><circle cx="38" cy="42" r=".9"/><circle cx="42" cy="38" r=".9"/><circle cx="34" cy="45" r=".9"/></g></symbol>
+
+  <symbol id="d-passion" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="17" ry="3" fill="#3a2433" opacity=".12"/>
+    <circle cx="32" cy="34" r="20" fill="#6a2f6e"/><circle cx="32" cy="34" r="17" fill="#f4e7c8"/><circle cx="32" cy="34" r="14" fill="#f7b51f"/>
+    <g fill="#2a1a10"><ellipse cx="27" cy="29" rx="1.6" ry="2.2"/><ellipse cx="35" cy="27" rx="1.6" ry="2.2"/><ellipse cx="39" cy="34" rx="1.6" ry="2.2"/>
+      <ellipse cx="34" cy="41" rx="1.6" ry="2.2"/><ellipse cx="26" cy="38" rx="1.6" ry="2.2"/><ellipse cx="31" cy="34" rx="1.6" ry="2.2"/></g>
+    <circle cx="21" cy="21" r="1" fill="#fff" opacity=".4"/><path d="M19 27a14 14 0 0 1 6-8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".4"/></symbol>
+
+  <symbol id="d-cupcake" viewBox="0 0 64 64"><ellipse cx="32" cy="58" rx="14" ry="2.8" fill="#3a2433" opacity=".12"/>
+    <path d="M17 36h30l-4.5 19h-21z" fill="#f3a9bf" stroke="#d14b74" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M23 37l1.5 17M29 37l.5 17M35 37l-.5 17M41 37l-1.5 17" stroke="#d14b74" stroke-width="1" opacity=".5"/>
+    <g fill="#fff3f6" stroke="#efbccb" stroke-width="1.2"><ellipse cx="32" cy="34" rx="17" ry="6"/><ellipse cx="32" cy="27.5" rx="12.5" ry="5"/><ellipse cx="32" cy="21.5" rx="8" ry="4"/></g>
+    <circle cx="32" cy="14" r="3.6" fill="#d81f45"/><path d="M32 10.5c1-3 3-4 5-4.5" fill="none" stroke="#5fae4b" stroke-width="1.4" stroke-linecap="round"/>
+    <g stroke-width="1.6" stroke-linecap="round"><path d="M22 32l2-.5" stroke="#7b5aa6"/><path d="M39 30l2 1" stroke="#5fae4b"/><path d="M28 25l1.6-1" stroke="#ffb534"/><path d="M36 24l1.5.8" stroke="#7b5aa6"/></g></symbol>
+
+  <symbol id="d-meringue" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="20" ry="3.2" fill="#3a2433" opacity=".12"/>
+    <circle cx="32" cy="35" r="20" fill="#fff7ec" stroke="#ecd3ad" stroke-width="2"/>
+    <path d="M32 35m0-3a3 3 0 1 1-3 3 6.5 6.5 0 1 1 6.5 6.5A10 10 0 1 1 25 32a13.5 13.5 0 1 1 13.5 13.5" fill="none" stroke="#f39bb4" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="24" cy="15.5" r="3.4" fill="#d8284f"/><circle cx="31.5" cy="13" r="3.6" fill="#7a2a8a"/><circle cx="39" cy="15.5" r="3.4" fill="#d8284f"/>
+    <path d="M42 13c3-3 7-3 8-1-2 3-6 3-8 1z" fill="#5fae4b"/></symbol>
+
+  <symbol id="d-snickers" viewBox="0 0 64 64"><ellipse cx="32" cy="57" rx="20" ry="3.2" fill="#3a2433" opacity=".12"/>
+    <circle cx="32" cy="35" r="20" fill="#4e2a18"/><circle cx="32" cy="35" r="17" fill="#7a4a2e"/>
+    <path d="M32 35m0-3a3 3 0 1 1-3 3 6.5 6.5 0 1 1 6.5 6.5A10 10 0 1 1 25 32a13 13 0 1 1 13 13" fill="none" stroke="#f5e6d3" stroke-width="2.6" stroke-linecap="round"/>
+    <g fill="#d9a35c" stroke="#a8742f" stroke-width=".8"><ellipse cx="22" cy="17.5" rx="2.6" ry="1.8" transform="rotate(-30 22 17.5)"/><ellipse cx="29" cy="15" rx="2.6" ry="1.8"/>
+      <ellipse cx="36" cy="15.2" rx="2.6" ry="1.8" transform="rotate(15 36 15.2)"/><ellipse cx="42.5" cy="18" rx="2.6" ry="1.8" transform="rotate(35 42.5 18)"/></g></symbol>
+
+  <symbol id="d-mix" viewBox="0 0 64 64"><use href="#d-raspberry" x="10" y="-4" width="38" height="38"/><use href="#d-lemon" x="-3" y="18" width="40" height="40"/><use href="#d-strawberry" x="26" y="18" width="40" height="40"/></symbol>
   <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2l-.4-.2z"/></symbol>
   <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></symbol>
@@ -645,6 +741,7 @@
 </section>
 
 
+
 <section class="sec sec--tint" id="vitrina">
   <div class="wrap">
   <div class="vitrina">
@@ -666,19 +763,19 @@
     
     <div class="menu menu--rich tea reveal">
       <button type="button" class="fill fill--ask" data-ask="Здравствуйте! Сколько стоят пирожные и пончики и что сегодня есть в наличии?">
-        <span class="fill__row"><span class="emo-plate is-photo" aria-hidden="true"><img src="../shared/img/th/pastry.jpg" alt="" loading="lazy" width="80" height="80"></span>
+        <span class="fill__row"><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-donut" width="64" height="64"/></svg></span>
           <span class="fill__head"><span class="fill__name">Пирожные и пончики</span><small><u>спросить, что есть сегодня</u></small></span>
           <b class="price">узнать цену</b><span class="fill__go" aria-hidden="true"><svg><use href="#chat"/></svg></span></span>
       </button>
       <details class="fill">
-        <summary><span class="emo-plate is-photo" aria-hidden="true"><img src="../shared/img/th/corpus.jpg" alt="" loading="lazy" width="80" height="80"></span>
+        <summary><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-mix" width="64" height="64"/></svg></span>
           <span class="fill__head"><h3>Корпусные десерты</h3><small>10 вкусов<u> · смотреть все</u></small></span>
           <b class="price">от 250 ₽<small>/шт</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
-        <div class="fill__body"><ul class="list list--emo"><li style="--i:0"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/banana.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Банан<small class="list__d">взбитый ганаш на молочном шоколаде, карамельный банан</small></span><i></i><b>250 ₽</b></li><li style="--i:1"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/raspberry.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Малина<small class="list__d">малиновый мусс, малиновое конфи</small></span><i></i><b>350 ₽</b></li><li style="--i:2"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/donut.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Донаткейк<small class="list__d">мусс на молочном шоколаде с маскарпоне, шоколадная бисквитная масса</small></span><i></i><b>350 ₽</b></li><li style="--i:3"><span class="emo" aria-hidden="true">🍿</span><span>Попкорн<small class="list__d">ганаш «попкорн», карамель и хрустящий слой; есть орехи</small></span><i></i><b>380 ₽</b></li><li style="--i:4"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/coffee.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Кофейное зерно<small class="list__d">кофейный ганаш, мусс на тёмном и молочном шоколаде, печенье савоярди</small></span><i></i><b>380 ₽</b></li><li style="--i:5"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/mango.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Манго<small class="list__d">манговый ганаш, манговый конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:6"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/strawberry.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Клубничка<small class="list__d">ванильный ганаш на белом шоколаде, клубничный конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:7"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/blueberry.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Черничка<small class="list__d">черничный ганаш на белом шоколаде, черничное конфи</small></span><i></i><b>400 ₽</b></li><li style="--i:8"><span class="emo is-photo" aria-hidden="true"><img src="../shared/img/th/lemon.jpg" alt="" loading="lazy" width="80" height="80"></span><span>Лимон<small class="list__d">лимонный мусс на белом шоколаде, лимонный курд</small></span><i></i><b>420 ₽<small> / 2 шт</small></b></li><li style="--i:9"><span class="emo" aria-hidden="true">🌼</span><span>Маракуйя<small class="list__d">взбитый ганаш маракуйя, конфи маракуйя</small></span><i></i><b>450 ₽</b></li></ul>
+        <div class="fill__body"><ul class="list list--emo"><li style="--i:0"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-banana" width="64" height="64"/></svg></span><span>Банан<small class="list__d">взбитый ганаш на молочном шоколаде, карамельный банан</small></span><i></i><b>250 ₽</b></li><li style="--i:1"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-raspberry" width="64" height="64"/></svg></span><span>Малина<small class="list__d">малиновый мусс, малиновое конфи</small></span><i></i><b>350 ₽</b></li><li style="--i:2"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-donut" width="64" height="64"/></svg></span><span>Донаткейк<small class="list__d">мусс на молочном шоколаде с маскарпоне, шоколадная бисквитная масса</small></span><i></i><b>350 ₽</b></li><li style="--i:3"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-popcorn" width="64" height="64"/></svg></span><span>Попкорн<small class="list__d">ганаш «попкорн», карамель и хрустящий слой; есть орехи</small></span><i></i><b>380 ₽</b></li><li style="--i:4"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-coffee" width="64" height="64"/></svg></span><span>Кофейное зерно<small class="list__d">кофейный ганаш, мусс на тёмном и молочном шоколаде, печенье савоярди</small></span><i></i><b>380 ₽</b></li><li style="--i:5"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-mango" width="64" height="64"/></svg></span><span>Манго<small class="list__d">манговый ганаш, манговый конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:6"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-strawberry" width="64" height="64"/></svg></span><span>Клубничка<small class="list__d">ванильный ганаш на белом шоколаде, клубничный конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:7"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-blueberry" width="64" height="64"/></svg></span><span>Черничка<small class="list__d">черничный ганаш на белом шоколаде, черничное конфи</small></span><i></i><b>400 ₽</b></li><li style="--i:8"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-lemon" width="64" height="64"/></svg></span><span>Лимон<small class="list__d">лимонный мусс на белом шоколаде, лимонный курд</small></span><i></i><b>420 ₽<small> / 2 шт</small></b></li><li style="--i:9"><span class="emo is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-passion" width="64" height="64"/></svg></span><span>Маракуйя<small class="list__d">взбитый ганаш маракуйя, конфи маракуйя</small></span><i></i><b>450 ₽</b></li></ul>
           <button class="fill__btn" data-item="корпусные десерты" data-price="">Заказать десерты <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><span class="emo-plate is-photo" aria-hidden="true"><img src="../shared/img/th/cupcake.jpg" alt="" loading="lazy" width="80" height="80"></span>
+        <summary><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-cupcake" width="64" height="64"/></svg></span>
           <span class="fill__head"><h3>Капкейки</h3><small>8 видов бисквита<u> · смотреть все</u></small></span>
           <b class="price">от 270 ₽<small>/шт</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
         <div class="fill__body"><p>Порционные кексы с кремовой шапкой.</p>
@@ -687,14 +784,14 @@
           <button class="fill__btn" data-item="капкейки" data-price="от 270 ₽/шт">Заказать капкейки <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><span class="emo-plate is-photo" aria-hidden="true"><img src="../shared/img/th/meringue.jpg" alt="" loading="lazy" width="80" height="80"></span>
+        <summary><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-meringue" width="64" height="64"/></svg></span>
           <span class="fill__head"><h3>Меренговые рулеты</h3><small>5 вкусов<u> · смотреть все</u></small></span>
           <b class="price">от 2 300 ₽</b><span class="fill__plus" aria-hidden="true"></span></summary>
         <div class="fill__body"><ul class="list"><li style="--i:0"><span>Классический крем + ягодная начинка</span><i></i><b>2 300 ₽</b></li><li style="--i:1"><span>Шоколад-вишня, смородиновый крем + смородиновая начинка</span><i></i><b>2 400 ₽</b></li><li style="--i:2"><span>Малиновый крем + малиновое желе</span><i></i><b>2 400 ₽</b></li><li style="--i:3"><span>Фисташка-малина</span><i></i><b>2 600 ₽</b></li><li style="--i:4"><span>Экзотик манго-маракуйя</span><i></i><b>2 700 ₽</b></li></ul>
           <button class="fill__btn" data-item="меренговый рулет" data-price="">Заказать рулет <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><span class="emo-plate" aria-hidden="true">🍫</span>
+        <summary><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-snickers" width="64" height="64"/></svg></span>
           <span class="fill__head"><h3>Рулет «Сникерс»</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
           <b class="price">2 200 ₽<small>/кг</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
         <div class="fill__body"><p class="cut__t">В разрезе</p>
@@ -830,6 +927,6 @@
 </div>
 
 <script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "corpus": [{"name": "Банан", "price": 250, "pack": 1}, {"name": "Малина", "price": 350, "pack": 1}, {"name": "Донаткейк", "price": 350, "pack": 1}, {"name": "Попкорн", "price": 380, "pack": 1}, {"name": "Кофейное зерно", "price": 380, "pack": 1}, {"name": "Манго", "price": 380, "pack": 1}, {"name": "Клубничка", "price": 380, "pack": 1}, {"name": "Черничка", "price": 400, "pack": 1}, {"name": "Лимон", "price": 420, "pack": 2}, {"name": "Маракуйя", "price": 450, "pack": 1}], "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10241256"></script>
+<script src="../shared/app.js?v=10241305"></script>
 </body>
 </html>
