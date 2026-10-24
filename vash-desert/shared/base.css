@@ -138,8 +138,12 @@ em{font-style:normal}
 .fill__go svg{width:16px;height:16px}
 .fill--ask .fill__head u{text-decoration:none;color:var(--accent);font-weight:600}
 .emo{flex:none;font-size:18px;line-height:1}
-.list--emo li{align-items:center;animation:layer .35s calc(var(--i) * 40ms) both}
-.list--emo .emo{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--bg)}
+.list.list--emo li{align-items:center;gap:10px;animation:layer .35s calc(var(--i) * 40ms) both}
+.list--emo .emo{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--bg);font-size:22px}
+/* фото вместо смайлика: кружок крупнее, чтобы десерт читался */
+.emo-plate.is-photo{width:54px;height:54px;overflow:hidden;background:var(--card)}
+.list--emo .emo.is-photo{width:46px;height:46px;overflow:hidden;box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--line-strong)}
+.is-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .pills{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .pills li{padding:5px 11px;border-radius:999px;background:var(--accent);color:#fff;font-size:13.5px;animation:layer .35s calc(var(--i) * 40ms) both}
 .pills--soft li{background:var(--price-bg);color:var(--price-ink)}
