@@ -14,8 +14,8 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10241245">
-<link rel="stylesheet" href="styles.css?v=10241245">
+<link rel="stylesheet" href="../shared/base.css?v=10241251">
+<link rel="stylesheet" href="styles.css?v=10241251">
 </head>
 <body>
 
@@ -94,7 +94,7 @@
       <button data-group="classic">Классика <small>7</small></button>
     </div>
     <p class="menu__tip reveal" id="menuTip"><span>Нажмите на начинку — покажем торт в разрезе</span><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M4 4c10 2 22 6 26 20m0 0-6-4m6 4 3-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
-    <div class="menu menu--cakes is-hinting" id="menuList">
+    <div class="menu menu--rich menu--cakes is-hinting" id="menuList">
       
       
       <details class="fill" data-group="berry">
@@ -652,7 +652,7 @@
       <h2>Каждый день <em>в наличии</em></h2>
       <p class="vitrina__lead">Пирожные и десерты ждут в студии на Шалаева, 1 — можно зайти и порадовать себя без заказа заранее.</p>
       <p class="vitrina__t">Чаще всего хвалят в отзывах</p>
-      <ul class="tags tags--ask"><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии корпусные десерты?">корпусные десерты</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии «картошка» Киндер Кантри?">«картошка» Киндер Кантри</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии пирожное Орео?">пирожное Орео</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии «Анна Павлова»?">«Анна Павлова»</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии шоколадный пончик?">шоколадный пончик</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии наполеон?">наполеон</button></li></ul>
+      <ul class="tags tags--ask"><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии корпусные десерты?"><span class="emo" aria-hidden="true">🍓</span>корпусные десерты</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии «картошка» Киндер Кантри?"><span class="emo" aria-hidden="true">🍫</span>«картошка» Киндер Кантри</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии пирожное Орео?"><span class="emo" aria-hidden="true">🍪</span>пирожное Орео</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии «Анна Павлова»?"><span class="emo" aria-hidden="true">🍰</span>«Анна Павлова»</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии шоколадный пончик?"><span class="emo" aria-hidden="true">🍩</span>шоколадный пончик</button></li><li><button type="button" data-ask="Здравствуйте! Есть ли сейчас в наличии наполеон?"><span class="emo" aria-hidden="true">🥧</span>наполеон</button></li></ul>
       <div class="hero__btns">
         <button type="button" class="btn btn--accent" data-ask="Здравствуйте! Что сегодня есть в наличии?"><svg><use href="#chat"/></svg>Что есть сегодня?</button>
         <a class="btn btn--line" href="https://2gis.ru/birobidzhan/firm/70000001114369836" target="_blank" rel="noopener" data-goal="route"><svg><use href="#pin"/></svg>Как пройти</a>
@@ -662,28 +662,42 @@
       <figure><img src="../shared/img/ig_berries.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/22.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/cupcakes.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure><figure><img src="../shared/img/07.jpg" alt="Десерты в наличии — «Ваш десерт»" loading="lazy"></figure>
     </div>
   </div>
-    <div class="menu tea reveal">
+    
+    <div class="menu menu--rich tea reveal">
       <button type="button" class="fill fill--ask" data-ask="Здравствуйте! Сколько стоят пирожные и пончики и что сегодня есть в наличии?">
-        <span class="fill__row"><span class="fill__name">Пирожные и пончики</span><i aria-hidden="true"></i><b class="price">узнать цену</b></span>
+        <span class="fill__row"><span class="emo-plate" aria-hidden="true">🍩</span>
+          <span class="fill__head"><span class="fill__name">Пирожные и пончики</span><small><u>спросить, что есть сегодня</u></small></span>
+          <b class="price">узнать цену</b><span class="fill__go" aria-hidden="true"><svg><use href="#chat"/></svg></span></span>
       </button>
       <details class="fill">
-        <summary><h3>Корпусные десерты</h3><i aria-hidden="true"></i><b class="price">от 250 ₽<small>/шт</small></b></summary>
-        <div class="fill__body"><ul class="list"><li><span>Банан<small class="list__d">взбитый ганаш на молочном шоколаде, карамельный банан</small></span><i></i><b>250 ₽</b></li><li><span>Малина<small class="list__d">малиновый мусс, малиновое конфи</small></span><i></i><b>350 ₽</b></li><li><span>Донаткейк<small class="list__d">мусс на молочном шоколаде с маскарпоне, шоколадная бисквитная масса</small></span><i></i><b>350 ₽</b></li><li><span>Попкорн<small class="list__d">ганаш «попкорн», карамель и хрустящий слой; есть орехи</small></span><i></i><b>380 ₽</b></li><li><span>Кофейное зерно<small class="list__d">кофейный ганаш, мусс на тёмном и молочном шоколаде, печенье савоярди</small></span><i></i><b>380 ₽</b></li><li><span>Манго<small class="list__d">манговый ганаш, манговый конфитюр</small></span><i></i><b>380 ₽</b></li><li><span>Клубничка<small class="list__d">ванильный ганаш на белом шоколаде, клубничный конфитюр</small></span><i></i><b>380 ₽</b></li><li><span>Черничка<small class="list__d">черничный ганаш на белом шоколаде, черничное конфи</small></span><i></i><b>400 ₽</b></li><li><span>Лимон<small class="list__d">лимонный мусс на белом шоколаде, лимонный курд</small></span><i></i><b>420 ₽<small> / 2 шт</small></b></li><li><span>Маракуйя<small class="list__d">взбитый ганаш маракуйя, конфи маракуйя</small></span><i></i><b>450 ₽</b></li></ul>
+        <summary><span class="emo-plate" aria-hidden="true">🍓</span>
+          <span class="fill__head"><h3>Корпусные десерты</h3><small>10 вкусов<u> · смотреть все</u></small></span>
+          <b class="price">от 250 ₽<small>/шт</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
+        <div class="fill__body"><ul class="list list--emo"><li style="--i:0"><span class="emo" aria-hidden="true">🍌</span><span>Банан<small class="list__d">взбитый ганаш на молочном шоколаде, карамельный банан</small></span><i></i><b>250 ₽</b></li><li style="--i:1"><span class="emo" aria-hidden="true">🍓</span><span>Малина<small class="list__d">малиновый мусс, малиновое конфи</small></span><i></i><b>350 ₽</b></li><li style="--i:2"><span class="emo" aria-hidden="true">🍩</span><span>Донаткейк<small class="list__d">мусс на молочном шоколаде с маскарпоне, шоколадная бисквитная масса</small></span><i></i><b>350 ₽</b></li><li style="--i:3"><span class="emo" aria-hidden="true">🍿</span><span>Попкорн<small class="list__d">ганаш «попкорн», карамель и хрустящий слой; есть орехи</small></span><i></i><b>380 ₽</b></li><li style="--i:4"><span class="emo" aria-hidden="true">☕</span><span>Кофейное зерно<small class="list__d">кофейный ганаш, мусс на тёмном и молочном шоколаде, печенье савоярди</small></span><i></i><b>380 ₽</b></li><li style="--i:5"><span class="emo" aria-hidden="true">🥭</span><span>Манго<small class="list__d">манговый ганаш, манговый конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:6"><span class="emo" aria-hidden="true">🍓</span><span>Клубничка<small class="list__d">ванильный ганаш на белом шоколаде, клубничный конфитюр</small></span><i></i><b>380 ₽</b></li><li style="--i:7"><span class="emo" aria-hidden="true">🍇</span><span>Черничка<small class="list__d">черничный ганаш на белом шоколаде, черничное конфи</small></span><i></i><b>400 ₽</b></li><li style="--i:8"><span class="emo" aria-hidden="true">🍋</span><span>Лимон<small class="list__d">лимонный мусс на белом шоколаде, лимонный курд</small></span><i></i><b>420 ₽<small> / 2 шт</small></b></li><li style="--i:9"><span class="emo" aria-hidden="true">🌼</span><span>Маракуйя<small class="list__d">взбитый ганаш маракуйя, конфи маракуйя</small></span><i></i><b>450 ₽</b></li></ul>
           <button class="fill__btn" data-item="корпусные десерты" data-price="">Заказать десерты <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><h3>Капкейки</h3><i aria-hidden="true"></i><b class="price">от 270 ₽<small>/шт</small></b></summary>
-        <div class="fill__body"><p>Порционные кексы с кремовой шапкой. Бисквит: ванильные, кокосовые, апельсиновые, лимонные, морковные, шоколадные, красный бархат, сникерс. Начинка: конфитюр или конфи из ягод: малина, клубника, вишня, смородина, черника, микс; ганаш на белом, молочном или тёмном шоколаде; цитрусовый курд; сливочная карамель.</p>
+        <summary><span class="emo-plate" aria-hidden="true">🧁</span>
+          <span class="fill__head"><h3>Капкейки</h3><small>8 видов бисквита<u> · смотреть все</u></small></span>
+          <b class="price">от 270 ₽<small>/шт</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
+        <div class="fill__body"><p>Порционные кексы с кремовой шапкой.</p>
+          <p class="cut__t">Бисквит</p><ul class="pills"><li style="--i:0">ванильные</li><li style="--i:1">кокосовые</li><li style="--i:2">апельсиновые</li><li style="--i:3">лимонные</li><li style="--i:4">морковные</li><li style="--i:5">шоколадные</li><li style="--i:6">красный бархат</li><li style="--i:7">сникерс</li></ul>
+          <p class="cut__t">Начинка</p><ul class="pills pills--soft"><li style="--i:0">конфитюр или конфи из ягод: малина, клубника, вишня, смородина, черника, микс</li><li style="--i:1">ганаш на белом, молочном или тёмном шоколаде</li><li style="--i:2">цитрусовый курд</li><li style="--i:3">сливочная карамель</li></ul>
           <button class="fill__btn" data-item="капкейки" data-price="от 270 ₽/шт">Заказать капкейки <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><h3>Меренговые рулеты</h3><i aria-hidden="true"></i><b class="price">от 2 300 ₽</b></summary>
-        <div class="fill__body"><ul class="list"><li><span>Классический крем + ягодная начинка</span><i></i><b>2 300 ₽</b></li><li><span>Шоколад-вишня, смородиновый крем + смородиновая начинка</span><i></i><b>2 400 ₽</b></li><li><span>Малиновый крем + малиновое желе</span><i></i><b>2 400 ₽</b></li><li><span>Фисташка-малина</span><i></i><b>2 600 ₽</b></li><li><span>Экзотик манго-маракуйя</span><i></i><b>2 700 ₽</b></li></ul>
+        <summary><span class="emo-plate" aria-hidden="true">🍰</span>
+          <span class="fill__head"><h3>Меренговые рулеты</h3><small>5 вкусов<u> · смотреть все</u></small></span>
+          <b class="price">от 2 300 ₽</b><span class="fill__plus" aria-hidden="true"></span></summary>
+        <div class="fill__body"><ul class="list"><li style="--i:0"><span>Классический крем + ягодная начинка</span><i></i><b>2 300 ₽</b></li><li style="--i:1"><span>Шоколад-вишня, смородиновый крем + смородиновая начинка</span><i></i><b>2 400 ₽</b></li><li style="--i:2"><span>Малиновый крем + малиновое желе</span><i></i><b>2 400 ₽</b></li><li style="--i:3"><span>Фисташка-малина</span><i></i><b>2 600 ₽</b></li><li style="--i:4"><span>Экзотик манго-маракуйя</span><i></i><b>2 700 ₽</b></li></ul>
           <button class="fill__btn" data-item="меренговый рулет" data-price="">Заказать рулет <svg><use href="#arrow"/></svg></button></div>
       </details>
       <details class="fill">
-        <summary><h3>Рулет «Сникерс»</h3><i aria-hidden="true"></i><b class="price">2 200 ₽<small>/кг</small></b></summary>
-        <div class="fill__body"><p>Шоколадный бисквит, домашняя сливочная карамель с арахисом, крем-чиз, покрыт шоколадом с арахисом.</p>
+        <summary><span class="emo-plate" aria-hidden="true">🍫</span>
+          <span class="fill__head"><h3>Рулет «Сникерс»</h3><small>4 слоя<u> · смотреть в разрезе</u></small></span>
+          <b class="price">2 200 ₽<small>/кг</small></b><span class="fill__plus" aria-hidden="true"></span></summary>
+        <div class="fill__body"><p class="cut__t">В разрезе</p>
+          <ol class="cut cut--choco"><li class="cut__l cut__l--sponge-choco" style="--i:0">Шоколадный бисквит</li><li class="cut__l cut__l--filling" style="--i:1">Домашняя сливочная карамель с арахисом</li><li class="cut__l cut__l--cream" style="--i:2">Крем-чиз</li><li class="cut__l cut__l--cream" style="--i:3">Покрыт шоколадом с арахисом</li></ol>
           <button class="fill__btn" data-item="Рулет «Сникерс»" data-price="2 200 ₽/кг">Заказать рулет <svg><use href="#arrow"/></svg></button></div>
       </details>
     </div>
@@ -809,11 +823,12 @@
 </div>
 
 <div class="cookie" id="cookie" role="dialog" aria-label="Файлы cookie" hidden>
-  <p>Мы используем cookie, чтобы сайт работал. Подробнее — в <a href="../shared/privacy.html">политике конфиденциальности</a>.</p>
+  <span class="cookie__biscuit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+  <p><b class="cookie__t">Немного печенья?</b>Сайт использует cookie — без сахара и калорий. Они нужны, чтобы сайт работал, а с вашего согласия — чтобы считать посещения. Подробнее — в <a href="../shared/privacy.html">политике конфиденциальности</a>.</p>
   <div><button class="btn btn--accent btn--sm" data-cookie="all">Принять все</button><button class="btn btn--line btn--sm" data-cookie="need">Только необходимые</button></div>
 </div>
 
 <script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "corpus": [{"name": "Банан", "price": 250, "pack": 1}, {"name": "Малина", "price": 350, "pack": 1}, {"name": "Донаткейк", "price": 350, "pack": 1}, {"name": "Попкорн", "price": 380, "pack": 1}, {"name": "Кофейное зерно", "price": 380, "pack": 1}, {"name": "Манго", "price": 380, "pack": 1}, {"name": "Клубничка", "price": 380, "pack": 1}, {"name": "Черничка", "price": 400, "pack": 1}, {"name": "Лимон", "price": 420, "pack": 2}, {"name": "Маракуйя", "price": 450, "pack": 1}], "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10241245"></script>
+<script src="../shared/app.js?v=10241251"></script>
 </body>
 </html>
