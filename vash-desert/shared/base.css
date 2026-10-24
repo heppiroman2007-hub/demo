@@ -47,7 +47,9 @@ em{font-style:normal}
 .logo--img{height:50px;position:relative}
 .logo--img img{height:86px;width:auto;margin-top:-4px;transform-origin:0 0;filter:drop-shadow(0 6px 14px rgba(209,75,116,.18));transition:height .35s,margin .35s}
 .header.solid .logo--img img{height:54px;margin-top:-2px}
-.footer__logo{display:block;width:140px;height:auto;padding:8px 10px;border-radius:18px;background:#fff6f8}
+/* логотип в подвале — круглая «печать»: кремовый круг, тонкое розовое кольцо, чуть повёрнут (вариант A, выбрал Роман) */
+.footer__logo{flex:none;display:grid;place-items:center;width:128px;height:128px;border-radius:50%;background:#fff6f8;box-shadow:0 0 0 4px var(--footer),0 0 0 5.5px var(--accent-soft);rotate:-6deg}
+.footer__logo img{width:104px;height:auto}
 @media (max-width:640px){.logo--img{height:44px}.logo--img img{height:70px}.header.solid .logo--img img{height:48px}}
 .nav{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:15.5px}
 .nav a{transition:color .2s}
