@@ -159,7 +159,8 @@ const calc = { fill: 0, w: 2, addons: new Set() };
 // Корпусные десерты (в калькуляторе торта и в бенто): цена из прайса за упаковку (лимон — за 2 шт), счётчик считает упаковки
 const corpusExtra = (kind, pick) => {
   const n = cupsOf(kind), d = SITE.corpus[Number(pick.value)];
-  return n ? { name: `Корпусный «${d.name}» × ${n}${d.pack > 1 ? ` (по ${d.pack} шт)` : ""}`, price: n * d.price } : null;
+  // «× 1» перед ценой читалось как «1 250 ₽» — количество словами и через запятую
+  return n ? { name: `Корпусный «${d.name}», ${d.pack > 1 ? `${n} уп. по ${d.pack} шт` : `${n} шт`}`, price: n * d.price } : null;
 };
 // выбрал вкус — сразу ставим 1 шт, иначе выбор ничего не меняет в сумме
 const watchCorpus = (kind, pick, render) => pick.addEventListener("change", () => {
@@ -177,7 +178,7 @@ function renderCalc() {
   if (corpus) extras.push(corpus);
   const total = cakeSum + extras.reduce((s, a) => s + a.price, 0);
   $("#calcTotal").textContent = fmt(total);
-  $("#calcLine").textContent = `торт ${fmt(cakeSum)}` + extras.map(a => ` + ${a.name.toLowerCase()} ${fmt(a.price)}`).join("");
+  $("#calcLine").textContent = `торт ${fmt(cakeSum)}` + extras.map(a => ` + ${a.name.toLowerCase()} — ${fmt(a.price)}`).join("");
   $("#calcGuests").textContent = `≈ ${Math.round(calc.w * 5)}–${Math.round(calc.w * 6.5)} гостей`;
   const w = String(calc.w).replace(".", ",");
   const lines = [`Здравствуйте! Хочу торт:`, `• Начинка: ${cake.name}`, `• Вес: ${w} кг`];
