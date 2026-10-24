@@ -72,7 +72,7 @@ $$("[data-item]").forEach(b => b.addEventListener("click", e => {
   e.preventDefault();
   goal("item");
   const price = b.dataset.price ? ` Цена на сайте: ${b.dataset.price}.` : "";
-  window.open(waLink(`Здравствуйте! Хочу заказать: ${b.dataset.item}.${price} На какую дату можно?`), "_blank", "noopener");
+  openSheet(`Здравствуйте! Хочу заказать: ${b.dataset.item}.${price} На какую дату можно?`);
 }));
 
 // ---------- Меню начинок: фильтр и «показать все» ----------
@@ -129,7 +129,7 @@ renderWorks();
 $$("[data-photo]").forEach(b => b.addEventListener("click", () => {
   const url = new URL(b.dataset.photo, location.href).href;
   goal("work");
-  window.open(waLink(`Здравствуйте! Хочу такой торт: ${url}\nНа какую дату можно и сколько будет стоить?`), "_blank", "noopener");
+  openSheet(`Здравствуйте! Хочу такой торт: ${url}\nНа какую дату можно и сколько будет стоить?`);
 }));
 
 // ---------- Калькулятор торта ----------
@@ -154,7 +154,7 @@ $$("[data-cups]").forEach(box => {
 const cupsLine = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? "капкейк" : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? "капкейка" : "капкейков"}`;
 
 const calc = { fill: 0, w: 2, addons: new Set() };
-const calcFill = $("#calcFill"), calcDate = $("#calcDate");
+const calcFill = $("#calcFill"), calcDate = $("#calcDate"), corpusPick = $("#corpusPick");
 const dateRu = v => v ? v.split("-").reverse().join(".") : "";
 function renderCalc() {
   const cake = SITE.cakes[calc.fill];
@@ -162,6 +162,9 @@ function renderCalc() {
   const extras = [...calc.addons].map(k => SITE.addons[k]);
   const n = cupsOf("cake");
   if (n) extras.push({ name: cupsLine(n), price: n * SITE.cupcake });
+  // корпусные: цена из прайса за упаковку (лимон — за 2 шт), счётчик считает упаковки
+  const cn = cupsOf("corpus"), cp = SITE.corpus[Number(corpusPick.value)];
+  if (cn) extras.push({ name: `Корпусный «${cp.name}» × ${cn}${cp.pack > 1 ? ` (по ${cp.pack} шт)` : ""}`, price: cn * cp.price });
   const total = cakeSum + extras.reduce((s, a) => s + a.price, 0);
   $("#calcTotal").textContent = fmt(total);
   $("#calcLine").textContent = `торт ${fmt(cakeSum)}` + extras.map(a => ` + ${a.name.toLowerCase()} ${fmt(a.price)}`).join("");
@@ -175,6 +178,11 @@ function renderCalc() {
   $("#calcSend").href = waLink(lines.join("\n"));
 }
 $('[data-cups="cake"]').addEventListener("cupschange", () => renderCalc());
+$('[data-cups="corpus"]').addEventListener("cupschange", () => renderCalc());
+// выбрал вкус — сразу ставим 1 шт, иначе выбор ничего не меняет в сумме
+corpusPick.addEventListener("change", () => {
+  if (!cupsOf("corpus")) $('[data-cups="corpus"] [data-step="1"]').click(); else renderCalc();
+});
 $("#calcAddons").addEventListener("change", e => {
   const k = e.target.dataset.addon;
   if (!k) return;
@@ -297,11 +305,28 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
   render();
 }
 
-// ---------- «Спросить»: выбор мессенджера с готовым текстом ----------
-// WhatsApp подставляет текст сам; MAX по ссылке не умеет — копируем вопрос в буфер и открываем её чат
+// ---------- Выбор мессенджера: WhatsApp или MAX — для любого заказа и вопроса ----------
+// WhatsApp подставляет текст сам; MAX по ссылке не умеет — копируем текст в буфер и открываем её чат.
+// Все ссылки wa.me на странице (шапка, первый экран, калькулятор, бенто, контакты) открывают это окно.
+let openSheet;
 {
   const sheet = $("#askSheet"), hint = $("#askHint");
   let askText = "";
+  openSheet = (text, ask) => {
+    askText = text;
+    $("#askText").textContent = text;
+    $("#askTitle").innerHTML = ask ? "Где удобнее <em>спросить?</em>" : "Куда отправить <em>заказ?</em>";
+    $("#askWa").href = waLink(text);
+    hint.hidden = true;
+    sheet.hidden = false;
+    goal(ask ? "ask" : "order");
+  };
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="https://wa.me"]');
+    if (!a || a.id === "askWa") return;
+    e.preventDefault();
+    openSheet(new URL(a.href).searchParams.get("text") || "Здравствуйте!");
+  });
   const copy = async text => {
     try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
     const ta = Object.assign(document.createElement("textarea"), { value: text });
@@ -313,23 +338,19 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
   const close = () => { sheet.hidden = true; };
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-ask]");
-    if (!b) return;
-    askText = b.dataset.ask;
-    $("#askText").textContent = askText;
-    $("#askWa").href = waLink(askText);
-    hint.hidden = true;
-    sheet.hidden = false;
-    goal("ask");
+    if (b) openSheet(b.dataset.ask, true);
   });
   $("#askWa").addEventListener("click", close);
   $("#askMax").addEventListener("click", async () => {
-    const ok = await copy(askText);
+    // окно MAX открываем сразу в обработчике клика — после await браузер его заблокирует
+    const copied = copy(askText);
+    if (SITE.max) window.open(SITE.max, "_blank", "noopener");
+    const ok = await copied;
     goal("ask_max");
     if (SITE.max) {
-      window.open(SITE.max, "_blank", "noopener");
-      hint.textContent = ok ? "Вопрос скопирован — вставьте его в чат и отправьте." : `Напишите в чат: ${askText}`;
+      hint.textContent = ok ? "Текст скопирован ✓ Вставьте его в чат и отправьте." : "Скопируйте сообщение выше и отправьте его в чат.";
     } else {
-      hint.textContent = ok ? `Вопрос скопирован — вставьте его в чат с ${SITE.phone} в MAX.` : `Напишите в MAX на ${SITE.phone}: ${askText}`;
+      hint.textContent = ok ? `Текст скопирован ✓ Откройте MAX, найдите ${SITE.phone} и вставьте сообщение.` : `Скопируйте сообщение выше и отправьте в MAX на ${SITE.phone}.`;
     }
     hint.hidden = false;
   });

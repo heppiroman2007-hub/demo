@@ -14,8 +14,8 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10240545">
-<link rel="stylesheet" href="styles.css?v=10240545">
+<link rel="stylesheet" href="../shared/base.css?v=10241239">
+<link rel="stylesheet" href="styles.css?v=10241239">
 </head>
 <body>
 
@@ -29,6 +29,7 @@
   <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9.8" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
   <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="max" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-8 13.7L2.8 21.2l4.8-1.2A9.2 9.2 0 1 0 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><text x="12" y="14.6" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.4" font-weight="800" fill="currentColor">MAX</text></symbol>
   <symbol id="chat" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
   <symbol id="cupcake" viewBox="0 0 64 64"><path d="M14 30c-4 0-6-4-4-7 1.5-2.3 4-2.5 5.5-2 0-6 5-10 10-9 2-4 7-6 12-4 4 1.6 6 5 6 8 4-1 8 2 8 6 0 3-2 6-5 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 32h34l-4 22H19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M24 33l2 21M32 33v21M40 33l-2 21" stroke="currentColor" stroke-width="1.4"/><circle cx="34" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
 </svg>
@@ -43,7 +44,7 @@
       <a href="#vitrina">К чаю</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn btn--accent btn--sm header__cta" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%BE%D1%80%D1%82." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Заказать</a>
+    <a class="btn btn--accent btn--sm header__cta" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%BE%D1%80%D1%82." target="_blank" rel="noopener"><svg><use href="#chat"/></svg>Заказать</a>
     <button class="burger" id="burger" aria-label="Меню" aria-controls="nav" aria-expanded="false"><span></span></button>
   </div>
 </header>
@@ -62,7 +63,7 @@
         <li><svg><use href="#check"/></svg><span><b>Заказ записан</b> — начинка, вес, дата и цена в одном сообщении</span></li>
       </ul>
       <div class="hero__btns rise" style="--d:.24s">
-        <a class="btn btn--accent" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%82%D0%BE%D1%80%D1%82%20%D0%BF%D0%BE%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B5%2C%20%D1%81%D0%B5%D0%B9%D1%87%D0%B0%D1%81%20%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D1%8E%20%D1%84%D0%BE%D1%82%D0%BE.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B5%D1%82%D0%B5%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%B8%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%B0%D1%82%D1%8B%3F" target="_blank" rel="noopener" data-goal="picture"><svg><use href="#wa"/></svg>Прислать картинку торта</a>
+        <a class="btn btn--accent" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%82%D0%BE%D1%80%D1%82%20%D0%BF%D0%BE%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B5%2C%20%D1%81%D0%B5%D0%B9%D1%87%D0%B0%D1%81%20%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D1%8E%20%D1%84%D0%BE%D1%82%D0%BE.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B5%D1%82%D0%B5%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%B8%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%B0%D1%82%D1%8B%3F" target="_blank" rel="noopener" data-goal="picture"><svg><use href="#chat"/></svg>Прислать картинку торта</a>
         <a class="btn btn--line" href="#menu">Выбрать начинку <svg><use href="#arrow"/></svg></a>
       </div>
       <a class="rating rise" style="--d:.32s" href="https://2gis.ru/birobidzhan/firm/70000001114369836/tab/reviews" target="_blank" rel="noopener">
@@ -240,6 +241,13 @@
             <span class="addon__t"><b>Капкейки к столу</b><small>270 ₽ за штуку</small></span>
             <span class="stepper"><button type="button" data-step="-1" aria-label="Меньше капкейков">−</button><span class="stepper__v"><svg aria-hidden="true"><use href="#cupcake"/></svg><b>0</b></span><button type="button" data-step="1" aria-label="Больше капкейков">+</button></span>
           </div>
+          <div class="addon cups corpus" data-cups="corpus">
+            <span class="addon__t"><b>Корпусные десерты</b>
+              <select id="corpusPick" aria-label="Какой корпусный десерт">
+                <option value="0">Банан — 250 ₽</option><option value="1">Малина — 350 ₽</option><option value="2">Донаткейк — 350 ₽</option><option value="3">Попкорн — 380 ₽</option><option value="4">Кофейное зерно — 380 ₽</option><option value="5">Манго — 380 ₽</option><option value="6">Клубничка — 380 ₽</option><option value="7">Черничка — 400 ₽</option><option value="8">Лимон — 420 ₽ за 2 шт</option><option value="9">Маракуйя — 450 ₽</option>
+              </select></span>
+            <span class="stepper"><button type="button" data-step="-1" aria-label="Меньше десертов">−</button><span class="stepper__v"><svg aria-hidden="true"><use href="#cupcake"/></svg><b>0</b></span><button type="button" data-step="1" aria-label="Больше десертов">+</button></span>
+          </div>
           
           <label class="addon"><input type="checkbox" data-addon="print"><span class="addon__t"><b>Сахарная печать</b><small>фото или картинка на торте</small></span><span class="addon__p">+300 ₽</span></label>
           
@@ -252,9 +260,9 @@
         <input type="date" id="calcDate" class="when__date" hidden aria-label="Дата"></div>
       <div class="total">
         <div><span>Примерно</span><b id="calcTotal">—</b><small id="calcLine"></small></div>
-        <a class="btn btn--accent" id="calcSend" href="#" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Отправить заказ</a>
+        <a class="btn btn--accent" id="calcSend" href="#" target="_blank" rel="noopener"><svg><use href="#chat"/></svg>Отправить заказ</a>
       </div>
-      <p class="calc__fine">Декор (ягоды, топперы, фигурки) кондитер посчитает по вашей картинке. Покрытие ганашем или велюр рассчитывается отдельно.</p>
+      <p class="decor-note"><svg aria-hidden="true"><use href="#chat"/></svg><span><b>Стоимость декора рассчитывается отдельно — в зависимости от сложности.</b> Ягоды, топперы, фигурки кондитер посчитает по вашей картинке. Покрытие ганашем или велюр рассчитывается отдельно.</span></p>
     </form>
     </div>
   </div>
@@ -439,9 +447,9 @@
         </div></div>
       <div class="total">
         <div><span>Итого</span><b id="price">—</b></div>
-        <a class="btn btn--accent" id="sendBento" href="#" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Заказать бенто</a>
+        <a class="btn btn--accent" id="sendBento" href="#" target="_blank" rel="noopener"><svg><use href="#chat"/></svg>Заказать бенто</a>
       </div>
-      <p class="calc__fine">Шоколадный декор рассчитывается индивидуально.</p>
+      <p class="decor-note"><svg aria-hidden="true"><use href="#chat"/></svg><span><b>Стоимость декора рассчитывается отдельно — в зависимости от сложности.</b> Шоколадный декор рассчитывается индивидуально.</span></p>
     </div>
   </div>
 </section>
@@ -468,6 +476,11 @@
       <button type="button" class="fill fill--ask" data-ask="Здравствуйте! Сколько стоят пирожные и пончики и что сегодня есть в наличии?">
         <span class="fill__row"><span class="fill__name">Пирожные и пончики</span><i aria-hidden="true"></i><b class="price">узнать цену</b></span>
       </button>
+      <details class="fill">
+        <summary><h3>Корпусные десерты</h3><i aria-hidden="true"></i><b class="price">от 250 ₽<small>/шт</small></b></summary>
+        <div class="fill__body"><ul class="list"><li><span>Банан<small class="list__d">взбитый ганаш на молочном шоколаде, карамельный банан</small></span><i></i><b>250 ₽</b></li><li><span>Малина<small class="list__d">малиновый мусс, малиновое конфи</small></span><i></i><b>350 ₽</b></li><li><span>Донаткейк<small class="list__d">мусс на молочном шоколаде с маскарпоне, шоколадная бисквитная масса</small></span><i></i><b>350 ₽</b></li><li><span>Попкорн<small class="list__d">ганаш «попкорн», карамель и хрустящий слой; есть орехи</small></span><i></i><b>380 ₽</b></li><li><span>Кофейное зерно<small class="list__d">кофейный ганаш, мусс на тёмном и молочном шоколаде, печенье савоярди</small></span><i></i><b>380 ₽</b></li><li><span>Манго<small class="list__d">манговый ганаш, манговый конфитюр</small></span><i></i><b>380 ₽</b></li><li><span>Клубничка<small class="list__d">ванильный ганаш на белом шоколаде, клубничный конфитюр</small></span><i></i><b>380 ₽</b></li><li><span>Черничка<small class="list__d">черничный ганаш на белом шоколаде, черничное конфи</small></span><i></i><b>400 ₽</b></li><li><span>Лимон<small class="list__d">лимонный мусс на белом шоколаде, лимонный курд</small></span><i></i><b>420 ₽<small> / 2 шт</small></b></li><li><span>Маракуйя<small class="list__d">взбитый ганаш маракуйя, конфи маракуйя</small></span><i></i><b>450 ₽</b></li></ul>
+          <button class="fill__btn" data-item="корпусные десерты" data-price="">Заказать десерты <svg><use href="#arrow"/></svg></button></div>
+      </details>
       <details class="fill">
         <summary><h3>Капкейки</h3><i aria-hidden="true"></i><b class="price">от 270 ₽<small>/шт</small></b></summary>
         <div class="fill__body"><p>Порционные кексы с кремовой шапкой. Бисквит: ванильные, кокосовые, апельсиновые, лимонные, морковные, шоколадные, красный бархат, сникерс. Начинка: конфитюр или конфи из ягод: малина, клубника, вишня, смородина, черника, микс; ганаш на белом, молочном или тёмном шоколаде; цитрусовый курд; сливочная карамель.</p>
@@ -547,8 +560,8 @@
         <li><svg><use href="#phone"/></svg><a href="tel:+79648250576">8 964 825-05-76</a></li>
       </ul>
       <div class="contacts__btns">
-        <a class="btn btn--accent" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%BE%D1%80%D1%82." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
-        <a class="btn btn--line" href="tel:+79648250576"><svg><use href="#chat"/></svg>MAX / звонок</a>
+        <a class="btn btn--accent" href="https://wa.me/79648250576?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%82%D0%BE%D1%80%D1%82." target="_blank" rel="noopener"><svg><use href="#chat"/></svg>WhatsApp или MAX</a>
+        <a class="btn btn--line" href="tel:+79648250576"><svg><use href="#phone"/></svg>Позвонить</a>
         <a class="btn btn--line" href="https://2gis.ru/birobidzhan/firm/70000001114369836" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Маршрут в 2ГИС</a>
       </div>
       <p class="contacts__social"><a href="https://www.instagram.com/vash_desert79" target="_blank" rel="noopener"><svg><use href="#insta"/></svg>@vash_desert79</a></p>
@@ -589,11 +602,18 @@
 
 <div class="sheet" id="askSheet" role="dialog" aria-modal="true" aria-labelledby="askTitle" hidden>
   <div class="sheet__box">
-    <p class="sheet__t" id="askTitle">Где удобнее спросить?</p>
-    <p class="sheet__q" id="askText"></p>
-    <a class="btn btn--accent" id="askWa" href="#" target="_blank" rel="noopener" data-goal="ask_wa"><svg><use href="#wa"/></svg>WhatsApp</a>
-    <button type="button" class="btn btn--line" id="askMax"><svg><use href="#chat"/></svg>MAX</button>
+    <span class="sheet__badge" aria-hidden="true"><svg><use href="#cupcake"/></svg></span>
+    <p class="sheet__k">Кондитерская студия «Ваш десерт»</p>
+    <p class="sheet__t" id="askTitle">Куда отправить <em>заказ?</em></p>
+    <div class="sheet__note"><span>Ваше сообщение</span><p id="askText"></p></div>
+    <div class="msgr">
+      <a class="msgr__btn msgr__btn--wa" id="askWa" href="#" target="_blank" rel="noopener" data-goal="ask_wa">
+        <span class="msgr__ico"><svg><use href="#wa"/></svg></span><b>WhatsApp</b><small>текст подставится сам</small></a>
+      <button type="button" class="msgr__btn msgr__btn--max" id="askMax">
+        <span class="msgr__ico"><svg><use href="#max"/></svg></span><b>MAX</b><small>скопируем текст — вставьте в чат</small></button>
+    </div>
     <p class="sheet__hint" id="askHint" hidden></p>
+    <p class="sheet__tel">или позвоните: <a href="tel:+79648250576">8 964 825-05-76</a></p>
     <button type="button" class="sheet__close" id="askClose" aria-label="Закрыть">×</button>
   </div>
 </div>
@@ -603,7 +623,7 @@
   <div><button class="btn btn--accent btn--sm" data-cookie="all">Принять все</button><button class="btn btn--line btn--sm" data-cookie="need">Только необходимые</button></div>
 </div>
 
-<script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10240545"></script>
+<script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "corpus": [{"name": "Банан", "price": 250, "pack": 1}, {"name": "Малина", "price": 350, "pack": 1}, {"name": "Донаткейк", "price": 350, "pack": 1}, {"name": "Попкорн", "price": 380, "pack": 1}, {"name": "Кофейное зерно", "price": 380, "pack": 1}, {"name": "Манго", "price": 380, "pack": 1}, {"name": "Клубничка", "price": 380, "pack": 1}, {"name": "Черничка", "price": 400, "pack": 1}, {"name": "Лимон", "price": 420, "pack": 2}, {"name": "Маракуйя", "price": 450, "pack": 1}], "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
+<script src="../shared/app.js?v=10241239"></script>
 </body>
 </html>

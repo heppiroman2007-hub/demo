@@ -177,6 +177,13 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .total b{display:block;font:600 34px/1.1 var(--head)}
 .total small{display:block;font-size:13.5px;color:var(--muted)}
 .calc__fine{margin-top:14px;font-size:13.5px;color:var(--muted)}
+/* «декор отдельно» — Юлия просит, чтобы видели до заказа: акцентная плашка, не мелкий серый текст */
+.decor-note{display:flex;gap:12px;align-items:flex-start;margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--accent);color:#fff;font-size:14.5px;line-height:1.45;box-shadow:0 6px 18px -8px var(--accent)}
+.decor-note svg{flex:none;width:22px;height:22px;margin-top:1px}
+.decor-note b{display:block;font-weight:700;font-size:15.5px;margin-bottom:2px}
+.addon.corpus select{margin-top:6px;min-height:38px;padding:6px 34px 6px 10px;border-radius:10px;font-size:14px;background-position:right 8px center;background-size:16px}
+.list__d{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.list b small{font-weight:400;color:var(--muted)}
 
 /* бенто */
 .bento__in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -323,10 +330,32 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .vitrina .tags--ask li{background:none;border:0;padding:0}
 /* окно выбора мессенджера */
 .sheet{position:fixed;inset:0;z-index:70;display:flex;align-items:flex-end;justify-content:center;padding:16px;background:rgba(40,15,30,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-.sheet__box{position:relative;width:min(420px,100%);display:grid;gap:10px;padding:24px 20px calc(20px + env(safe-area-inset-bottom));border-radius:26px;background:var(--card);box-shadow:0 30px 60px -20px rgba(60,20,40,.5);animation:rise .3s both}
-.sheet__t{font:var(--h2-weight) 26px/1.1 var(--head);padding-right:36px}
-.sheet__q{color:var(--muted);font-size:15px;margin-bottom:6px}
-.sheet__hint{padding:10px 14px;border-radius:14px;background:var(--price-bg);color:var(--price-ink);font-size:14.5px}
+/* окно «WhatsApp или MAX» — как коробка с тортом: рюши по верху, значок-капкейк, заказ запиской, мессенджеры — «пирожными» */
+.sheet__box{position:relative;width:min(440px,100%);display:grid;gap:12px;margin-top:40px;padding:42px 20px calc(18px + env(safe-area-inset-bottom));border-radius:8px 8px 26px 26px;background:var(--card);box-shadow:0 30px 60px -20px rgba(60,20,40,.5);text-align:center;animation:rise .3s both}
+.sheet__box::before{content:"";position:absolute;left:0;right:0;top:-13px;height:14px;background:radial-gradient(circle at 50% 100%,var(--card) 9px,transparent 9.5px) 0 0/18px 14px repeat-x}
+.sheet__box::after{content:"";position:absolute;left:14px;right:14px;top:7px;border-top:2px dotted var(--accent-soft)}
+.sheet__badge{position:absolute;left:50%;top:-34px;translate:-50% 0;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;border:4px solid var(--card);box-shadow:0 10px 20px -10px var(--accent)}
+.sheet__badge svg{width:30px;height:30px}
+.sheet__k{font:600 10.5px var(--body);letter-spacing:2px;text-transform:uppercase;color:var(--accent2)}
+.sheet__t{font:var(--h2-weight,600) 27px/1.05 var(--head);margin-top:-4px}
+.sheet__t em{font:400 1.3em/0.9 var(--script);color:var(--accent)}
+.sheet__note{position:relative;padding:12px 14px;border-radius:14px;background:var(--bg);border:1.5px dashed var(--accent-soft);text-align:left}
+.sheet__note span{position:absolute;top:-9px;left:12px;padding:0 6px;background:var(--card);font:600 10.5px var(--body);letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.sheet__note p{max-height:96px;overflow:auto;white-space:pre-line;font-size:14px;line-height:1.45;color:var(--text)}
+.msgr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msgr__btn{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:16px 8px 18px;border-radius:22px 22px 16px 16px;border:1.5px solid var(--line-strong);background:var(--bg);overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer}
+.msgr__btn::before{content:"";position:absolute;left:0;right:0;top:0;height:30px;background:var(--m);-webkit-mask:radial-gradient(circle at 8px 100%,transparent 7px,#000 7.5px) 0 0/16px 100% repeat-x;mask:radial-gradient(circle at 8px 100%,transparent 7px,#000 7.5px) 0 0/16px 100% repeat-x;opacity:.9}
+.msgr__btn:hover{transform:translateY(-3px);border-color:var(--m);box-shadow:0 14px 26px -16px var(--m)}
+.msgr__btn--wa{--m:#25d366}
+.msgr__btn--max{--m:linear-gradient(120deg,#4a7bff,#8a4bf0)}
+.msgr__btn--max:hover{border-color:#7a5af0;box-shadow:0 14px 26px -16px #7a5af0}
+.msgr__ico{position:relative;display:grid;place-items:center;width:52px;height:52px;margin:4px 0 6px;border-radius:50%;background:var(--m);color:#fff;border:3px solid var(--card)}
+.msgr__ico svg{width:28px;height:28px}
+.msgr__btn b{font:600 16.5px/1.1 var(--body)}
+.msgr__btn small{font-size:12.5px;line-height:1.3;color:var(--muted)}
+.sheet__hint{padding:10px 14px;border-radius:14px;background:var(--accent);color:#fff;font-weight:600;font-size:14.5px}
+.sheet__tel{font-size:14px;color:var(--muted)}
+.sheet__tel a{color:var(--accent);font-weight:600}
 .sheet__close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--bg2);font-size:22px;line-height:1;color:var(--muted)}
 .cookie{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:760px;margin-inline:auto;padding:16px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line);box-shadow:0 20px 50px -20px rgba(60,20,40,.45);font-size:14.5px}
 .cookie a{text-decoration:underline;color:var(--accent)}
