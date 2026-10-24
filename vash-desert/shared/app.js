@@ -156,6 +156,15 @@ $$("[data-cups]").forEach(box => {
 const cupsLine = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? "капкейк" : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? "капкейка" : "капкейков"}`;
 
 const calc = { fill: 0, w: 2, addons: new Set() };
+// Корпусные десерты (в калькуляторе торта и в бенто): цена из прайса за упаковку (лимон — за 2 шт), счётчик считает упаковки
+const corpusExtra = (kind, pick) => {
+  const n = cupsOf(kind), d = SITE.corpus[Number(pick.value)];
+  return n ? { name: `Корпусный «${d.name}» × ${n}${d.pack > 1 ? ` (по ${d.pack} шт)` : ""}`, price: n * d.price } : null;
+};
+// выбрал вкус — сразу ставим 1 шт, иначе выбор ничего не меняет в сумме
+const watchCorpus = (kind, pick, render) => pick.addEventListener("change", () => {
+  if (!cupsOf(kind)) $(`[data-cups="${kind}"] [data-step="1"]`).click(); else render();
+});
 const calcFill = $("#calcFill"), calcDate = $("#calcDate"), corpusPick = $("#corpusPick");
 const dateRu = v => v ? v.split("-").reverse().join(".") : "";
 function renderCalc() {
@@ -164,9 +173,8 @@ function renderCalc() {
   const extras = [...calc.addons].map(k => SITE.addons[k]);
   const n = cupsOf("cake");
   if (n) extras.push({ name: cupsLine(n), price: n * SITE.cupcake });
-  // корпусные: цена из прайса за упаковку (лимон — за 2 шт), счётчик считает упаковки
-  const cn = cupsOf("corpus"), cp = SITE.corpus[Number(corpusPick.value)];
-  if (cn) extras.push({ name: `Корпусный «${cp.name}» × ${cn}${cp.pack > 1 ? ` (по ${cp.pack} шт)` : ""}`, price: cn * cp.price });
+  const corpus = corpusExtra("corpus", corpusPick);
+  if (corpus) extras.push(corpus);
   const total = cakeSum + extras.reduce((s, a) => s + a.price, 0);
   $("#calcTotal").textContent = fmt(total);
   $("#calcLine").textContent = `торт ${fmt(cakeSum)}` + extras.map(a => ` + ${a.name.toLowerCase()} ${fmt(a.price)}`).join("");
@@ -181,10 +189,7 @@ function renderCalc() {
 }
 $('[data-cups="cake"]').addEventListener("cupschange", () => renderCalc());
 $('[data-cups="corpus"]').addEventListener("cupschange", () => renderCalc());
-// выбрал вкус — сразу ставим 1 шт, иначе выбор ничего не меняет в сумме
-corpusPick.addEventListener("change", () => {
-  if (!cupsOf("corpus")) $('[data-cups="corpus"] [data-step="1"]').click(); else renderCalc();
-});
+watchCorpus("corpus", corpusPick, () => renderCalc());
 $("#calcAddons").addEventListener("change", e => {
   const k = e.target.dataset.addon;
   if (!k) return;
@@ -240,6 +245,7 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
     mango: [["#ffc23a", "#e3860b", 8], ["#f3b52a", "#b8790a", 7], ["#ffd76a", "#f0a020", 6]]
   };
   const st = { size: "s", fill: Object.keys(B.fills)[0], color: "#fbf6ee", text: "С днём рождения!", addons: new Set() };
+  const corpusPickBento = $("#corpusPickBento");
   const cake = $("#cake"), rim = $("#rim"), deco = $("#deco"), cakeText = $("#cakeText"), input = $("#inscription");
   for (let i = 0, n = 28; i < n; i++) {
     const a = (i / n) * Math.PI * 2, d = document.createElement("i");
@@ -268,6 +274,8 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
     const extras = [...st.addons].map(k => B.addons[k]);
     const n = cupsOf("bento");
     if (n) extras.push({ name: `${cupsLine(n)} в набор`, price: n * SITE.cupcake });
+    const corpus = corpusExtra("bentoCorpus", corpusPickBento);
+    if (corpus) extras.push(corpus);
     const price = s.price + extras.reduce((sum, a) => sum + (a.price || 0), 0);
     cake.style.setProperty("--size", SCALE[st.size]);
     cake.style.setProperty("--cream", st.color);
@@ -297,6 +305,8 @@ new IntersectionObserver(([e]) => sticky.classList.toggle("is-away", e.isInterse
   choose("colors", "color", "color");
   input.addEventListener("input", () => { st.text = input.value.trim(); render(); });
   $('[data-cups="bento"]').addEventListener("cupschange", render);
+  $('[data-cups="bentoCorpus"]').addEventListener("cupschange", render);
+  watchCorpus("bentoCorpus", corpusPickBento, render);
   $("#bentoAddons").addEventListener("change", e => {
     const k = e.target.dataset.baddon;
     if (!k) return;
