@@ -242,10 +242,15 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .total b{display:block;font:600 34px/1.1 var(--head)}
 .total small{display:block;font-size:13.5px;color:var(--muted)}
 .calc__fine{margin-top:14px;font-size:13.5px;color:var(--muted)}
-/* «декор отдельно» — Юлия просит, чтобы видели до заказа: акцентная плашка, не мелкий серый текст */
-.decor-note{display:flex;gap:12px;align-items:flex-start;margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--accent);color:#fff;font-size:14.5px;line-height:1.45;box-shadow:0 6px 18px -8px var(--accent)}
-.decor-note svg{flex:none;width:22px;height:22px;margin-top:1px}
-.decor-note b{display:block;font-weight:700;font-size:15.5px;margin-bottom:2px}
+/* «декор отдельно» — Юлия просит, чтобы видели до заказа: кремовая карточка, сверху стекает розовая глазурь,
+   слева кондитерский мешок «выдавливает» крем, заголовок почерком */
+.decor-note{position:relative;display:flex;gap:12px;align-items:center;margin-top:18px;padding:34px 16px 16px 10px;border-radius:16px;background:#fffaf3;border:1.5px dashed var(--accent-soft);font-size:14px;line-height:1.45;color:var(--muted);overflow:hidden;box-shadow:0 12px 24px -18px var(--accent)}
+.decor-note__glaze{position:absolute;left:0;top:0;width:100%;height:26px;fill:var(--accent)}
+.decor-note__bag{flex:none;width:64px;height:64px;rotate:-8deg;transform-origin:30% 20%;animation:squeeze 2.8s ease-in-out infinite}
+.decor-note__t{display:block;margin-bottom:2px;font:400 28px/1.05 var(--script);color:var(--accent)}
+.decor-note p{flex:1}
+@keyframes squeeze{0%,100%{rotate:-8deg;scale:1}45%{rotate:-2deg;scale:.96 1.04}}
+@media (prefers-reduced-motion:reduce){.decor-note__bag{animation:none}}
 .addon.corpus select{margin-top:6px;min-height:38px;padding:6px 34px 6px 10px;border-radius:10px;font-size:14px;background-position:right 8px center;background-size:16px}
 .list__d{display:block;font-size:13px;color:var(--muted);line-height:1.35}
 .list b small{font-weight:400;color:var(--muted)}
@@ -315,7 +320,7 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .order .calc__form{position:sticky;top:96px}
 .calc__title{font:var(--h2-weight) 30px/1.1 var(--head);margin-bottom:18px}
 /* «К чаю»: строки под витриной */
-.tea{grid-template-columns:repeat(3,1fr);margin-top:40px}
+.tea{grid-template-columns:repeat(2,1fr);margin-top:40px}
 /* вопросы + контакты */
 .final{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
 .final__faq .faq__list{margin:12px 0 0}
@@ -393,6 +398,11 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .tags--ask button::after{content:"?";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--price-bg);color:var(--accent);font-size:11.5px;font-weight:700}
 .tags--ask button:hover{border-color:var(--accent);color:var(--accent)}
 .vitrina .tags--ask li{background:none;border:0;padding:0}
+/* «хвалят в отзывах» — ровной сеткой по 2, кнопки одной ширины и высоты */
+.vitrina .tags--ask{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vitrina .tags--ask button{width:100%;height:100%;min-height:48px;padding:8px 10px;border-radius:16px;text-align:left;line-height:1.2;font-size:14px}
+.vitrina .tags--ask button::after{margin-left:auto;flex:none}
+.vitrina .tags--ask .emo{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--price-bg);font-size:15px}
 /* окно выбора мессенджера */
 .sheet{position:fixed;inset:0;z-index:70;display:flex;align-items:flex-end;justify-content:center;padding:16px;background:rgba(40,15,30,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 /* окно «WhatsApp или MAX» — как коробка с тортом: рюши по верху, значок-капкейк, заказ запиской, мессенджеры — «пирожными» */

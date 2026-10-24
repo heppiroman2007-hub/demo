@@ -14,8 +14,8 @@
 <meta property="og:image" content="../shared/img/26.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d4285c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Georgia' font-style='italic'%3EВ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../shared/fonts/cormorant-cyrillic-normal-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../shared/base.css?v=10241305">
-<link rel="stylesheet" href="styles.css?v=10241305">
+<link rel="stylesheet" href="../shared/base.css?v=10241312">
+<link rel="stylesheet" href="styles.css?v=10241312">
 </head>
 <body>
 
@@ -115,7 +115,17 @@
     <g fill="#d9a35c" stroke="#a8742f" stroke-width=".8"><ellipse cx="22" cy="17.5" rx="2.6" ry="1.8" transform="rotate(-30 22 17.5)"/><ellipse cx="29" cy="15" rx="2.6" ry="1.8"/>
       <ellipse cx="36" cy="15.2" rx="2.6" ry="1.8" transform="rotate(15 36 15.2)"/><ellipse cx="42.5" cy="18" rx="2.6" ry="1.8" transform="rotate(35 42.5 18)"/></g></symbol>
 
-  <symbol id="d-mix" viewBox="0 0 64 64"><use href="#d-raspberry" x="10" y="-4" width="38" height="38"/><use href="#d-lemon" x="-3" y="18" width="40" height="40"/><use href="#d-strawberry" x="26" y="18" width="40" height="40"/></symbol>
+  <symbol id="d-piping" viewBox="0 0 64 64">
+    <path d="M8 14c8-4 26-4 34 0L27 41h-4z" fill="#f3a9bf" stroke="#d14b74" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M16 13.5L24.5 39M25 12.6v27M34 13.5L25.5 39" stroke="#fff" stroke-width="1.8" opacity=".55"/>
+    <path d="M10 13c-2-4 1-7 5-6 3-3 9-3 11 0 3-3 10-2 11 1 4-1 6 2 4 5-9-3-23-3-31 0z" fill="#fde3ea" stroke="#d14b74" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M21.5 40h7l-1.3 6h-4.4z" fill="#cfd3da" stroke="#7d8594" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M17 55c-3-2-2-6 2-6-1-3 3-5 6-3 2-3 7-2 7 2 4-1 6 4 2 7z" fill="#fff6f8" stroke="#e7a9bd" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M20 53c3-2 8-2 11 0" fill="none" stroke="#e7a9bd" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="44" cy="44" r="2.3" fill="#d81f45"/><circle cx="50" cy="38" r="1.6" fill="#7b5aa6"/><circle cx="49" cy="49" r="1.4" fill="#f2c46d"/>
+    <path d="M47 30l1 2.6 2.6 1-2.6 1-1 2.6-1-2.6-2.6-1 2.6-1z" fill="#ffb534"/></symbol>
+
+  <symbol id="d-mix"viewBox="0 0 64 64"><use href="#d-raspberry" x="10" y="-4" width="38" height="38"/><use href="#d-lemon" x="-3" y="18" width="40" height="40"/><use href="#d-strawberry" x="26" y="18" width="40" height="40"/></symbol>
   <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2l-.4-.2z"/></symbol>
   <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></symbol>
@@ -548,7 +558,12 @@
         <div><span>Примерно</span><b id="calcTotal">—</b><small id="calcLine"></small></div>
         <a class="btn btn--accent" id="calcSend" href="#" target="_blank" rel="noopener"><svg><use href="#chat"/></svg>Отправить заказ</a>
       </div>
-      <p class="decor-note"><svg aria-hidden="true"><use href="#chat"/></svg><span><b>Стоимость декора рассчитывается отдельно — в зависимости от сложности.</b> Ягоды, топперы, фигурки кондитер посчитает по вашей картинке. Покрытие ганашем или велюр рассчитывается отдельно.</span></p>
+      
+      <div class="decor-note">
+        <svg class="decor-note__glaze" viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h320v8c-6 0-7 4-9 10s-7 6-8 0-2-10-12-10-14 0-17 6-4 13-9 13-6-7-7-13-6-6-24-6-26 1-29 5-3 8-7 8-6-5-8-8-6-5-20-5-24 0-27 7-4 15-10 15-7-8-8-14-4-8-18-8-28 1-31 5-3 6-7 6-5-4-7-6-6-5-22-5S50 9 47 15s-4 11-9 11-6-7-7-12-5-6-15-6H0z"/></svg>
+        <svg class="decor-note__bag" aria-hidden="true"><use href="#d-piping"/></svg>
+        <p><b class="decor-note__t">Декор — отдельно</b>Стоимость декора рассчитывается отдельно — в зависимости от сложности. Ягоды, топперы, фигурки кондитер посчитает по вашей картинке. Покрытие ганашем или велюр рассчитывается отдельно.</p>
+      </div>
     </form>
     </div>
   </div>
@@ -735,7 +750,11 @@
         <div><span>Итого</span><b id="price">—</b></div>
         <a class="btn btn--accent" id="sendBento" href="#" target="_blank" rel="noopener"><svg><use href="#chat"/></svg>Заказать бенто</a>
       </div>
-      <p class="decor-note"><svg aria-hidden="true"><use href="#chat"/></svg><span><b>Стоимость декора рассчитывается отдельно — в зависимости от сложности.</b> Шоколадный декор рассчитывается индивидуально.</span></p>
+      <div class="decor-note">
+        <svg class="decor-note__glaze" viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h320v8c-6 0-7 4-9 10s-7 6-8 0-2-10-12-10-14 0-17 6-4 13-9 13-6-7-7-13-6-6-24-6-26 1-29 5-3 8-7 8-6-5-8-8-6-5-20-5-24 0-27 7-4 15-10 15-7-8-8-14-4-8-18-8-28 1-31 5-3 6-7 6-5-4-7-6-6-5-22-5S50 9 47 15s-4 11-9 11-6-7-7-12-5-6-15-6H0z"/></svg>
+        <svg class="decor-note__bag" aria-hidden="true"><use href="#d-piping"/></svg>
+        <p><b class="decor-note__t">Декор — отдельно</b>Стоимость декора рассчитывается отдельно — в зависимости от сложности. Шоколадный декор рассчитывается индивидуально.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -762,11 +781,6 @@
   </div>
     
     <div class="menu menu--rich tea reveal">
-      <button type="button" class="fill fill--ask" data-ask="Здравствуйте! Сколько стоят пирожные и пончики и что сегодня есть в наличии?">
-        <span class="fill__row"><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-donut" width="64" height="64"/></svg></span>
-          <span class="fill__head"><span class="fill__name">Пирожные и пончики</span><small><u>спросить, что есть сегодня</u></small></span>
-          <b class="price">узнать цену</b><span class="fill__go" aria-hidden="true"><svg><use href="#chat"/></svg></span></span>
-      </button>
       <details class="fill">
         <summary><span class="emo-plate is-art" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#d-mix" width="64" height="64"/></svg></span>
           <span class="fill__head"><h3>Корпусные десерты</h3><small>10 вкусов<u> · смотреть все</u></small></span>
@@ -927,6 +941,6 @@
 </div>
 
 <script>window.SITE = {"wa": "79648250576", "metrika": "", "max": "", "phone": "8 964 825-05-76", "cakes": [{"name": "Клубника-маракуйя", "price": 2300}, {"name": "Манго-маракуйя", "price": 2300}, {"name": "Малина-мята", "price": 2300}, {"name": "Фисташка-малина", "price": 2200}, {"name": "Малиновый пломбир", "price": 2400}, {"name": "Черничное наслаждение", "price": 1900}, {"name": "Клубничный лимонад", "price": 1900}, {"name": "Красный бархат «Малина в шоколаде»", "price": 2300}, {"name": "Киндер Кантри", "price": 2300}, {"name": "Сникерс", "price": 2400}, {"name": "Молочный шоколад-банан", "price": 2300}, {"name": "Чёрный лес", "price": 2100}, {"name": "Красный бархат", "price": 2100}, {"name": "Шоколад-вишня", "price": 1900}, {"name": "Рафаэлло", "price": 2400}, {"name": "Молочная девочка", "price": 2300}, {"name": "Наполеон с заварным кремом", "price": 2300}, {"name": "Наполеон «Ванильная намелака»", "price": 2300}, {"name": "Морковный", "price": 2200}, {"name": "Медовик с ягодной начинкой", "price": 2000}, {"name": "Медовик", "price": 1900}], "cupcake": 270, "cupsMax": 12, "corpus": [{"name": "Банан", "price": 250, "pack": 1}, {"name": "Малина", "price": 350, "pack": 1}, {"name": "Донаткейк", "price": 350, "pack": 1}, {"name": "Попкорн", "price": 380, "pack": 1}, {"name": "Кофейное зерно", "price": 380, "pack": 1}, {"name": "Манго", "price": 380, "pack": 1}, {"name": "Клубничка", "price": 380, "pack": 1}, {"name": "Черничка", "price": 400, "pack": 1}, {"name": "Лимон", "price": 420, "pack": 2}, {"name": "Маракуйя", "price": 450, "pack": 1}], "addons": {"print": {"name": "Сахарная печать", "price": 300}}, "bento": {"sizes": {"s": {"label": "10 см", "weight": "450–500 г", "price": 1600}, "m": {"label": "12 см", "weight": "600–700 г", "price": 1900}, "l": {"label": "Макси 14 см", "weight": "1 кг", "price": 2300}}, "fills": {"velvet": {"name": "Красный бархат", "desc": "", "deco": "raspberry"}, "forest": {"name": "Чёрный лес", "desc": "шоколадный бисквит, вишнёвый конфитюр, крем-чиз", "deco": "cherry"}, "berry": {"name": "Ванильная ягодка", "desc": "ванильный бисквит, ягодный крем-чиз, ягодное конфи", "deco": "berry"}, "exotic": {"name": "Экзотик", "desc": "ванильный бисквит, кули манго-маракуйя, крем-чиз", "deco": "mango"}}, "addons": {"print": {"name": "Сахарная печать", "price": 300}, "candle": {"name": "Свеча и открытка", "price": null}}}};</script>
-<script src="../shared/app.js?v=10241305"></script>
+<script src="../shared/app.js?v=10241312"></script>
 </body>
 </html>
