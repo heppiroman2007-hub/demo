@@ -1,5 +1,5 @@
-// «Ваш десерт»: меню, калькулятор торта, конструктор бенто, cookie. Данные — window.SITE (пишет build.py)
-const SITE = window.SITE || {};
+// «Ваш десерт»: меню, калькулятор торта, конструктор бенто, cookie. Данные — JSON в #site-data (пишет build.py)
+const SITE = JSON.parse(document.getElementById("site-data")?.textContent || "{}");
 const waLink = text => `https://wa.me/${SITE.wa}?text=${encodeURIComponent(text)}`;
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/\s/g, " ") + " ₽";
@@ -167,6 +167,7 @@ const watchCorpus = (kind, pick, render) => pick.addEventListener("change", () =
   if (!cupsOf(kind)) $(`[data-cups="${kind}"] [data-step="1"]`).click(); else render();
 });
 const calcFill = $("#calcFill"), calcDate = $("#calcDate"), corpusPick = $("#corpusPick");
+$("#cakeCalc").addEventListener("submit", e => e.preventDefault());  // Enter в поле не перезагружает страницу
 const dateRu = v => v ? v.split("-").reverse().join(".") : "";
 function renderCalc() {
   const cake = SITE.cakes[calc.fill];
