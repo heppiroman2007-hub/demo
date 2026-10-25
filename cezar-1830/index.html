@@ -367,7 +367,7 @@ body[data-theme=country]{--paper:#eef0e6;--paper2:#e2e6d6;--card:#f8f9f3;--ink:#
 <section class="inside" id="vnutri">
   <div class="wrap">
     <h2 class="h2 rv">Загляните <span class="serif">внутрь</span></h2>
-    <p class="lead2 rv">Откройте любую дверь — бассейн, комната отдыха. Чтобы приехать и уже знать, где будете отдыхать.</p>
+    <p class="lead2 rv">Откройте любую дверь — бассейн, комната отдыха, гостевая. Чтобы приехать и уже знать, где будете отдыхать.</p>
     <div class="chips" id="inHalls"></div>
     <div class="plaques" id="plaques"></div>
     <div class="stage" id="stage">
@@ -486,8 +486,8 @@ body[data-theme=country]{--paper:#eef0e6;--paper2:#e2e6d6;--card:#f8f9f3;--ink:#
   const ADDS = [{"id": "karaoke", "name": "Караоке", "note": "на всё время", "price": 1000}, {"id": "oak", "name": "Веник дубовый", "note": "на каждого", "price": 400, "each": true}];
   const DEFAULT_ADDS = ["karaoke"];
   const words = ["Финская парная", "Хаммам", "Бассейн", "Караоке", "Комната отдыха", "Круглосуточно"];
-  const TAGS = [{"no": "№1", "name": "Бассейн", "feats": ["сразу после парной", "прохладная вода", "для всех"], "zone": 0, "r": "-2.5deg"}, {"no": "№2", "name": "Комната", "feats": ["стол на компанию", "диваны", "чай"], "zone": 1, "r": "1.5deg"}];
-  const INSIDE = {"cezar-1830": [{"z": "Бассейн", "t": "Бассейн — окунуться сразу после парной.", "s": ["img/02.jpg", "img/11.jpg", "img/17.jpg", "img/21.jpg", "img/24.jpg"]}, {"z": "Комната отдыха", "t": "Стол на всю компанию, диваны и чай между заходами.", "s": ["img/03.jpg", "img/08.jpg", "img/22.jpg", "img/15.jpg"]}]};
+  const TAGS = [{"no": "№1", "name": "Бассейн", "feats": ["сразу после парной", "прохладная вода", "для всех"], "zone": 0, "r": "-2.5deg"}, {"no": "№2", "name": "Комната", "feats": ["стол на компанию", "диваны", "чай"], "zone": 1, "r": "1.5deg"}, {"no": "№3", "name": "Гостевая", "feats": ["стол на компанию", "чай", "экран"], "zone": 2, "r": "-1deg"}];
+  const INSIDE = {"cezar-1830": [{"z": "Бассейн", "t": "Бассейн — окунуться сразу после парной.", "s": ["img/02.jpg", "img/11.jpg", "img/17.jpg", "img/21.jpg", "img/24.jpg"]}, {"z": "Комната отдыха", "t": "Стол на всю компанию, диваны и чай между заходами.", "s": ["img/03.jpg", "img/08.jpg", "img/22.jpg", "img/15.jpg"]}, {"z": "Гостевая", "t": "Гостевая из бревна: большой стол, чай и экран.", "s": ["img/07.jpg", "img/04.jpg"]}]};
   const PRICE_NOTE = h => `Цена из 2ГИС: <b>от ${rub(h.day)} в час</b>. Точный прайс поставим ваш.`;
   const $ = s => document.querySelector(s);
   const rub = n => n.toLocaleString("ru-RU").replace(/\s/g, " ") + " ₽";  // цена не рвётся на две строки
