@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<script>(function(){var h=location.hostname,ok=atob('cGFyYWV2cHJvZml0LnJ1');if(h!=='heppiroman2007-hub.github.io'&&h!==ok&&h.slice(-ok.length-1)!=='.'+ok){document.documentElement.innerHTML='<body style="font:18px/1.5 sans-serif;padding:48px;background:#111;color:#eee">Демо-версия сайта. Оригинал — <a style="color:#e2b866" href="https://'+ok+'">'+ok+'</a></body>';throw 0}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Леспром — бытовки и блок-контейнеры в Омске</title>
+<meta name="description" content="Леспром: бытовки, блок-контейнеры и посты охраны в Омске. Цена с утеплением и доставкой сразу.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="fonts.css">
+<link rel="preload" as="image" href="vid/film.webp" media="(min-aspect-ratio:1/1)">
+<link rel="preload" as="image" href="vid/film-s.webp" media="(max-aspect-ratio:1/1)">
+<style>
+:root{
+  --steel:#15191d;--steel-2:#1c2227;--steel-3:#252c32;
+  --text:#e9ecef;--muted:#98a2ab;--blue:#8ab8e6;--line:rgba(138,184,230,.24);
+  --safety:#ff6a1a;--paper:#eef1f3;--ink:#15191d;--ink-2:#5b6670;--ok:#2e8a52;
+  --gut:max(20px,4.5vw);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-padding-top:72px}
+body{background:var(--steel);color:var(--text);font:400 17px/1.55 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.h{font-family:Geologica,sans-serif;font-weight:800;font-variation-settings:"SHRP" 100;letter-spacing:-.025em;line-height:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:6px;background:var(--safety);color:#1a0b00;font:600 16px/1 "IBM Plex Sans",sans-serif;text-decoration:none;transition:background .2s}
+.btn:hover{background:#ff8540}
+.btn.ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px rgba(233,236,239,.35)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--text)}
+.note{font-size:13px;line-height:1.45;color:var(--muted)}
+section{position:relative}
+
+/* шапка */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s}
+.top.solid{background:rgba(21,25,29,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.top .bar{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 var(--gut);gap:20px}
+.brand{font-family:Geologica,sans-serif;font-weight:800;font-variation-settings:"SHRP" 100;font-size:21px;letter-spacing:-.02em;text-decoration:none}
+.top nav{display:flex;gap:26px;font-size:15px;color:#cfd5da}
+.top nav a{text-decoration:none}.top nav a:hover{color:#fff}
+.top .r{display:flex;align-items:center;gap:20px}
+.top .tel{display:inline-flex;align-items:center;gap:8px;font-size:15px;text-decoration:none;font-weight:500}
+.top .tel svg{display:none}
+.top .btn{min-height:40px;padding:0 16px;font-size:14px}
+@media(max-width:1000px){.top nav{display:none}}
+.brand,.top .btn{white-space:nowrap}
+@media(max-width:560px){.top .bar{gap:10px}.brand{font-size:18px}.top .btn{padding:0 12px}.top .r{gap:8px}.top .tel{width:44px;height:44px;justify-content:center;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(233,236,239,.35)}.top .tel svg{display:block}.top .tel span{display:none}}
+
+/* фильм */
+.film{position:relative;height:calc(var(--hh,100vh)*3);background:#000}
+.stage{position:sticky;top:0;height:var(--hh,100vh);overflow:hidden}
+/* телефон: фильм — своя «лента» как в сторис: короткий свайп = следующая глава (родной scroll-snap, без перехвата),
+   после 3-й главы следующий свайп листает уже страницу */
+html.tfilm .film{height:var(--hh,100vh);overflow-y:scroll;overflow-x:hidden;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+html.tfilm .film::-webkit-scrollbar{display:none}
+html.tfilm .ch{scroll-snap-align:start;scroll-snap-stop:always}
+html.tfilm .seam{display:none}/* шов-сканер — для ПК; на телефоне его подпись налезала на логотип */
+.stage video,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{display:none;filter:brightness(.62) saturate(.7)}
+/* iOS: не показывать системный значок «плей», если автозапуск запрещён */
+.stage video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+.stage video::-webkit-media-controls{display:none!important}
+.stage img.fb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s}.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 50%,rgba(0,0,0,.8)),linear-gradient(90deg,rgba(0,0,0,.5),rgba(0,0,0,0) 55%)}
+.ch{position:absolute;z-index:2;left:0;right:0;top:calc(var(--hh,100vh)*var(--k));height:var(--hh,100vh);pointer-events:none}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(64px,11vh,120px);max-width:780px;pointer-events:auto}
+.seam{position:absolute;left:0;right:0;top:0;height:1px;background:var(--blue)}
+.seam::before,.seam::after{content:"";position:absolute;top:-7px;width:1px;height:15px;background:var(--blue)}
+.seam::before{left:var(--gut)}.seam::after{right:var(--gut)}
+.seam span{position:absolute;left:calc(var(--gut) + 12px);top:10px;font-size:13px;color:var(--blue);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.cap h1.offer{font:500 clamp(17px,1.6vw,20px)/1.5 "IBM Plex Sans",sans-serif;color:#dde3e8;max-width:540px;margin-top:18px;letter-spacing:0}
+.cap .cap-h,.cap h2{font-size:min(clamp(46px,7.4vw,104px),12vw)}
+.cap p{font-size:clamp(17px,1.6vw,20px);color:#dde3e8;max-width:520px;margin-top:18px}
+.cap .btn{margin-top:24px}
+.chap{position:absolute;z-index:3;right:var(--gut);top:96px;display:flex;flex-direction:column;gap:14px;width:160px}
+.chap button{display:block;text-align:left;font-size:14px;color:rgba(233,236,239,.6);padding-left:16px;position:relative;line-height:1.25;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.chap button::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:2px;background:rgba(233,236,239,.22)}
+.chap button i{position:absolute;left:0;top:2px;width:2px;height:0;background:var(--safety)}
+.chap button.on{color:var(--text)}
+@media(max-width:760px){.chap{top:84px;right:var(--gut);flex-direction:row;width:auto;gap:12px}.chap button{font-size:0;width:34px;height:3px;padding:0}.chap button::before{top:0;bottom:0;left:0;right:0;width:auto;height:3px}.chap button i{top:0;height:3px;width:0}.chap button::after{content:"";position:absolute;left:-5px;right:-5px;top:-20px;bottom:-20px}}
+.hint{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);font-size:13px;color:#cfd5da;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transition:opacity .4s}
+.hint.on{opacity:1}
+.hint svg{animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(5px)}}
+
+/* штамп */
+.stamp-sec{padding:clamp(80px,10vw,130px) 0 clamp(60px,8vw,100px)}
+.stamp-sec .q{font-family:Geologica,sans-serif;font-weight:500;font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-.015em;max-width:860px}
+.stamp-sec .who{color:var(--muted);margin-top:16px;font-size:15px}
+.day{position:relative;margin-top:clamp(48px,7vw,80px)}
+.day-line{position:absolute;left:0;right:calc((100% - 2*clamp(20px,4vw,56px))/3 - 8px);top:9px;height:2px;background:var(--line)}
+.day-line i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--safety);transition:width 1.6s cubic-bezier(.65,0,.35,1)}
+.day.go .day-line i{width:100%}
+.day-row{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,56px)}
+.day-step{position:relative;padding-top:40px;min-width:0}
+.day-step::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;background:var(--steel);border:2px solid var(--blue);transition:background .3s,border-color .3s}
+.day.go .day-step::before{background:var(--safety);border-color:var(--safety)}
+.day.go .day-step:nth-child(2)::before{transition-delay:.7s}.day.go .day-step:nth-child(3)::before{transition-delay:1.4s}
+.day-step span{display:block;color:var(--blue);font-size:15px}
+.day-step b{display:block;font-family:Geologica,sans-serif;font-variation-settings:"SHRP" 100;font-weight:700;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.02em;margin-top:6px}
+.day-step p{color:#cdd4da;font-size:16px;line-height:1.45;margin-top:14px;max-width:320px}
+@media(max-width:760px){
+  .day{margin-left:calc(var(--gut)*-1);margin-right:calc(var(--gut)*-1);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .day::-webkit-scrollbar{display:none}
+  .day-line{left:var(--gut);right:auto;width:calc(78vw*2 + 16px*2 + 8px)}
+  .day-row{grid-template-columns:repeat(3,78vw);gap:16px;padding:0 var(--gut);width:max-content}
+  .day-step{scroll-snap-align:start;scroll-margin-left:var(--gut)}
+  .day-line i{transition:width .25s}
+  .day-step.lit::before{background:var(--safety);border-color:var(--safety)}
+}
+
+/* каталог */
+.catalog{padding:0 0 clamp(80px,10vw,120px)}
+.panel{background:var(--paper);color:var(--ink);border-radius:20px;padding:clamp(24px,4vw,52px)}
+.panel-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.panel h2{font-size:clamp(42px,5.6vw,72px);color:var(--ink)}
+.panel-h p{color:var(--ink-2);max-width:420px}
+/* площадка цеха: кадр двора, бытовки нажимаются прямо на фото */
+.yard{position:relative;margin:clamp(22px,3.4vw,36px) calc(clamp(24px,4vw,52px)*-1) 0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.yard::-webkit-scrollbar{display:none}
+.yard-in{position:relative;width:100%;aspect-ratio:3168/1030;overflow:hidden;background:#cfd6dc}
+.yard-in img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none}
+.spot{position:absolute;top:52.3%;height:32.7%;border-radius:2px;outline:2px dashed transparent;outline-offset:2px;transition:outline-color .2s,background .2s}
+.spot:hover{outline-color:rgba(29,95,184,.6)}
+.spot.on{outline:2px solid #1d5fb8;background:rgba(29,95,184,.12)}
+.spot.on::before,.spot.on::after{content:"";position:absolute;bottom:-12px;width:1px;height:9px;background:#1d5fb8}
+.spot.on::before{left:-2px}.spot.on::after{right:-2px}
+.spot i{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%);font:600 clamp(11px,1vw,13px)/1 "IBM Plex Sans",sans-serif;font-style:normal;white-space:nowrap;background:rgba(21,25,29,.86);color:#fff;padding:6px 8px;border-radius:4px;pointer-events:none;transition:background .2s}
+.spot.on i{background:var(--safety);color:#1a0b00}
+.yard-hint{display:none}
+/* карточка выбранной бытовки — стальная плита, как шапка и фильм */
+.pick{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(16px,3vw,32px);align-items:center;margin-top:clamp(20px,3vw,28px);background:var(--steel);color:var(--text);border-radius:14px;padding:12px;border-top:2px solid #1d5fb8}
+.pick .ph{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:var(--steel-3);position:relative}
+.pick .ph img{width:100%;height:100%;object-fit:cover}
+.pick .tag{background:rgba(21,25,29,.82);color:#7fd3a1;font-weight:500}
+.pick .tag.wait{color:#f2b46e}
+.pick h3{font:700 clamp(22px,2.2vw,28px)/1.1 Geologica,sans-serif;font-variation-settings:"SHRP" 100;letter-spacing:-.015em}
+.pick .sp{color:var(--muted);margin-top:6px;font-size:15px}
+.pick .meta{display:flex;gap:28px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.pick .meta small{display:block;color:var(--blue);font-size:13px}
+.pick .meta b{font-size:19px;font-weight:600}
+.pick .meta b.g{color:var(--text)}
+.pick .act{display:flex;gap:8px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.pick .nav{width:44px;height:44px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(233,236,239,.3);color:var(--text);font-size:20px;line-height:1}
+.pick .nav:hover{box-shadow:inset 0 0 0 1px var(--text)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.chips button{padding:8px 12px;border-radius:999px;font-size:14px;color:var(--ink-2);box-shadow:inset 0 0 0 1px #c9d2da}
+.chips button.on{color:var(--ink);box-shadow:inset 0 0 0 2px #1d5fb8}
+.chips button s{text-decoration:none;color:var(--ok);font-size:12px;margin-left:6px}
+@media(max-width:760px){
+  .yard-in{width:940px;aspect-ratio:auto;height:306px}
+  .yard-hint{display:block;position:sticky;left:0;width:max-content;margin:-34px 0 0 12px;height:26px;padding:0 10px;border-radius:99px;background:rgba(21,25,29,.8);color:#fff;font-size:12px;line-height:26px;transition:opacity .4s;pointer-events:none}
+  .yard.moved .yard-hint{opacity:0}
+  .pick{grid-template-columns:1fr;padding:10px}
+  .pick .body{padding:4px 6px 6px}
+  .pick .act{flex-wrap:nowrap}
+  .pick{grid-template-columns:minmax(0,1fr)}
+  .pick .body{min-width:0}
+  .pick .act .btn{flex:1 1 auto;min-width:0;padding:0 8px;white-space:nowrap}
+  .pick .act .btn .lg{display:none}/* на телефоне «до объекта» не влезает (iPhone 390–430: обрезалось) */
+  .pick .nav{flex:0 0 44px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin-left:calc(clamp(24px,4vw,52px)*-1);margin-right:calc(clamp(24px,4vw,52px)*-1);padding:0 clamp(24px,4vw,52px);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips button{flex:0 0 auto}
+}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(26px,4vw,40px)}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;padding:10px 10px 18px;text-align:left;display:flex;flex-direction:column;color:var(--ink);transition:box-shadow .2s}
+.card:hover{box-shadow:0 0 0 2px #c8d3dc}
+.card .ph{border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:#dde3e8;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:10px;top:10px;font-size:13px;font-weight:600;background:#fff;color:var(--ok);padding:5px 9px;border-radius:5px}
+.tag.wait{color:#a2560c}
+.card h3{font:700 clamp(19px,1.9vw,23px)/1.15 Geologica,sans-serif;letter-spacing:-.015em;margin:16px 8px 0}
+.card .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 8px 0}
+.card .meta small{display:block;color:var(--ink-2);font-size:13px}
+.card .meta b{font-size:18px;font-weight:600}
+.card .meta b.g{color:var(--ok)}
+.card .go{margin:16px 8px 0;font-weight:600;font-size:15px;color:#c24e08}
+
+/* характеристики */
+.specs{padding:clamp(70px,9vw,120px) 0}
+.sec-h{font-size:clamp(38px,5.2vw,68px)}
+.lead-p{color:var(--muted);margin-top:14px;max-width:560px}
+.specs{padding:0}
+.sp-track{position:relative;height:calc(var(--hh,100vh)*2.6)}
+.sp-stage{position:sticky;top:0;height:var(--hh,100vh);overflow:hidden;display:flex;align-items:center}
+.sp-grid{width:100%;display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"view head" "view steps" "view bar";grid-template-rows:auto 1fr auto;column-gap:clamp(24px,5vw,72px);height:min(640px,calc(var(--hh,100vh) - 140px));margin-top:40px}
+.sp-head{grid-area:head}.sp-view{grid-area:view}.sp-steps{grid-area:steps}.sp-bar{grid-area:bar}
+.sp-view{position:relative;perspective:1500px;display:flex;align-items:center;justify-content:center;min-height:0}
+.sp-scene{position:relative;width:clamp(170px,22vw,280px);aspect-ratio:1/1.08;transform-style:preserve-3d;transform:rotateX(-14deg) rotateY(-36deg);transition:transform 1.2s cubic-bezier(.65,0,.35,1)}
+.sp-scene.done{transform:rotateX(-10deg) rotateY(-24deg)}
+.ly{position:absolute;inset:0;transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .6s,filter .6s;opacity:0;backface-visibility:visible}
+.ly.dim-l{filter:brightness(.55) saturate(.6)}
+.ly-frame{border:12px solid #5d6872;background:linear-gradient(#5d6872,#5d6872) center/100% 10px no-repeat,linear-gradient(#5d6872,#5d6872) center/10px 100% no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.ly-ins{inset:12px;background:repeating-linear-gradient(35deg,rgba(120,80,20,.18) 0 3px,transparent 3px 9px),repeating-linear-gradient(-35deg,rgba(255,240,200,.16) 0 2px,transparent 2px 11px),#d6aa4e}
+.ly-film{background:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 30px,transparent 30px 70px),rgba(138,184,230,.28);border:1px solid var(--blue)}
+.ly-prof{background:repeating-linear-gradient(90deg,#6f7c87 0 6px,#9aa6b0 6px 9px,#7e8a94 9px 22px,#55616b 22px 25px,#6f7c87 25px 30px)}
+.ly-fin{background:repeating-linear-gradient(180deg,#c7a271 0 20px,#a9844f 20px 21px),#c7a271}
+.ly-floor{top:auto;bottom:0;height:200px;transform-origin:bottom;background:repeating-linear-gradient(90deg,#8d7c64 0 46px,#6f604c 46px 47px),#8d7c64}
+.dim{position:absolute;font:500 13px/1 "IBM Plex Sans",sans-serif;color:var(--blue);font-style:normal;opacity:0;transition:opacity .6s .6s;white-space:nowrap}
+.done .dim{opacity:1}
+.dim-h{right:-58px;top:0;bottom:0;display:flex;align-items:center;padding-left:16px;border-left:1px solid var(--blue)}
+.dim-h::before,.dim-h::after{content:"";position:absolute;left:-6px;width:11px;height:1px;background:var(--blue)}.dim-h::before{top:0}.dim-h::after{bottom:0}
+.dim-d{left:0;right:0;bottom:-30px;transform:rotate(180deg);text-align:center;border-top:1px solid var(--blue);padding-top:8px}
+.sp-steps{position:relative;margin-top:28px;min-height:0}
+.sp-steps>div{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(24px);transition:opacity .45s,transform .6s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.sp-steps>div.on{opacity:1;transform:none}
+.sp-steps dt{font:700 clamp(30px,3.6vw,48px)/1.05 Geologica,sans-serif;font-variation-settings:"SHRP" 100;letter-spacing:-.02em}
+.sp-steps dd{font-size:clamp(17px,1.5vw,20px);margin-top:14px;max-width:440px}
+.sp-steps dd small{display:block;color:var(--muted);font-size:15px;margin-top:10px;line-height:1.45}
+.sp-bar{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--blue)}
+.sp-bar b{flex:1;height:2px;background:var(--line);position:relative;max-width:260px}
+.sp-bar i{position:absolute;left:0;top:0;bottom:0;width:14%;background:var(--safety);transition:width .5s}
+@media(max-width:760px){
+  .sp-grid{grid-template-columns:1fr;grid-template-areas:"head" "view" "steps" "bar";grid-template-rows:auto 1fr 190px auto;height:calc(var(--hh,100vh) - 96px);margin-top:56px}
+  .sp-head .lead-p{display:none}
+  .sp-steps{margin-top:8px}
+  .sp-scene{width:min(40vw,170px);margin-right:12vw}
+  .ly-floor{height:150px}
+}
+
+/* доставка */
+.deliver{padding:0 0 clamp(70px,9vw,120px)}
+.dgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;margin-top:36px}
+@media(max-width:860px){.dgrid{grid-template-columns:1fr}}
+.dgrid figure img{border-radius:12px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.dgrid figcaption{color:var(--muted);font-size:14px;margin-top:10px}
+.dlist{display:flex;flex-direction:column}
+.dlist div{padding:18px 0;border-bottom:1px solid var(--line)}
+.dlist div:first-child{padding-top:0}
+.dlist h3{font:700 20px/1.2 Geologica,sans-serif;letter-spacing:-.01em}
+.dlist p{color:var(--muted);margin-top:4px}
+.dgrid{align-items:center}
+.route{position:relative;height:440px;margin-top:40px;background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.route svg{position:absolute;inset:0;width:100%;height:100%}
+.r-base{fill:none;stroke:rgba(233,236,239,.16);stroke-width:10;stroke-linecap:round}
+.r-done{fill:none;stroke:var(--safety);stroke-width:3;stroke-linecap:round;stroke-dasharray:8 9}
+.truck{position:absolute;left:0;top:0;width:44px;height:20px;margin:-10px 0 0 -22px;will-change:transform}
+.truck i:first-child{position:absolute;right:0;top:2px;width:11px;height:16px;border-radius:3px 5px 5px 3px;background:#e9ecef}
+.truck i:last-child{position:absolute;left:0;top:0;width:31px;height:20px;border-radius:2px;background:repeating-linear-gradient(90deg,#9aa6b0 0 3px,#7e8a94 3px 6px);box-shadow:0 0 0 2px #15191d}
+.stop{position:absolute;width:min(300px,30%);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1);opacity:.28;transform:translateY(10px)}
+.stop.lit{opacity:1;transform:none}
+.r-dot{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2px solid var(--blue);background:var(--steel);transition:background .3s,border-color .3s}
+.r-dot.lit{background:var(--safety);border-color:var(--safety)}
+.stop span{display:block;color:var(--blue);font-size:13px;margin-bottom:6px}
+.stop h3{font:700 20px/1.2 Geologica,sans-serif;letter-spacing:-.01em}
+.stop p{color:var(--muted);margin-top:4px;font-size:15px}
+@media(max-width:760px){.route{height:760px}.stop{width:56%}}
+.dlist blockquote{margin-top:22px;font-size:18px;line-height:1.45;color:#dde3e8;border-left:2px solid var(--safety);padding-left:16px}
+
+/* для стройки */
+.b2b{padding:clamp(70px,9vw,120px) 0;background:var(--steel-2)}
+.b2b p.big{font-size:clamp(18px,1.9vw,21px);color:#d5dbe0;max-width:720px;margin-top:18px}
+.camp{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,56px);margin-top:44px;align-items:center}
+.camp-plan{position:relative;aspect-ratio:24/16;border:1px dashed var(--blue);border-radius:4px;background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/calc(100%/24) calc(100%/16),linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/calc(100%/24) calc(100%/16)}
+.gate{position:absolute;right:6%;bottom:-1px;width:16%;height:2px;background:var(--steel-2);font:400 12px/1 "IBM Plex Sans",sans-serif;color:var(--blue);text-align:center;padding-top:8px}
+.mod{position:absolute;display:flex;align-items:center;justify-content:center;background:#2c353d;border:1px solid #6f7c87;border-radius:2px;font-size:clamp(10px,1.1vw,13px);color:#dde3e8;transition:left .5s cubic-bezier(.16,1,.3,1),top .5s cubic-bezier(.16,1,.3,1);animation:drop .7s cubic-bezier(.16,1,.3,1) both;overflow:hidden;white-space:nowrap}
+.mod::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 7px,rgba(255,255,255,.05) 7px 9px)}
+.mod.m-prorab{background:#24384c;border-color:var(--blue)}
+.mod.m-kpp{background:#3a2a20;border-color:var(--safety)}
+.mod.out{animation:lift .4s ease-in both}
+@keyframes drop{from{opacity:0;transform:translateY(-38px) scale(1.06)}to{opacity:1;transform:none}}
+@keyframes lift{to{opacity:0;transform:translateY(-30px)}}
+.camp-n{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.camp-n span{color:var(--blue);font-size:15px}
+.camp-n output{font:700 clamp(40px,4.4vw,60px)/1 Geologica,sans-serif;font-variation-settings:"SHRP" 100}
+#campN{width:100%;margin:14px 0 18px;accent-color:var(--safety);height:28px}
+.camp-tg{display:flex;gap:8px;flex-wrap:wrap}
+.camp-tg button{padding:9px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:14px}
+.camp-tg button.on{border-color:var(--blue);color:var(--text);background:rgba(138,184,230,.12)}
+.camp-sum{margin-top:20px;color:#d5dbe0;font-size:16px}
+.camp-total{margin:14px 0 18px}
+.camp-total small{display:block;color:var(--muted);font-size:13px}
+.camp-total b{font:700 clamp(26px,2.6vw,34px)/1.1 Geologica,sans-serif}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.cols div{border-top:1px solid var(--blue);padding-top:14px}
+.cols h3{font:700 18px/1.25 Geologica,sans-serif}
+.cols p{color:var(--muted);font-size:15px;margin-top:6px}
+@media(max-width:860px){.camp{grid-template-columns:1fr}}
+@media(max-width:760px){.cols{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(var(--gut)*-1);margin-right:calc(var(--gut)*-1);padding:0 var(--gut);gap:16px;scrollbar-width:none}.cols::-webkit-scrollbar{display:none}.cols div{flex:0 0 72vw;scroll-snap-align:start;scroll-margin-left:var(--gut)}}
+
+/* отзывы */
+.reviews{padding:clamp(70px,9vw,120px) 0 0}
+.revs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:36px calc(var(--gut)*-1) 0;padding:0 var(--gut) 10px;scrollbar-width:none}
+.revs::-webkit-scrollbar{display:none}
+.rev{flex:none;width:min(380px,82vw);scroll-snap-align:start;background:var(--steel-2);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.rev p{font-size:17px;line-height:1.5}
+.rev small{color:var(--muted);font-size:13px;margin-top:auto}
+
+/* финал */
+.final{padding:clamp(90px,12vw,150px) 0 50px}
+.final .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;border-top:1px solid var(--line);padding-top:24px}
+.contacts small{display:block;color:var(--blue);font-size:13px;margin-bottom:6px}
+.contacts a{text-decoration:none}
+@media(max-width:760px){.contacts{grid-template-columns:1fr 1fr}}
+footer{padding:24px 0 40px;border-top:1px solid var(--line);margin-top:40px}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+
+/* лист расчёта */
+.modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(0,0,0,.6);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal.open{display:block}
+.sheet{position:relative;background:var(--paper);color:var(--ink);width:min(1080px,100%);margin:clamp(0px,4vh,48px) auto;border-radius:18px;padding:clamp(18px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px)}
+@media(max-width:860px){.sheet{grid-template-columns:1fr;border-radius:16px 16px 0 0;margin:40px 0 0;min-height:calc(100% - 40px)}}
+.sheet .x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:#fff;font-size:22px;z-index:3;color:var(--ink-2)}
+.sheet .pv{position:sticky;top:20px;align-self:start}
+@media(max-width:860px){.sheet .pv{position:relative;top:0}}
+.sheet .pv img{border-radius:12px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.sheet .pv h3{font-size:clamp(28px,3vw,38px);margin-top:16px}
+.sheet .pv p{color:var(--ink-2);margin-top:6px}
+.opt{padding:0 0 20px;margin-bottom:20px;border-bottom:1px solid #d6dde3}
+.opt h4{font-size:17px;font-weight:600;margin-bottom:12px}
+.opt h4 span{color:var(--ink-2);font-weight:400}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{text-align:left;background:#fff;border:1px solid #d6dde3;border-radius:10px;padding:12px 14px;line-height:1.3;color:var(--ink)}
+.tile:hover{border-color:#9fb0bf}
+.tile.on{border-color:#c24e08;box-shadow:0 0 0 1px #c24e08}
+.tile b{display:block;font-size:16px;font-weight:600}
+.tile small{display:block;color:var(--ink-2);font-size:13px;margin-top:3px}
+.ins{grid-template-columns:1fr}
+.ins .tile{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.ins .kw{text-align:right;white-space:nowrap;font-size:13px;color:var(--ink-2)}
+.ins .kw b{font-size:18px;color:var(--ink)}
+.qty{display:inline-flex;align-items:center;background:#fff;border:1px solid #d6dde3;border-radius:8px;padding:3px}
+.qty button{width:42px;height:42px;font-size:22px;color:#c24e08}
+.qty output{min-width:44px;text-align:center;font-size:19px;font-weight:600}
+input[type=range]{width:100%;accent-color:#c24e08;height:30px}
+.rl{display:flex;justify-content:space-between;color:var(--ink-2);font-size:14px}
+.sum{background:#fff;border-radius:12px;padding:20px}
+.sum .ln{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--ink-2);padding:4px 0}
+.sum .ln span:last-child{white-space:nowrap;color:var(--ink)}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #e1e6ea;margin-top:10px;padding-top:14px}
+.sum .tot b{font:800 clamp(28px,3.2vw,36px)/1 Geologica,sans-serif;font-variation-settings:"SHRP" 100;white-space:nowrap}
+.sum .ship{color:var(--ok);font-size:14px;margin-top:6px}
+.sum .btn{width:100%;margin-top:16px}
+.sum .note{color:#7b858e;margin-top:10px}
+/* заявка */
+.lead{margin-top:18px}
+.lead label{display:block;font-size:15px;margin-bottom:8px}
+.lead-row{display:flex;gap:8px;flex-wrap:wrap}
+.lead input{flex:1 1 200px;min-width:0;min-height:52px;padding:0 14px;border-radius:6px;border:1px solid rgba(138,184,230,.45);background:transparent;color:inherit;font:500 17px/1 "IBM Plex Sans",sans-serif}
+.lead input:focus{outline:none;border-color:var(--blue)}
+.lead input.bad{border-color:var(--safety)}
+.lead .btn{flex:0 0 auto}
+.lead .note{margin-top:8px}
+.lead-final{max-width:620px;margin-top:36px}
+.lead-done{margin-top:14px}
+.lead-done p{font-size:15px}
+.lead-done pre{white-space:pre-wrap;font:14px/1.5 "IBM Plex Sans",sans-serif;background:#1f2a35;color:#e9ecef;border-radius:10px 10px 10px 2px;padding:12px 14px;margin-top:8px;max-width:440px}
+.lead-done small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.modal .lead input{border-color:#b9c3cc;color:var(--ink)}
+.modal .lead-done pre{background:#e4ecf3;color:var(--ink)}
+@media(max-width:560px){.lead .btn{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){.hint svg{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="bar">
+    <a class="brand" href="#">Леспром</a>
+    <nav><a href="#catalog">Каталог</a><a href="#specs">Что внутри</a><a href="#deliver">Доставка</a><a href="#b2b">Для стройки</a><a href="#reviews">Отзывы</a></nav>
+    <div class="r"><a class="tel" data-tel-h aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span></span></a><a class="btn" href="#catalog">Выбрать бытовку</a></div>
+  </div>
+</header>
+
+<section class="film" id="film" aria-label="Как делается бытовка">
+  <div class="stage">
+    <video id="filmVid" muted autoplay playsinline webkit-playsinline preload="auto"></video>
+    <canvas id="freeze" aria-hidden="true"></canvas>
+    <div class="chap" id="chap"><button type="button" class="on">Чертёж<i></i></button><button type="button">Цех<i></i></button><button type="button">Проверка теплом<i></i></button></div>
+    <div class="hint" id="hint"><span>Листайте</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+  </div>
+  <div class="ch" style="--k:0"><div class="cap"><p class="h cap-h">Сначала&nbsp;—<br>чертёж.</p><h1 class="offer">Бытовки и блок-контейнеры от <span data-minprice>85 000 ₽</span> в Омске. Из наличия — на следующий день.</h1><a class="btn" href="#catalog">Каталог и цены</a></div></div>
+  <div class="ch" style="--k:1"><div class="seam"><span>2 из 3 — цех</span></div><div class="cap"><h2 class="h">Потом&nbsp;—<br>наш цех.</h2><p>Сварка, утеплитель, обшивка — так собирают бытовку. Под заказ — за несколько дней.</p></div></div>
+  <div class="ch" style="--k:2"><div class="seam"><span>3 из 3 — проверка теплом</span></div><div class="cap"><h2 class="h">И проверка<br>теплом.</h2><p>Тепловизор показывает: стены холодные, светятся только окна. Тепло остаётся внутри.</p><a class="btn" href="#catalog">Выбрать бытовку</a></div></div>
+</section>
+
+<section class="stamp-sec">
+  <div class="wrap">
+    <p class="q">«Очень хорошая компания, меня устраивает качество работы, хороший коллектив и выполнение работы.»</p>
+    <p class="who">Клиент «Леспром», отзыв в 2ГИС. В 2ГИС у компании 4,9 из 5 по 29 отзывам.</p>
+    <div class="day" id="day" aria-label="Как это происходит">
+      <div class="day-line"><i></i></div>
+      <div class="day-row">
+        <div class="day-step"><span>Днём</span><b>Выбрали</b><p>Модель из наличия — или под заказ, сварим за 3–5 дней в своём цеху.</p></div>
+        <div class="day-step"><span>Вечером</span><b>Оплатили</b><p>Бытовка из наличия встаёт в отгрузку на завтра.</p></div>
+        <div class="day-step"><span>Назавтра</span><b>Привезли</b><p>Манипулятором до объекта, разгрузка уже в цене.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="panel">
+      <div class="panel-h"><h2 class="h">Площадка цеха</h2><p>Модели — на площадке. Нажмите на бытовку — посчитаем с утеплением и доставкой до вашего объекта.</p></div>
+      <div class="yard" id="yard"><div class="yard-in" id="yardIn"><img src="img/yard-2400.webp" srcset="img/yard-1600.webp 1600w, img/yard-2400.webp 2400w" sizes="(max-width:760px) 940px, 1200px" alt="Площадка: восемь моделей бытовок в ряд" loading="lazy" width="3168" height="1344"></div><span class="yard-hint" id="yardHint">Двигайте площадку пальцем</span></div>
+      <div class="pick" id="pick" aria-live="polite"></div>
+      <div class="chips" id="chips" role="tablist" aria-label="Модели"></div>
+    </div>
+  </div>
+</section>
+
+<section class="specs" id="specs">
+  <div class="sp-track" id="spTrack">
+    <div class="sp-stage">
+      <div class="wrap sp-grid">
+        <div class="sp-head"><h2 class="h sec-h">Что внутри</h2><p class="lead-p">Соберём стену слой за слоем — листайте.</p></div>
+        <div class="sp-view" aria-hidden="true">
+          <div class="sp-scene" id="spScene">
+            <div class="ly ly-prof" data-k="0" data-s="1"></div>
+            <div class="ly ly-film" data-k="1" data-s="2"></div>
+            <div class="ly ly-ins" data-k="2" data-s="3"></div>
+            <div class="ly ly-frame" data-k="2.05" data-s="0"></div>
+            <div class="ly ly-fin" data-k="3" data-s="4"><i class="dim dim-h">2,5 м</i></div>
+            <div class="ly ly-floor" data-k="3" data-s="5"><i class="dim dim-d">2,4 м</i></div>
+          </div>
+        </div>
+        <dl class="sp-steps" id="spSteps">
+          <div class="on"><dt>Каркас</dt><dd>Сварной металлический, окрашен.<small>Бытовку поднимают краном за каркас — она не ведёт и не перекашивается.</small></dd></div>
+          <div><dt>Снаружи</dt><dd>Окрашенный профнастил, цвет на выбор.</dd></div>
+          <div><dt>Гидроизоляция</dt><dd>Плёнка 100 мкм.<small>Не даёт влаге попасть в утеплитель.</small></dd></div>
+          <div><dt>Утеплитель</dt><dd>KNAUF Insulation, 50 мм. Под заказ — 100 или 150 мм.<small>Обогрев при −20 °C: около 3,3 кВт с 50 мм и около 1,3 кВт со 150 мм. Расчёт ориентировочный, бытовка 6 м.</small></dd></div>
+          <div><dt>Отделка</dt><dd>ДВП/ДСП, OSB, вагонка или МДФ.</dd></div>
+          <div><dt>Пол</dt><dd>ДСП 16 мм, можно усилить фанерой 18 мм.</dd></div>
+          <div><dt>Размеры</dt><dd>Ширина 2,4 м, высота 2,5 м, длина от 2 до 7 м.<small>Ширина 2,4 м проходит по дорогам без спецразрешений.</small></dd></div>
+        </dl>
+        <div class="sp-bar"><span id="spNum">1 из 7</span><b><i id="spFill"></i></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deliver" id="deliver">
+  <div class="wrap">
+    <h2 class="h sec-h">Привезём сами</h2>
+    <div class="route" id="route">
+      <svg aria-hidden="true"><path class="r-base"/><path class="r-done"/></svg>
+      <div class="truck" aria-hidden="true"><i></i><i></i></div>
+      <div class="stop" data-t="0"><span>Площадка</span><h3>Грузим краном у цеха</h3><p>Бытовку из наличия — на следующий день после оплаты.</p></div>
+      <div class="stop" data-t="0.5"><span>В пути</span><h3>Две маленькие за рейс</h3><p>Посты охраны и бытовки до 3 м везём по две — доставка дешевле.</p></div>
+      <div class="stop" data-t="1"><span>Ваш объект</span><h3>Разгрузка в цене</h3><p>Ставим ровно, по уровню, на блоки или сваи.</p></div>
+    </div>
+    <div class="dgrid">
+      <figure><img src="img/stroit6_0-1200.webp" alt="Погрузка бытовки краном у цеха" loading="lazy"><figcaption>Погрузка краном.</figcaption></figure>
+      <div class="dlist">
+        <blockquote>«Дороги в СНТ узкие и с крутыми поворотами. Довезли всё в целости, за час выгрузили и установили на сваи.»<span class="note" style="display:block;margin-top:8px">Отзыв клиента в 2ГИС, апрель 2026</span></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b2b" id="b2b">
+  <div class="wrap">
+    <h2 class="h sec-h">Без бытовок<br>объект не стартует</h2>
+    <p class="big">Гардеробные и обогрев ставят до начала работ — так требуют правила охраны труда. Соберите городок под свою смену.</p>
+    <p class="note" style="margin-top:10px">Пункт 33 Правил по охране труда при строительстве, Приказ Минтруда России № 883н.</p>
+    <div class="camp" id="camp">
+      <div class="camp-plan" id="campPlan" aria-hidden="true"><b class="gate">въезд</b></div>
+      <div class="camp-ctl">
+        <label class="camp-n"><span>Человек в смене</span><output id="campOut">12</output></label>
+        <input type="range" id="campN" min="4" max="60" step="1" value="12" aria-label="Человек в смене">
+        <div class="camp-tg">
+          <button type="button" class="on" data-opt="prorab" aria-pressed="true">Прорабская</button>
+          <button type="button" class="on" data-opt="kpp" aria-pressed="true">Пост охраны</button>
+        </div>
+        <p class="camp-sum" id="campSum"></p>
+        <p class="camp-total"><small>Ориентировочно, без доставки</small><b id="campTotal"></b></p>
+        <form class="lead" data-lead="camp" novalidate>
+          <label for="leadCamp">Телефон — пришлём состав и счёт на городок</label>
+          <div class="lead-row"><input id="leadCamp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required><button class="btn" type="submit">Обсудить городок</button></div>
+          <p class="note lead-ok">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+        <p class="note" style="margin-top:12px">Считаем примерно 12 человек на раздевалку 6 м. Душ-бытовку и сушилку добавим по запросу.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div><h3>Договор и спецификация</h3><p>Всё из расчёта — в спецификации. Сверяете при приёмке.</p></div>
+      <div><h3>Безнал и карта</h3><p>Юрлицам — по счёту. Частным клиентам — картой, в том числе кредитной.</p></div>
+      <div><h3>Под ваш проект</h3><p>Офис продаж, павильон, модуль по вашей планировке.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="h sec-h">Отзывы</h2>
+    <p class="lead-p">4,9 из 5, 29 отзывов в 2ГИС. <a href="https://2gis.ru/omsk/firm/282003257945515/tab/reviews" target="_blank" rel="noopener" style="color:var(--blue)">Читать все</a></p>
+    <div class="revs" id="revs"></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="h sec-h">Выберите сегодня&nbsp;—<br>привезём завтра</h2>
+    <div class="ctas"><a class="btn" href="#catalog">Выбрать бытовку</a><a class="btn ghost" data-tel></a></div>
+    <form class="lead lead-final" data-lead="call" novalidate>
+      <label for="leadCall">Не успеваете позвонить? Оставьте телефон — перезвоним в рабочее время.</label>
+      <div class="lead-row"><input id="leadCall" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required><button class="btn ghost" type="submit">Перезвоните мне</button></div>
+      <p class="note lead-ok">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+    <div class="contacts">
+      <div><small>Телефон</small><a data-tel></a></div>
+      <div><small>Адрес</small><a href="https://2gis.ru/omsk/firm/282003257945515" target="_blank" rel="noopener">Омск, 3-я Восточная улица, 15</a></div>
+      <div><small>Часы работы</small>Пн 09:30–17:00<br>Вт 09:30–17:00<br>Ср 09:30–17:00<br>Чт 09:30–17:00<br>Пт 09:30–17:00<br>Сб 09:30–17:00<br>Вс выходной</div>
+      <div><small>Почта</small><a href="mailto:lesandreika@mail.ru">lesandreika@mail.ru</a></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap note">
+  <span>Демонстрационный сайт. Подготовлен Paraev Profit для «Леспром». Название, адрес, часы, телефон и отзывы — из открытой карточки 2ГИС. Модели и цены — примерные, подставим ваши. Видео и фото в каталоге — визуализации; доплаты, тарифы доставки, сроки и состав городка — примеры.</span>
+  <span>© Леспром, Омск</span>
+</div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="pvName">
+  <div class="sheet">
+    <button class="x" type="button" id="mX" aria-label="Закрыть">×</button>
+    <div class="pv"><img id="pvImg" alt=""><h3 class="h" id="pvName"></h3><p id="pvMeta"></p></div>
+    <div>
+      <div class="opt"><h4>Количество</h4><div class="qty"><button type="button" id="qm" aria-label="Меньше">−</button><output id="qty">1</output><button type="button" id="qp" aria-label="Больше">+</button></div></div>
+      <div class="opt"><h4>Утепление <span>— для какой зимы</span></h4><div class="tiles ins" id="ins"></div></div>
+      <div class="opt"><h4>Комплектация</h4><div class="tiles" id="opts"></div></div>
+      <div class="opt"><h4>Доставка <span>— куда везти</span></h4><input type="range" id="km" min="0" max="300" step="5" value="0" aria-label="Расстояние от цеха, км"><div class="rl"><span id="kmV">По городу</span><span>Разгрузка включена</span></div></div>
+      <div class="sum">
+        <div id="lines"></div>
+        <div class="tot"><span>Итого</span><b id="total"></b></div>
+        <div class="ship" id="ship"></div>
+        <p class="note">Предварительный расчёт: точную сумму и дату подтвердит менеджер.</p>
+        <form class="lead" data-lead="calc" novalidate>
+          <label for="leadCalc">Телефон — пришлём расчёт и перезвоним</label>
+          <div class="lead-row"><input id="leadCalc" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required><button class="btn" type="submit">Отправить расчёт</button></div>
+          <p class="note lead-alt">Или позвоните: <a data-tel></a></p>
+          <p class="note lead-ok">Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+        <p class="note">Цена модели — с прайса завода. Доплаты и доставка в демо — примеры.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CFG={
+  phone:"+79507871652",phoneText:"+7-950-787-16-52",
+  film:{chapters:[0,7.55,15.1],end:22.95},
+  models:[
+    /* yard:[левый край, ширина] бытовки на кадре площадки img/yard-*.webp, в % ширины */
+    {id:"kpp3",n:"Пост охраны",sz:"3 × 2,4 м",len:3,p:85000,stock:1,img:"cat_kpp3",spec:"Окна на три стороны",yard:[3.3,10.6]},
+    {id:"utepl4",n:"Бытовка утеплённая",sz:"4 × 2,4 м",len:4,p:117000,stock:1,img:"cat_utepl4",spec:"На 2–3 человека",yard:[13.9,12.7]},
+    {id:"vagon5",n:"Строительный вагончик",sz:"5 × 2,4 м",len:5,p:115000,stock:1,img:"cat_vagon5",spec:"Раздевалка или склад",yard:[26.8,11.5]},
+    {id:"stroit6",n:"Бытовка строительная",sz:"6 × 2,4 м",len:6,p:126000,stock:1,img:"cat_stroit6",spec:"ДВП/ДСП, окно, дверь",yard:[38.4,11]},
+    {id:"prorab",n:"Прорабская",sz:"6 × 2,4 м",len:6,p:140000,stock:1,img:"cat_prorab",spec:"Две комнаты, OSB",yard:[51.5,10.1]},
+    {id:"zhilvag6",n:"Жилой вагончик",sz:"6 × 2,4 м",len:6,p:156000,stock:1,img:"cat_zhilvag6",spec:"МДФ, линолеум",yard:[61.8,12]},
+    {id:"zhil4",n:"Бытовка жилая",sz:"4 × 2,4 м",len:4,p:165000,stock:0,img:"cat_zhil4",spec:"Отделка вагонкой",yard:[73.9,12.2]},
+    {id:"blok6",n:"Блок-контейнер",sz:"6 × 2,4 м",len:6,p:157000,stock:0,img:"cat_blok6",spec:"Усиленный каркас",yard:[86.3,11]}
+  ],
+  ins:[{mm:50,perM:0,u:.8,t:"Межсезонье",d:"В базе"},{mm:100,perM:1500,u:.4,t:"Зима",d:"Можно жить"},{mm:150,perM:2800,u:.27,t:"Морозы и вахта",d:"Максимум тепла"}],
+  opts:[{id:"el",n:"Электрика",d:"Свет, розетки, щиток",p:7500},{id:"heat",n:"Конвектор",d:"2 кВт, термостат",p:4500},{id:"floor",n:"Усиленный пол",d:"Фанера 18 мм",perM:1000},{id:"win",n:"Ещё окно",d:"ПВХ с решёткой",p:8500}],
+  delivery:{city:6000,freeKm:20,perKm:90},frost:-20,
+  /* рабочий календарь цеха: 1 = пн … 6 = сб; час конца смены; срок изготовления под заказ, рабочих дней */
+  work:{days:[1,2,3,4,5,6],end:{1:18,2:18,3:18,4:18,5:18,6:14},make:[3,5]},
+  /* куда уходят заявки: на рабочем сайте — бот менеджера в Telegram; мессенджеры завода, если есть */
+  leadUrl:"",
+  reviews:[["Нашли по дубль гис компанию леспром и обратились с просьбой о постройки бани. Ни одной минутки не пожалели. Всё прошло без проблем с минуты подписания договора до сдачи объекта. Цена одеваться. Строители профессионалы.", "Сентябрь 2026"], ["Заказали дачный дом, ребята сделали работу вовремя и на 10 из 10! Спасибо большое за домик!", "Сентябрь 2026"], ["Около месяца выбирали где заказать постройку дачного дома, выбрали эту компанию. На душу легло отношение руководителя, были в офисе, посмотрели работы, даже получили приятные подарки.", "Март 2026"], ["6 лет мы уже пользуемся замечательной баней от Леспром. Быстро качественно и за эти годы ни одной претензии по эксплуатации. Топим и летом и зимой, хотя планировали только летнее использование. Спасибо большое", "Август 2026"], ["Заказывал в компании леспром баню. Остался очень доволен! Работу выполнили качественно быстро и без головной боли для меня. Михаил и Денис - ответственные, грамотные специалисты, видно, что любят свое дело.", "Март 2026"], ["Открыли новый офис по адресу г. Омск, ул. 3 я Восточная 15. Строительство каркасных домов бань хозблоков. Евровагонка, доска пола, имитация бруса. Погонажные изделия. Даери, окна", "Июнь 2024"]]
+};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rub=n=>Math.round(n).toLocaleString("ru-RU").replace(/ |,/g," ")+" ₽";
+const kwOf=(len,u)=>{const A=70.8*len/6+12*(1-len/6);return (u*A*(20-CFG.frost)*1.3+350)/1000};
+const kwTxt=v=>v.toFixed(1).replace(".",",")+" кВт";
+$$("[data-tel]").forEach(a=>{a.href="tel:"+CFG.phone;if(!a.textContent.trim())a.textContent=CFG.phoneText});
+$$("[data-tel-h]").forEach(a=>{a.href="tel:"+CFG.phone;a.querySelector("span").textContent=CFG.phoneText});
+$$("[data-minprice]").forEach(e=>e.textContent=rub(Math.min(...CFG.models.map(m=>m.p))));
+(()=>{let w=0;const set=()=>{if(innerWidth!==w){w=innerWidth;document.documentElement.style.setProperty("--hh",innerHeight+"px")}};set();addEventListener("resize",set)})();
+addEventListener("scroll",()=>$("#top").classList.toggle("solid",scrollY>$("#film").offsetHeight-innerHeight*.4),{passive:true});
+
+/* «Днём выбрали — назавтра привезли»: на ПК линия дня заполняется один раз, на телефоне — по мере свайпа вбок */
+(()=>{const day=$("#day");if(!day)return;const bar=day.querySelector(".day-line i"),steps=[...day.querySelectorAll(".day-step")];
+  const mob=()=>innerWidth<=760;
+  const follow=()=>{if(!mob())return;const x=day.scrollLeft+day.clientWidth*.55,line=day.querySelector(".day-line");
+    const last=steps[steps.length-1].offsetLeft,reach=Math.min(x,last+8);
+    bar.style.width=Math.max(0,Math.min(100,(reach-line.offsetLeft)/line.offsetWidth*100))+"%";
+    steps.forEach(s=>s.classList.toggle("lit",s.offsetLeft<=x))};
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){mob()?follow():day.classList.add("go")}}),{threshold:.5}).observe(day);
+  day.addEventListener("scroll",follow,{passive:true});addEventListener("resize",()=>{if(mob()){day.classList.remove("go");follow()}else{bar.style.width="";}})})();
+
+/* «Городок под смену»: двигаете ползунок — бытовки встают на план площадки (план 24 × 16 м, в масштабе) */
+(()=>{const plan=$("#campPlan");if(!plan)return;const inp=$("#campN"),opt={prorab:true,kpp:true},els=new Map();
+  const M=id=>CFG.models.find(m=>m.id===id),PW=24,PH=16,LOCK=12;
+  const pl=(n,a,b,c)=>{const m=n%10,h=n%100;return n+" "+(m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c)};
+  function place(key,cls,label,x,y,w,h){let e=els.get(key);
+    if(!e){e=document.createElement("div");e.className="mod "+cls;e.textContent=label;plan.appendChild(e);els.set(key,e)}
+    Object.assign(e.style,{left:x/PW*100+"%",top:y/PH*100+"%",width:w/PW*100+"%",height:h/PH*100+"%"});return key}
+  function upd(){const n=+inp.value,L=Math.min(5,Math.ceil(n/LOCK)),keep=new Set();$("#campOut").textContent=n;
+    for(let i=0;i<L;i++)keep.add(place("l"+i,"","Раздевалка",1+i%3*7,1+Math.floor(i/3)*3.6,6,2.4));
+    if(opt.prorab)keep.add(place("p","m-prorab","Прорабская",1,12.6,6,2.4));
+    if(opt.kpp)keep.add(place("k","m-kpp","Пост",15.5,12.6,3,2.4));
+    els.forEach((e,k)=>{if(!keep.has(k)){els.delete(k);e.classList.add("out");setTimeout(()=>e.remove(),400)}});
+    const parts=[pl(L,"раздевалка","раздевалки","раздевалок")+" по 6 м"];if(opt.prorab)parts.push("прорабская");if(opt.kpp)parts.push("пост охраны");
+    const trips=L+(opt.prorab?1:0)+(opt.kpp?1:0);
+    $("#campSum").textContent=parts.join(", ")+" — "+pl(trips,"рейс","рейса","рейсов")+" манипулятора.";
+    $("#campTotal").textContent="от "+rub(L*M("stroit6").p+(opt.prorab?M("prorab").p:0)+(opt.kpp?M("kpp3").p:0));
+    window.__campMsg=()=>`Здравствуйте! Городок с сайта, ${n} человек в смене:\n${$("#campSum").textContent}\nОриентировочно ${$("#campTotal").textContent}, без доставки.\nПришлите, пожалуйста, состав и счёт.`}
+  inp.addEventListener("input",upd);
+  $$("#camp .camp-tg button").forEach(b=>b.onclick=()=>{const k=b.dataset.opt;opt[k]=!opt[k];b.classList.toggle("on",opt[k]);b.setAttribute("aria-pressed",opt[k]);upd()});
+  upd()})();
+
+/* «Привезём сами»: бытовка едет от цеха до объекта по мере прокрутки */
+(()=>{const ro=$("#route");if(!ro)return;const base=ro.querySelector(".r-base"),done=ro.querySelector(".r-done"),truck=ro.querySelector(".truck"),stops=[...ro.querySelectorAll(".stop")];
+  const dots=stops.map(()=>{const d=document.createElement("div");d.className="r-dot";ro.insertBefore(d,truck);return d});
+  const P=[[.05,.5],[.2,.5,.25,.16,.4,.2],[.58,.82,.72,.74],[.88,.42,.95,.44]];
+  let L=0,W=0,H=0,vert=false;
+  function build(){W=ro.clientWidth;H=ro.clientHeight;vert=matchMedia("(max-width:760px)").matches;
+    const m=(u,v)=>vert?`${((.1+v*.32)*W).toFixed(1)},${(u*H).toFixed(1)}`:`${(u*W).toFixed(1)},${((.06+v*.5)*H).toFixed(1)}`;
+    const d=`M${m(...P[0])} C${m(P[1][0],P[1][1])} ${m(P[1][2],P[1][3])} ${m(P[1][4],P[1][5])} S${m(P[2][0],P[2][1])} ${m(P[2][2],P[2][3])} S${m(P[3][0],P[3][1])} ${m(P[3][2],P[3][3])}`;
+    base.setAttribute("d",d);done.setAttribute("d",d);L=base.getTotalLength();
+    stops.forEach((s,i)=>{const pt=base.getPointAtLength(L*+s.dataset.t);dots[i].style.left=pt.x+"px";dots[i].style.top=pt.y+"px";
+      const h=s.offsetHeight,w=s.offsetWidth;let x,y;
+      if(vert){x=W*.44;y=Math.min(H-h-14,Math.max(14,pt.y-12))}
+      else{x=i===0?24:i===stops.length-1?W-w-24:pt.x-w/2;y=H*.6}
+      s.style.left=x+"px";s.style.top=y+"px"});upd()}
+  function upd(){if(!L)return;const r=ro.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.8-r.top)/(r.height+innerHeight*.3)));
+    done.style.strokeDasharray=`${L*p} ${L}`;
+    const a=base.getPointAtLength(L*p),b=base.getPointAtLength(Math.min(L,L*p+1)),c=p>=1?base.getPointAtLength(L-1):a,ang=Math.atan2((p>=1?a.y-c.y:b.y-a.y),(p>=1?a.x-c.x:b.x-a.x))*180/Math.PI;
+    truck.style.transform=`translate(${a.x}px,${a.y}px) rotate(${ang}deg)`;
+    stops.forEach((s,i)=>{const on=p>=+s.dataset.t-.02;s.classList.toggle("lit",on);dots[i].classList.toggle("lit",on)})}
+  addEventListener("scroll",upd,{passive:true});addEventListener("resize",build);
+  document.fonts?document.fonts.ready.then(build):build();build()})();
+
+/* «Что внутри»: стена собирается слой за слоем по прокрутке */
+(()=>{const tr=$("#spTrack");if(!tr)return;const sc=$("#spScene"),lys=[...sc.querySelectorAll(".ly")],steps=[...$$("#spSteps>div")],N=steps.length;
+  let cur=-1;
+  function render(st){if(st===cur)return;cur=st;const done=st>=N-1,E=done?9:62;
+    sc.classList.toggle("done",done);
+    steps.forEach((d,i)=>d.classList.toggle("on",i===st));
+    $("#spNum").textContent=`${st+1} из ${N}`;$("#spFill").style.width=((st+1)/N*100)+"%";
+    lys.forEach(l=>{const k=+l.dataset.k,s=+l.dataset.s,z=(k-1.5)*E,shown=st>=s,floor=l.classList.contains("ly-floor");
+      const fz=(3-1.5)*E;
+      l.style.opacity=shown?1:0;
+      l.classList.toggle("dim-l",shown&&!done&&s!==st);
+      l.style.transform=floor
+        ?`translate3d(0,${shown?(done?0:40):160}px,${fz}px) rotateX(-90deg)`
+        :`translate3d(${done?0:-(k-1.5)*sc.offsetWidth*.32}px,${shown?0:-170}px,${z}px)`})}
+  function upd(){const r=tr.getBoundingClientRect(),h=tr.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/h));
+    render(Math.min(N-1,Math.floor(p*N)))}
+  addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()})();
+
+/* ФИЛЬМ: один непрерывный ролик, главы — экраны, страница уходит вниз.
+   На стыке: последний кадр главы замирает, шов-сканер едет вверх и «включает» следующую главу с того же кадра */
+(()=>{
+  const film=$("#film"),v=$("#filmVid"),cv=$("#freeze"),cx=cv.getContext("2d"),btns=$$("#chap button"),hint=$("#hint");
+  const C=CFG.film.chapters,END=CFG.film.end,N=C.length,stopAt=k=>k<N-1?C[k+1]:END-.05;
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  let idx=0,stop=stopAt(0),busy=false,raf=0,seam=null,touching=false,unlocked=false;
+  const touchMode=matchMedia("(pointer:coarse)").matches;
+  if(touchMode)document.documentElement.classList.add("tfilm");
+  const stg=film.querySelector(".stage"),H=()=>stg.offsetHeight,top0=()=>film.offsetTop;
+  /* автозапуск: iOS пускает сам только беззвучное видео — свойство muted ставим и в JS */
+  v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");
+  /* iPhone в энергосбережении / встроенный браузер не даёт видео стартовать само → главы показываем картинкой:
+     в Safari/WebKit (iPhone, WhatsApp, Telegram) — коротким mp4 в теге <img>: его декодирует видеочип, плавно, и автозапуск
+     не нужен; остальным — анимированным WebP (на iPhone WebP шёл ~6 кадр/с, поэтому там он только запасной) */
+  const ua=navigator.userAgent,DUR=k=>(k<N-1?C[k+1]:END)-C[k];
+  let fbT0=0,fb=null,fbFmt=/iP(hone|ad|od)/.test(ua)||(/Safari\//.test(ua)&&!/Chrome|Chromium|Android|Edg/.test(ua))?"mp4":"webp";
+  const fbBlob={},fbUrl=k=>fbFmt==="mp4"?`vid/film-ch${k}.mp4`:`vid/film-ch${k}.webp`,fbEnd=k=>`vid/film-ch${k}-end.webp`;
+  const fbGet=k=>{const key=fbFmt+k;return fbBlob[key]||(fbBlob[key]=fetch(fbUrl(k)).then(r=>{if(!r.ok)throw 0;return r.blob()})
+    .catch(()=>fetch(fbUrl(k).replace(/^https?:\/\/.+?\/demo-[^/]+\//,"")).then(r=>r.blob())))};
+  function fbShow(k){if(!fb)return;fbT0=0;const want=k,fmt=fbFmt;fbGet(k).then(b=>{if(want!==idx)return;
+      const img=new Image();img.className="fb";img.alt="";
+      const u=URL.createObjectURL(fmt==="mp4"?new Blob([b],{type:"video/mp4"}):b);/* новый адрес = глава с начала */
+      img.onerror=()=>{if(fmt==="mp4"){fbFmt="webp";img.remove();fbShow(want)}};/* <img>-mp4 не поддержан — WebP */
+      img.onload=()=>{fbT0=performance.now();if(k===N-1&&fmt==="webp")fbPan(img);/* в mp4 сдвиг уже в кадре */img.style.opacity=1;
+        if(k+1<N)setTimeout(()=>fbGet(k+1),1500);/* следующую главу качаем, когда эта уже пошла, — не мешаем ей */
+        stg.querySelectorAll("img.fb").forEach(o=>{if(o!==img){if(o.src.startsWith("blob:"))URL.revokeObjectURL(o.src);o.remove()}});
+        if(fmt==="mp4"){/* mp4 в <img> крутится по кругу — в конце главы ставим её последний кадр */
+          const e=new Image();e.src=fbEnd(k);
+          setTimeout(()=>{if(img.isConnected){img.src=e.src;URL.revokeObjectURL(u)}},DUR(k)*1000-80)}};
+      img.src=u;v.after(img)}).catch(()=>{})}
+  /* 3-я глава — широкая полоса: «камера» едет вправо к тепловизору (как в film-s: с 4,0 с за 3,2 с),
+     сдвиг делает браузер transform'ом — плавно на любой частоте кадров картинки */
+  function fbPan(img){const W=stg.offsetWidth,Hs=stg.offsetHeight,ar=9/16,Hv=Math.max(Hs,W/ar),
+      sw=Hv*img.naturalWidth/img.naturalHeight,L0=(W-ar*Hv)/2,shift=sw-ar*Hv;
+    Object.assign(img.style,{inset:"auto",left:"0",top:(Hs-Hv)/2+"px",width:sw+"px",height:Hv+"px",maxWidth:"none",maxHeight:"none",objectFit:"fill",willChange:"transform",transform:`translate3d(${L0}px,0,0)`});
+    try{img.animate([{transform:`translate3d(${L0}px,0,0)`},{transform:`translate3d(${L0-shift}px,0,0)`}],
+      {delay:4000,duration:3200,easing:"linear",fill:"both"})}catch(e){}}
+  function startFb(){if(fb||!touchMode||!small())return;fb=true;document.documentElement.classList.add("fbfilm");fbShow(idx);
+    /* видео больше не нужно — освобождаем декодер, чтобы картинка шла без рывков */
+    setTimeout(()=>{try{v.pause();v.removeAttribute("src");v.load()}catch(e){}},1500)}
+  const tryPlay=()=>{if(fb)return;if(v.paused&&v.currentTime<stop-.1){const p=v.play();p&&p.catch&&p.catch(e=>{if(e&&e.name==="NotAllowedError")startFb()})}};
+  /* страховка: через 2,5 с после загрузки видео всё ещё стоит на нуле — значит, автозапуск запрещён */
+  addEventListener("load",()=>setTimeout(()=>{if(v.paused&&v.currentTime<.05&&scrollY<top0()+H())startFb()},2500));
+  ["loadedmetadata","loadeddata","canplay"].forEach(e=>v.addEventListener(e,tryPlay));
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)tryPlay()});
+  const small=()=>innerWidth/innerHeight<1;let size=small()?"s":"l";
+  const load=()=>{v.poster=`vid/film${size==="s"?"-s":""}.webp`;v.src=`vid/film-${size}.mp4`};load();
+  const bars=btns.map(b=>b.querySelector("i")),barP=[-1,-1,-1];
+  function tick(){/* в режиме картинки времени видео нет — шкала главы идёт по часам с момента её показа */
+    const t=fb?C[idx]+Math.min(DUR(idx),fbT0?(performance.now()-fbT0)/1000:0):v.currentTime,row=innerWidth<=760;
+    bars.forEach((i,k)=>{const a=C[k],z=stopAt(k),p=Math.round(Math.min(1,Math.max(0,(t-a)/(z-a)))*200)/2;
+      if(p===barP[k])return;barP[k]=p;/* стиль трогаем, только если полоска сдвинулась */
+      i.style.width=row?p+"%":"";i.style.height=row?"":p+"%"});
+    if(!v.paused&&t>=stop-.06){v.pause();hint.classList.toggle("on",idx<N-1)}
+    if(fb&&fbT0&&t>=stop-.06)hint.classList.toggle("on",idx<N-1);
+    /* цикл крутится, только пока фильм на экране */
+    raf=scrollY<top0()+film.offsetHeight?requestAnimationFrame(tick):0}
+  const kick=()=>{if(!raf&&scrollY<top0()+film.offsetHeight)raf=requestAnimationFrame(tick)};
+  raf=requestAnimationFrame(tick);addEventListener("scroll",kick,{passive:true});
+  /* заморозить текущий кадр (так же обрезан, как видео: object-fit cover) */
+  function freeze(){const r=cv.parentNode.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1),W=r.width,Hh=r.height;
+    if(!v.videoWidth)return false;cv.width=W*d;cv.height=Hh*d;
+    const s=Math.max(W/v.videoWidth,Hh/v.videoHeight),dw=v.videoWidth*s,dh=v.videoHeight*s;
+    cx.setTransform(d,0,0,d,0,0);cx.drawImage(v,(W-dw)/2,(Hh-dh)/2,dw,dh);return true}
+  /* старая глава видна по одну сторону шва: вперёд — над швом, назад — под ним */
+  function clip(){if(!seam)return;const y=top0()+seam.k*H()-scrollY,Hh=H();
+    if(y<=0||y>=Hh){cv.style.display="none";return}
+    cv.style.display="block";cv.style.clipPath=seam.dir>0?`inset(0 0 ${Hh-y}px 0)`:`inset(${y}px 0 0 0)`}
+  addEventListener("scroll",clip,{passive:true});
+  const ease=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+  let animId=0;
+  function scrollAnim(to,ms,done){const from=scrollY,t0=performance.now(),id=++animId;ms*=window.__slow||1;
+    if(reduce){scrollTo(0,to);done&&done();return}
+    let last=from;
+    (function f(now){if(id!==animId)return;/* перебит новым шагом */if(Math.abs(scrollY-last)>3){done&&done();return}/* кто-то другой прокрутил (ссылка, скроллбар) — не мешаем */
+      const p=Math.min(1,(now-t0)/ms);scrollTo(0,from+(to-from)*ease(p));last=scrollY;if(p<1)requestAnimationFrame(f);else done&&done()})(t0)}
+  function go(n){if(touchMode){film.scrollTo({top:n*H(),behavior:"smooth"});return}/* телефон: листаем ленту фильма, главу включит syncIdx */
+    if(n<0||n>=N||n===idx)return;busy=true;/* листать можно в любой момент, даже во время перехода */
+    const dir=n>idx?1:-1;hint.classList.remove("on");
+    if(freeze())seam={k:Math.max(idx,n),dir};clip();
+    const t=v.currentTime;
+    if(dir>0&&n===idx+1&&t>=C[n]-.08){/* продолжаем с того же кадра */}else{try{v.currentTime=C[n]}catch(e){}}
+    idx=n;stop=stopAt(n);btns.forEach((b,k)=>b.classList.toggle("on",k===n));v.play().catch(()=>{});
+    scrollAnim(top0()+n*H(),1000,()=>{seam=null;cv.style.display="none";busy=false})}
+  btns.forEach((b,k)=>b.onclick=()=>go(k));
+  /* фильм «держит» прокрутку, пока сцена прибита к экрану */
+  const active=()=>touchMode?scrollY<top0()+H()/2:scrollY>=top0()-2&&scrollY<=top0()+(N-1)*H()+2;
+  const exit=()=>{busy=true;seam=null;cv.style.display="none";scrollAnim(top0()+film.offsetHeight,1000,()=>busy=false)};
+  /* если пришли в фильм обычной прокруткой снизу и остановились между главами — доводим до ближайшей */
+  /* глава всегда соответствует тому экрану, где стоит страница (после «Назад», перезагрузки, якоря, прокрутки снизу) */
+  function syncIdx(){if(busy)return;const y=touchMode?film.scrollTop:scrollY-top0(),h=H();if(y<-h/2||y>(N-1)*h+h/2)return;
+    const k=Math.max(0,Math.min(N-1,Math.round(y/h)));if(k===idx)return;
+    if(touchMode&&k===idx+1){/* на телефоне долистали до следующей главы — она играет с того же кадра */
+      try{if(v.currentTime<C[k]-.1)v.currentTime=C[k]}catch(e){}idx=k;stop=stopAt(k);hint.classList.remove("on");v.play().catch(()=>{})}
+    else if(touchMode&&k<idx){try{v.currentTime=C[k]}catch(e){}idx=k;stop=stopAt(k);hint.classList.remove("on");v.play().catch(()=>{})}
+    else{try{v.currentTime=k<idx?C[k]:stopAt(k)-.06}catch(e){}idx=k;stop=stopAt(k);hint.classList.toggle("on",k<N-1)}
+    btns.forEach((b,j)=>b.classList.toggle("on",j===k));if(fb)fbShow(k)}
+  if(touchMode)film.addEventListener("scroll",syncIdx,{passive:true});/* телефон: глава следует за лентой фильма */
+  let idle=0;addEventListener("scroll",()=>{if(touchMode)return;/* телефон: страницу сами не двигаем */
+    clearTimeout(idle);idle=setTimeout(()=>{if(busy||touching)return;syncIdx();
+    const y=scrollY-top0(),h=H();if(y<0||y>=(N-1)*h)return;const k=Math.round(y/h);if(Math.abs(y-k*h)<3)return;
+    busy=true;scrollAnim(top0()+k*h,500,()=>busy=false)},160)},{passive:true});
+  addEventListener("pageshow",syncIdx);addEventListener("hashchange",syncIdx);
+  /* колесо: один жест = один шаг, инерция трекпада не перелистывает дальше */
+  /* колесо мыши: каждый щелчок = шаг (не чаще 0,35 с); трекпад: жест = шаг, но новый толчок во время инерции — тоже шаг.
+     Досматривать главу НЕ обязательно и ждать конца перехода не нужно */
+  let last=0,used=false,acc=0,lastStep=0,prevD=0;
+  addEventListener("wheel",e=>{if(!active()&&!busy)return;const now=performance.now(),ad=Math.abs(e.deltaY);
+    if(now-last>220){used=false;acc=0}last=now;
+    const mouse=e.deltaMode===1||(ad>=50&&Number.isInteger(e.deltaY));
+    if(mouse){if(now-lastStep>350){used=false;acc=0}}
+    else if(used&&now-lastStep>500&&ad>Math.abs(prevD)*1.6+4){used=false;acc=0}
+    prevD=e.deltaY;
+    const d=Math.sign(e.deltaY),inside=(d>0)||(d<0&&idx>0);if(!inside)return;e.preventDefault();if(used)return;
+    acc+=e.deltaY;if(Math.abs(acc)<25)return;used=true;lastStep=now;
+    if(d>0)idx<N-1?go(idx+1):exit();else go(idx-1)},{passive:false});
+  /* телефон: прокрутку НЕ перехватываем (встроенные браузеры WhatsApp/Telegram на iPhone её глушат) —
+     страница листается сама, главы встают по экрану (scroll-snap), глава включается, когда доехала */
+  addEventListener("touchstart",()=>{touching=true;if(!unlocked&&active())tryPlay()},{passive:true});
+  addEventListener("click",()=>{if(!unlocked&&active())tryPlay()},{passive:true});
+  addEventListener("touchend",()=>{touching=false;
+    /* встроенный браузер может не дать видео стартовать само — первое касание его «будит» */
+    if(!unlocked){const want=active()&&v.currentTime<stop-.1;const p=v.play();
+      if(p&&p.then)p.then(()=>{unlocked=true;if(!want)v.pause()}).catch(()=>{});else unlocked=true}
+    },{passive:true});
+  /* scroll-snap у страницы на телефоне выключен (спорил с адресной строкой, дрожь) — snap только внутри ленты фильма */
+  addEventListener("keydown",e=>{if(!active()||$("#modal").classList.contains("open"))return;
+    const tg=e.target.closest&&e.target.closest("input,textarea,select,button,a");if(tg&&(e.key===" "||tg.matches("input,textarea,select")))return;
+    if(["ArrowDown","PageDown","ArrowUp","PageUp"," "].includes(e.key)){e.preventDefault();if(e.repeat)return;if(!busy)syncIdx()}
+    if(["ArrowDown","PageDown"," "].includes(e.key)){e.preventDefault();idx<N-1?go(idx+1):exit()}if(["ArrowUp","PageUp"].includes(e.key)&&idx>0){e.preventDefault();go(idx-1)}});
+  /* на телефоне resize = адресная строка свернулась/развернулась: НЕ двигаем страницу, иначе страница и строка
+     дёргают друг друга по кругу (дрожь во встроенном браузере Telegram/WhatsApp на iPhone) */
+  let rw=innerWidth;
+  addEventListener("resize",()=>{const wch=innerWidth!==rw;rw=innerWidth;if(!touchMode&&wch&&active()&&!busy)scrollTo(0,top0()+idx*H());const s=small()?"s":"l";if(s!==size){const t=v.currentTime;size=s;load();v.addEventListener("loadedmetadata",()=>{v.currentTime=t},{once:true})}});
+  v.play().catch(()=>{});
+  window.__film={go,get idx(){return idx},v,startFb};
+  /* диагностика: ?debug — плашка с режимом, буфером, загрузкой глав и частотой кадров (чтобы увидеть, что тормозит на телефоне) */
+  if(/debug/.test(location.search)){const d=document.createElement("div"),t0=performance.now();let fr=0,fps=0,lt=performance.now(),stall=0;
+    d.style.cssText="position:fixed;left:6px;top:70px;z-index:9999;background:rgba(0,0,0,.78);color:#7fff9f;font:11px/1.35 monospace;padding:6px 8px;border-radius:6px;pointer-events:none;white-space:pre;max-width:92vw";
+    document.body.appendChild(d);v.addEventListener("waiting",()=>stall++);
+    (function f(n){fr++;if(n-lt>=1000){fps=fr;fr=0;lt=n}requestAnimationFrame(f)})(lt);
+    setInterval(()=>{let b="";try{for(let i=0;i<v.buffered.length;i++)b+=v.buffered.start(i).toFixed(1)+"-"+v.buffered.end(i).toFixed(1)+" "}catch(e){}
+      const q=v.getVideoPlaybackQuality?v.getVideoPlaybackQuality():null;
+      const res=performance.getEntriesByType("resource").filter(e=>/film/.test(e.name)).map(e=>e.name.split("/").pop().split("?")[0]+" "+(e.duration/1000).toFixed(1)+"с "+Math.round((e.transferSize||e.encodedBodySize||0)/1024)+"КБ").join("\n");
+      d.textContent=`режим: ${fb?"КАРТИНКИ "+fbFmt+" (видео запрещено)":"ВИДЕО"}  глава ${idx+1}\nэкран: ${fps} кадр/с   с открытия ${((performance.now()-t0)/1000).toFixed(0)} с\nвидео: t=${v.currentTime.toFixed(1)} ${v.paused?"пауза":"играет"} ready=${v.readyState} ждало=${stall}\nбуфер: ${b||"—"}${q?`\nкадры: показано ${q.totalVideoFrames} пропущено ${q.droppedVideoFrames}`:""}\nзагрузка:\n${res||"—"}`},500)}
+})();
+
+/* каталог: площадка цеха — бытовки нажимаются прямо на кадре двора, снизу карточка выбранной */
+(()=>{const yard=$("#yard"),inn=$("#yardIn"),pick=$("#pick"),chips=$("#chips"),M=CFG.models;let cur=-1;
+  const srok=m=>m.stock?"из наличия":CFG.work.make.join("–")+" дней";
+  M.forEach((m,i)=>{const b=document.createElement("button");b.type="button";b.className="spot";b.dataset.sel=i;
+    b.style.left=m.yard[0]+"%";b.style.width=m.yard[1]+"%";b.setAttribute("aria-label",`${m.n} ${m.sz}, от ${rub(m.p)}`);
+    b.innerHTML=`<i>${rub(m.p)}</i>`;inn.appendChild(b)});
+  chips.innerHTML=M.map((m,i)=>`<button type="button" role="tab" data-sel="${i}">${m.n} ${m.len} м${m.stock?"<s>в наличии</s>":""}</button>`).join("");
+  function sel(i,scroll){i=(i+M.length)%M.length;cur=i;const m=M[i];
+    $$("#yardIn .spot,#chips button").forEach(b=>{const on=+b.dataset.sel===i;b.classList.toggle("on",on);if(b.getAttribute("role")==="tab")b.setAttribute("aria-selected",on)});
+    pick.innerHTML=`<span class="ph"><img src="img/${m.img}-600.webp" srcset="img/${m.img}-600.webp 600w, img/${m.img}-1200.webp 1200w" sizes="(max-width:760px) 92vw, 300px" alt="${m.n}"><span class="tag${m.stock?"":" wait"}">${m.stock?"В наличии":"Под заказ"}</span></span>
+      <div class="body"><h3>${m.n} ${m.sz}</h3><p class="sp">${m.spec}.</p>
+      <div class="meta"><span><small>Цена</small><b class="g">от ${rub(m.p)}</b></span><span><small>Срок</small><b>${srok(m)}</b></span></div>
+      <div class="act"><button class="btn" type="button" data-m="${m.id}">Рассчитать<span class="lg">&nbsp;до объекта</span></button><button class="nav" type="button" data-step="-1" aria-label="Предыдущая модель">‹</button><button class="nav" type="button" data-step="1" aria-label="Следующая модель">›</button></div></div>`;
+    if(scroll&&yard.scrollWidth>yard.clientWidth){const c=(m.yard[0]+m.yard[1]/2)/100*inn.offsetWidth;yard.scrollTo({left:c-yard.clientWidth/2,behavior:"smooth"})}
+    const ch=chips.querySelector(`[data-sel="${i}"]`);if(scroll&&chips.scrollWidth>chips.clientWidth)chips.scrollTo({left:ch.offsetLeft-chips.clientWidth/2+ch.offsetWidth/2,behavior:"smooth"})}
+  document.addEventListener("click",e=>{const s=e.target.closest("[data-sel]");if(s){sel(+s.dataset.sel,true);return}
+    const st=e.target.closest("[data-step]");if(st)sel(cur+ +st.dataset.step,true)});
+  ["pointerdown","touchstart"].forEach(t=>yard.addEventListener(t,()=>yard.classList.add("moved"),{passive:true,once:true}));
+  const start=M.findIndex(m=>m.id==="stroit6");sel(start<0?0:start,false);
+  /* на телефоне сразу показываем выбранную бытовку в центре кадра */
+  const center=()=>{if(yard.scrollWidth>yard.clientWidth){const m=M[cur];yard.scrollLeft=(m.yard[0]+m.yard[1]/2)/100*inn.offsetWidth-yard.clientWidth/2}};
+  let vw=innerWidth;requestAnimationFrame(center);addEventListener("resize",()=>{if(innerWidth!==vw){vw=innerWidth;center()}})})();
+
+/* конфигуратор */
+const st={m:CFG.models[0],q:1,ins:50,km:0,opts:new Set()};
+function open(id){st.m=CFG.models.find(x=>x.id===id);st.q=1;$("#qty").textContent=1;resetLead($("#modal"));render();$("#modal").classList.add("open");$("#modal").scrollTop=0;document.body.style.overflow="hidden";
+  /* «Назад» на телефоне закрывает расчёт, а не уводит с сайта */
+  if(!(history.state&&history.state.m))history.pushState({m:1},"")}
+function close(fromPop){if(!$("#modal").classList.contains("open"))return;$("#modal").classList.remove("open");document.body.style.overflow="";
+  if(fromPop!==true&&history.state&&history.state.m)history.back()}
+addEventListener("popstate",()=>close(true));
+function render(){const m=st.m;
+  $("#pvImg").src=`img/${m.img}-1200.webp`;$("#pvName").textContent=m.n;$("#pvMeta").textContent=`${m.sz}. ${m.spec}. ${m.stock?"В наличии":"Под заказ"}.`;
+  $("#ins").innerHTML=CFG.ins.map(i=>{const add=i.perM*m.len;return `<button type="button" class="tile${i.mm===st.ins?" on":""}" data-i="${i.mm}"><span><b>${i.mm} мм — ${i.t}</b><small>${add?"+"+rub(add)+" за штуку":i.d}</small></span><span class="kw"><b>${kwTxt(kwOf(m.len,i.u))}</b><br>обогрев при −20°</span></button>`}).join("");
+  $("#opts").innerHTML=CFG.opts.map(o=>`<button type="button" class="tile${st.opts.has(o.id)?" on":""}" data-o="${o.id}"><b>${o.n}</b><small>${o.d}, +${rub(o.p||o.perM*m.len)}</small></button>`).join("");
+  calc()}
+const trips=()=>st.m.len<=3?Math.ceil(st.q/2):st.q;
+/* сроки по рабочему календарю: воскресенье и конец смены учитываются */
+const WD=["вс","пн","вт","ср","чт","пт","сб"];
+const isWork=d=>CFG.work.days.includes(d.getDay());
+function addWork(d,n){const x=new Date(d);while(n>0){x.setDate(x.getDate()+1);if(isWork(x))n--}return x}
+function dayTxt(d){const t=new Date();t.setHours(0,0,0,0);const z=new Date(d);z.setHours(0,0,0,0);const diff=Math.round((z-t)/864e5);
+  const s=`${z.toLocaleDateString("ru-RU",{day:"numeric",month:"long"})} (${WD[z.getDay()]})`;return diff===1?"завтра, "+s:diff===2?"послезавтра, "+s:s}
+function ship(){const now=new Date(),fast=st.m.stock&&st.q<=3;
+  /* после конца смены (или в выходной) заказ уходит в работу со следующего рабочего дня */
+  const late=!isWork(now)||now.getHours()>=(CFG.work.end[now.getDay()]||18);
+  const start=late?addWork(now,1):now;
+  if(fast)return `Можем отгрузить ${dayTxt(addWork(now,1))}`;   /* из наличия — ближайший рабочий день, воскресенье пропускаем */
+  const [a,b]=CFG.work.make;return `Изготовление ${a}–${b} рабочих дней, ориентировочно к ${dayTxt(addWork(start,b)).replace(/^(завтра|послезавтра), /,"")}`}
+function calc(){const m=st.m,q=st.q,i=CFG.ins.find(x=>x.mm===st.ins),L=[];
+  L.push([`${m.n} ${m.sz} — ${q} шт.`,m.p*q]);L.push([`Утеплитель ${i.mm} мм`,i.perM*m.len*q]);
+  CFG.opts.forEach(o=>{if(st.opts.has(o.id))L.push([o.n,(o.p||o.perM*m.len)*q])});
+  const d=CFG.delivery,dv=(d.city+Math.max(0,st.km-d.freeKm)*d.perKm)*trips();
+  L.push([`Доставка${st.km?", "+st.km+" км":" по городу"}${trips()>1?", рейсов: "+trips():""}`,dv]);L.push(["Разгрузка",0]);
+  st.total=L.reduce((s,l)=>s+l[1],0);
+  $("#lines").innerHTML=L.map(l=>`<div class="ln"><span>${l[0]}</span><span>${l[1]?rub(l[1]):"включено"}</span></div>`).join("");
+  $("#total").textContent=rub(st.total);$("#ship").textContent=ship();$("#kmV").textContent=st.km?`${st.km} км от цеха`:"По городу"}
+function message(){const x=[`утеплитель ${st.ins} мм`,...CFG.opts.filter(o=>st.opts.has(o.id)).map(o=>o.n.toLowerCase())].join(", ");
+  return `Здравствуйте! Расчёт с сайта:\n${st.m.n}, ${st.m.sz} — ${st.q} шт.\n${x[0].toUpperCase()+x.slice(1)}.\nДоставка: ${st.km?st.km+" км от цеха":"по городу"}, с разгрузкой.\nИтого: ${rub(st.total)}. ${ship()}.\nПодтвердите, пожалуйста.`}
+document.addEventListener("click",e=>{const c=e.target.closest("[data-m]");if(c){open(c.dataset.m);return}
+  const b=e.target.closest("[data-i],[data-o]");if(!b)return;
+  if(b.dataset.i)st.ins=+b.dataset.i;if(b.dataset.o)st.opts.has(b.dataset.o)?st.opts.delete(b.dataset.o):st.opts.add(b.dataset.o);render()});
+$("#mX").onclick=close;$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")close()});
+addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+$("#qm").onclick=()=>{st.q=Math.max(1,st.q-1);$("#qty").textContent=st.q;calc()};
+$("#qp").onclick=()=>{st.q=Math.min(20,st.q+1);$("#qty").textContent=st.q;calc()};
+$("#km").oninput=e=>{st.km=+e.target.value;calc()};
+/* заявки: расчёт, городок, «перезвоните». На рабочем сайте уходят на CFG.leadUrl (бот менеджера в Telegram), в демо — показываем, как придут */
+const LEAD={
+  calc:()=>message(),
+  camp:()=>window.__campMsg?window.__campMsg():"Здравствуйте! Нужен городок под смену.",
+  call:()=>"Здравствуйте! Перезвоните, пожалуйста."};
+$$("form.lead").forEach(f=>{const inp=f.querySelector("input");
+  inp.addEventListener("input",()=>inp.classList.remove("bad"));
+  f.addEventListener("submit",e=>{e.preventDefault();const dg=inp.value.replace(/\D/g,"");
+    if(dg.length<10||dg.length>11){inp.classList.add("bad");inp.focus();return}
+    const tel="+7 "+dg.slice(-10).replace(/(\d{3})(\d{3})(\d{2})(\d{2})/,"($1) $2-$3-$4");
+    const text=LEAD[f.dataset.lead]()+"\nТелефон: "+tel;
+    if(CFG.leadUrl)fetch(CFG.leadUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({kind:f.dataset.lead,text,tel})}).catch(()=>{});
+    const done=document.createElement("div");done.className="lead-done";
+    done.innerHTML=`<p><b>Заявка принята.</b> Менеджер перезвонит на ${tel} в рабочее время.</p><small>Демо: на рабочем сайте менеджер сразу получит в Telegram такое сообщение:</small><pre></pre>`;
+    done.querySelector("pre").textContent=text;f.hidden=true;f.after(done)})});
+function resetLead(root){root.querySelectorAll(".lead-done").forEach(d=>d.remove());root.querySelectorAll("form.lead").forEach(f=>f.hidden=false)}
+$("#revs").innerHTML=CFG.reviews.map(r=>`<article class="rev"><p>«${r[0]}»</p><small>${r[1]}, 2ГИС</small></article>`).join("");
+</script>
+<a href="https://paraevprofit.ru" target="_blank" rel="noopener" style="position:fixed;left:12px;bottom:12px;z-index:9999;font:600 12px/1 system-ui,sans-serif;letter-spacing:.04em;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.72);color:#fff;text-decoration:none;backdrop-filter:blur(6px)">ДЕМО · paraevprofit.ru</a>
+</body>
+</html>
