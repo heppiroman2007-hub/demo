@@ -50,7 +50,7 @@ section{position:relative}
 @media(max-width:560px){.top .bar{gap:10px}.brand{font-size:18px}.top .btn{padding:0 12px}.top .r{gap:8px}.top .tel{width:44px;height:44px;justify-content:center;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(233,236,239,.35)}.top .tel svg{display:block}.top .tel span{display:none}}
 
 
-.film{position:relative;height:calc(var(--hh,100vh)*3);background:#000}
+.film{position:relative;height:var(--hh,100vh);background:#000}
 .stage{position:sticky;top:0;height:var(--hh,100vh);overflow:hidden}
 
 html.tfilm .film{height:var(--hh,100vh);overflow-y:scroll;overflow-x:hidden;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -354,7 +354,7 @@ input[type=range]{width:100%;accent-color:#c24e08;height:30px}
 .modal .lead-done pre{background:#e4ecf3;color:var(--ink)}
 @media(max-width:560px){.lead .btn{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.hint svg{animation:none}}
-.stage{background:#14181c url(img/hero.webp) center/cover no-repeat}.stage video,.stage canvas,.stage img.fb{display:none!important}.yard,.yard-hint{display:none}.sp-scene{display:none}.sp-photo{max-width:min(520px,100%);max-height:100%;border-radius:14px;object-fit:cover}.opt:has(#ins){display:none}</style>
+.stage{background:#14181c url(img/hero.webp) center/cover no-repeat}.yard,.yard-hint{display:none}.sp-scene{display:none}.sp-photo{max-width:min(520px,100%);max-height:100%;border-radius:14px;object-fit:cover}.opt:has(#ins){display:none}</style>
 </head>
 <body>
 
@@ -370,13 +370,11 @@ input[type=range]{width:100%;accent-color:#c24e08;height:30px}
   <div class="stage">
     <video id="filmVid" muted autoplay playsinline webkit-playsinline preload="auto"></video>
     <canvas id="freeze" aria-hidden="true"></canvas>
-    <div class="chap" id="chap"><button type="button" class="on">Cabins<i></i></button><button type="button">Delivery<i></i></button><button type="button">Winter<i></i></button></div>
-    <div class="hint" id="hint"><span>Scroll</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="chap" id="chap"></div>
+    <div class="hint" id="hint" style="display:none"><span>Scroll</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
   </div>
-  <div class="ch" style="--k:0"><div class="cap"><p class="h cap-h">Hand-built<br>log cabins.</p><h1 class="offer">Amish-built log cabins from <span data-minprice>$14,900</span>. Turn-key delivery nationwide.</h1><a class="btn" href="#catalog">Models and prices</a></div></div>
-  <div class="ch" style="--k:1"><div class="seam"><span>2 of 3 — delivery</span></div><div class="cap"><h2 class="h">Then,&nbsp;to<br>your land.</h2><p>Delivered and set up on your land, nationwide.</p></div></div>
-  <div class="ch" style="--k:2"><div class="seam"><span>3 of 3 — built for winter</span></div><div class="cap"><h2 class="h">Built for<br>winter.</h2><p>Customers report 14 winters in northern Michigan and the cabin still looking great.</p><a class="btn" href="#catalog">Pick a cabin</a></div></div>
-</section>
+  <div class="ch" style="--k:0"><div class="cap"><p class="h cap-h" style="font-size:min(clamp(40px,5.4vw,84px),11vw)">Log cabins,<br>built by hand.</p><h1 class="offer">Amish-built log cabins from <span data-minprice>$14,900</span>. Turn-key delivery nationwide.</h1><a class="btn" href="#catalog">Models and prices</a></div></div>
+    </section>
 
 <section class="stamp-sec">
   <div class="wrap">
@@ -506,7 +504,7 @@ input[type=range]{width:100%;accent-color:#c24e08;height:30px}
 <script>
 const CFG={
   phone:"+12484592716",phoneText:"(248) 459-2716",
-  film:{chapters:[0,7.55,15.1],end:22.95},
+  film:{chapters:[0],end:3.6},
   models:[
     {id:"kpp3",n:"Hunter Cabin",sz:"10 × 16 ft",ft:16,len:5,p:14900,stock:1,img:"cat_kpp3",spec:"The hunting-camp classic",yard:[3.3, 10.6]},
     {id:"utepl4",n:"Cottage Cabin",sz:"12 × 20 ft",ft:20,len:6,p:21900,stock:1,img:"cat_utepl4",spec:"Weekend getaway",yard:[13.9, 12.7]},
